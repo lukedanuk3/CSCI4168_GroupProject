@@ -541,7 +541,6 @@ GameObject:
   - component: {fileID: 1064741047}
   - component: {fileID: 1064741051}
   - component: {fileID: 1064741046}
-  - component: {fileID: 1064741049}
   - component: {fileID: 1064741050}
   m_Layer: 0
   m_Name: First Person Camera
@@ -674,19 +673,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damping: 0
---- !u!114 &1064741049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1064741042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73ad35f57f214485ba446bb07d7dc7ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sensitivity: 20
 --- !u!114 &1064741050
 MonoBehaviour:
   m_ObjectHideFlags: 0
