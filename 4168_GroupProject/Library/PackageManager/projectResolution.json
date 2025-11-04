@@ -58,6 +58,16 @@
       "source": "builtin",
       "testable": false
     },
+    "com.unity.render-pipelines.universal@17.0.4": {
+      "name": "com.unity.render-pipelines.universal",
+      "displayName": "Universal Render Pipeline",
+      "resolvedPath": "C:\\Users\\Sasha\\Desktop\\CSCI4168_GroupProject\\4168_GroupProject\\Library\\PackageCache\\com.unity.render-pipelines.universal@e1fa89d1f997",
+      "fingerprint": "e1fa89d1f99751d643e8ae62813763962926f0d9",
+      "editorCompatibility": "6000.0.0a1",
+      "version": "17.0.4",
+      "source": "builtin",
+      "testable": false
+    },
     "com.unity.shadergraph@17.0.4": {
       "name": "com.unity.shadergraph",
       "displayName": "Shader Graph",
@@ -418,6 +428,16 @@
       "editorCompatibility": "2019.1.0a1",
       "version": "4.9.3",
       "source": "registry",
+      "testable": false
+    },
+    "com.unity.render-pipelines.universal-config@17.0.3": {
+      "name": "com.unity.render-pipelines.universal-config",
+      "displayName": "Universal Render Pipeline Config",
+      "resolvedPath": "C:\\Users\\Sasha\\Desktop\\CSCI4168_GroupProject\\4168_GroupProject\\Library\\PackageCache\\com.unity.render-pipelines.universal-config@dd206bf35d04",
+      "fingerprint": "dd206bf35d0451204981fdb31d4c6831a0ee2a7e",
+      "editorCompatibility": "6000.0.0a1",
+      "version": "17.0.3",
+      "source": "builtin",
       "testable": false
     },
     "com.unity.ide.visualstudio@2.0.23": {

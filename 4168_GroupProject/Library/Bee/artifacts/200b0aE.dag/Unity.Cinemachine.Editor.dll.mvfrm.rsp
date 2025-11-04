@@ -3,6 +3,8 @@ Library\Bee\artifacts\mvdfrm\Unity.InputSystem.ref.dll_62EC740DD3AB3A8D.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Mathematics.ref.dll_4EAD86AD4C1B715A.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.RenderPipelines.Core.Editor.ref.dll_57B051C6BAF6DF9D.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.RenderPipelines.Core.Runtime.ref.dll_AA9CC9DBDD612E3E.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.RenderPipelines.Universal.Editor.ref.dll_7BE565C70AE586E5.mvfrm
+Library\Bee\artifacts\mvdfrm\Unity.RenderPipelines.Universal.Runtime.ref.dll_C4A720C3D568CE76.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Splines.Editor.ref.dll_C68154F1B05DA55B.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Splines.ref.dll_832DEAD5EAE80FB6.mvfrm
 Library\Bee\artifacts\mvdfrm\Unity.Timeline.Editor.ref.dll_1305DD42619CF31E.mvfrm

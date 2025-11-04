@@ -22,7 +22,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Brick_08-256x256
   m_Shader: {fileID: -6465566751694194690, guid: 025efe21fc313a945b44a7bc01d38ea5, type: 3}
-  m_Parent: {fileID: 2100000, guid: fa3be2a27ba9f1044a53f1ac0df22992, type: 2}
+  m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -37,13 +37,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Texture2D:
-        m_Texture: {fileID: 2800000, guid: 3864d5152b5b37241a5ab506d786f8c9, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CellSize: 1
-    - _Scaling: 100
+    - _BUILTIN_QueueControl: -1
+    - _BUILTIN_QueueOffset: 0
+    - _CellSize: 0.1
+    - _Scaling: 1000
     m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1

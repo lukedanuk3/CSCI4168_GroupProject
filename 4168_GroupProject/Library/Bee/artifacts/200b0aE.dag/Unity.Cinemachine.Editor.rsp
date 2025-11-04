@@ -125,6 +125,7 @@
 -define:CINEMACHINE_PHYSICS_2D
 -define:CINEMACHINE_PHYSICS
 -define:CINEMACHINE_UGUI
+-define:CINEMACHINE_URP
 -define:CINEMACHINE_TIMELINE_1_8_2
 -define:CINEMACHINE_UNITY_ANIMATION
 -define:CINEMACHINE_UNITY_INPUTSYSTEM
@@ -404,6 +405,8 @@
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.Mathematics.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.RenderPipelines.Core.Editor.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.RenderPipelines.Core.Runtime.ref.dll"
+-r:"Library/Bee/artifacts/200b0aE.dag/Unity.RenderPipelines.Universal.Editor.ref.dll"
+-r:"Library/Bee/artifacts/200b0aE.dag/Unity.RenderPipelines.Universal.Runtime.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.Splines.Editor.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.Splines.ref.dll"
 -r:"Library/Bee/artifacts/200b0aE.dag/Unity.Timeline.Editor.ref.dll"

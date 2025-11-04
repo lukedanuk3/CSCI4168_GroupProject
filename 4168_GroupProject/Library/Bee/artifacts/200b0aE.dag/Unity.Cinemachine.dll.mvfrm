@@ -29,6 +29,24 @@ BufferHandle
 RenderTargetInfo
 RendererListHandle
 TextureHandle
+CinemachineUniversalPixelPerfect
+UnityEngine
+Experimental
+Rendering
+Universal
+Light2D
+Light2DBlendStyle
+PixelPerfectCamera
+Renderer2DData
+RenderObjectsPass
+UnityEngine
+Experimental
+Rendering
+Universal
+FullScreenPassRendererFeature
+
+RenderQueueType
+RenderObjects
 AssetModificationProcessor
 
 Sysroot
