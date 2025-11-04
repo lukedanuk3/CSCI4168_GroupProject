@@ -94,7 +94,7 @@ MonoBehaviour:
   active: 1
   widthPixelation:
     m_OverrideState: 1
-    m_Value: 1024
+    m_Value: 512
   heightPixelation:
     m_OverrideState: 1
     m_Value: 512
