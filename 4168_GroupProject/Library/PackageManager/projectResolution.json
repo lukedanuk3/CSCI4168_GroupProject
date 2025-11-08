@@ -1,18 +1,18 @@
 {
   "context": {
-    "projectPath": "/Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Packages",
+    "projectPath": "/Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Packages",
     "unityVersion": "6000.0.58f1"
   },
   "inputs": [
-    "/Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Packages/manifest.json",
-    "/Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Packages/packages-lock.json",
+    "/Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Packages/manifest.json",
+    "/Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Packages/packages-lock.json",
     "/Applications/Unity/Hub/Editor/6000.0.58f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/BuiltInPackagesCombined.sha1"
   ],
   "outputs": {
     "com.unity.collab-proxy@2.10.0": {
       "name": "com.unity.collab-proxy",
       "displayName": "Unity Version Control",
-      "resolvedPath": "/Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.collab-proxy@1e5e48aff19d",
+      "resolvedPath": "/Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.collab-proxy@1e5e48aff19d",
       "fingerprint": "1e5e48aff19daaf7562fad196714be852e56fff3",
       "editorCompatibility": "2021.3.0f1",
       "version": "2.10.0",
@@ -22,7 +22,7 @@
     "com.unity.feature.development@1.0.2": {
       "name": "com.unity.feature.development",
       "displayName": "Engineering",
-      "resolvedPath": "/Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.feature.development@767aadbc6eb7",
+      "resolvedPath": "/Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.feature.development@767aadbc6eb7",
       "fingerprint": "767aadbc6eb72681a4ca807c8fa248e0230a0cef",
       "version": "1.0.2",
       "source": "builtin",
@@ -31,7 +31,7 @@
     "com.unity.inputsystem@1.14.2": {
       "name": "com.unity.inputsystem",
       "displayName": "Input System",
-      "resolvedPath": "/Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.inputsystem@be6c4fd0abf5",
+      "resolvedPath": "/Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.inputsystem@be6c4fd0abf5",
       "fingerprint": "be6c4fd0abf5b9b45f956b97294032a67f3c2f4d",
       "editorCompatibility": "2021.3.0a1",
       "version": "1.14.2",
@@ -41,7 +41,7 @@
     "com.unity.multiplayer.center@1.0.0": {
       "name": "com.unity.multiplayer.center",
       "displayName": "Multiplayer Center",
-      "resolvedPath": "/Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.multiplayer.center@f3fb577b3546",
+      "resolvedPath": "/Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.multiplayer.center@f3fb577b3546",
       "fingerprint": "f3fb577b3546594b97b8cc34307cd621f60f1c73",
       "editorCompatibility": "6000.0.0a1",
       "version": "1.0.0",
@@ -51,7 +51,7 @@
     "com.unity.timeline@1.8.9": {
       "name": "com.unity.timeline",
       "displayName": "Timeline",
-      "resolvedPath": "/Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.timeline@6b9e48457ddb",
+      "resolvedPath": "/Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.timeline@6b9e48457ddb",
       "fingerprint": "6b9e48457ddb4f64813d77fd77efc79a8f3102ae",
       "editorCompatibility": "2021.3.0a1",
       "version": "1.8.9",
@@ -61,7 +61,7 @@
     "com.unity.ugui@2.0.0": {
       "name": "com.unity.ugui",
       "displayName": "Unity UI",
-      "resolvedPath": "/Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.ugui@aa507f3228f0",
+      "resolvedPath": "/Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.ugui@aa507f3228f0",
       "fingerprint": "aa507f3228f0351d0fbba1e8c7142b41bc567fe8",
       "editorCompatibility": "2019.2.0a1",
       "version": "2.0.0",
@@ -71,7 +71,7 @@
     "com.unity.visualscripting@1.9.7": {
       "name": "com.unity.visualscripting",
       "displayName": "Visual Scripting",
-      "resolvedPath": "/Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.visualscripting@6279e2b7c485",
+      "resolvedPath": "/Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.visualscripting@6279e2b7c485",
       "fingerprint": "6279e2b7c4858e56cca7f367cd38c49ef66778c9",
       "editorCompatibility": "2021.3.0a1",
       "version": "1.9.7",
@@ -353,7 +353,7 @@
     "com.unity.ide.visualstudio@2.0.23": {
       "name": "com.unity.ide.visualstudio",
       "displayName": "Visual Studio Editor",
-      "resolvedPath": "/Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.ide.visualstudio@198cdf337d13",
+      "resolvedPath": "/Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.ide.visualstudio@198cdf337d13",
       "fingerprint": "198cdf337d13c83ca953581515630d66b779e92b",
       "editorCompatibility": "2019.4.25f1",
       "version": "2.0.23",
@@ -363,7 +363,7 @@
     "com.unity.ide.rider@3.0.37": {
       "name": "com.unity.ide.rider",
       "displayName": "JetBrains Rider Editor",
-      "resolvedPath": "/Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.ide.rider@0baf0f91edc0",
+      "resolvedPath": "/Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.ide.rider@0baf0f91edc0",
       "fingerprint": "0baf0f91edc004d6f71bbd74a38e2503a5f1228b",
       "editorCompatibility": "2021.3.0a1",
       "version": "3.0.37",
@@ -373,7 +373,7 @@
     "com.unity.editorcoroutines@1.0.0": {
       "name": "com.unity.editorcoroutines",
       "displayName": "Editor Coroutines",
-      "resolvedPath": "/Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.editorcoroutines@7d48783e7b8c",
+      "resolvedPath": "/Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.editorcoroutines@7d48783e7b8c",
       "fingerprint": "7d48783e7b8cfcee5f8ef9ba787ed0d9dad4ebca",
       "editorCompatibility": "2018.1.0a1",
       "version": "1.0.0",
@@ -383,7 +383,7 @@
     "com.unity.performance.profile-analyzer@1.2.3": {
       "name": "com.unity.performance.profile-analyzer",
       "displayName": "Profile Analyzer",
-      "resolvedPath": "/Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.performance.profile-analyzer@a68e7bc84997",
+      "resolvedPath": "/Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.performance.profile-analyzer@a68e7bc84997",
       "fingerprint": "a68e7bc849973d943853204178d08a2bc7656ffe",
       "editorCompatibility": "2020.3.0a1",
       "version": "1.2.3",
@@ -393,7 +393,7 @@
     "com.unity.test-framework@1.5.1": {
       "name": "com.unity.test-framework",
       "displayName": "Test Framework",
-      "resolvedPath": "/Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.test-framework@1f954279c37e",
+      "resolvedPath": "/Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.test-framework@1f954279c37e",
       "fingerprint": "1f954279c37e8ebe39ba5255476ba9f21e2a19ec",
       "editorCompatibility": "6000.0.44f1",
       "version": "1.5.1",
@@ -403,7 +403,7 @@
     "com.unity.testtools.codecoverage@1.2.6": {
       "name": "com.unity.testtools.codecoverage",
       "displayName": "Code Coverage",
-      "resolvedPath": "/Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.testtools.codecoverage@205a02cbcb39",
+      "resolvedPath": "/Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.testtools.codecoverage@205a02cbcb39",
       "fingerprint": "205a02cbcb39584f20b51c49b853047aceb3a3a7",
       "editorCompatibility": "2019.3.0a1",
       "version": "1.2.6",
@@ -413,7 +413,7 @@
     "com.unity.settings-manager@2.1.0": {
       "name": "com.unity.settings-manager",
       "displayName": "Settings Manager",
-      "resolvedPath": "/Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.settings-manager@41738c275190",
+      "resolvedPath": "/Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.settings-manager@41738c275190",
       "fingerprint": "41738c27519039c335849eb78949382f4d7a3544",
       "editorCompatibility": "2022.3.0a1",
       "version": "2.1.0",
@@ -423,7 +423,7 @@
     "com.unity.ext.nunit@2.0.5": {
       "name": "com.unity.ext.nunit",
       "displayName": "Custom NUnit",
-      "resolvedPath": "/Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.ext.nunit@031a54704bff",
+      "resolvedPath": "/Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.ext.nunit@031a54704bff",
       "fingerprint": "031a54704bffe39e6a0324909f8eaa4565bdebf2",
       "editorCompatibility": "2019.4.0a1",
       "version": "2.0.5",

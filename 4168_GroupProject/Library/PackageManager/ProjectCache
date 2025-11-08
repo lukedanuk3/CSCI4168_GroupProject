@@ -1,25 +1,25 @@
 m_ProjectFiles:
   m_ManifestFileStatus:
-    m_FilePath: /Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Packages/manifest.json
+    m_FilePath: /Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Packages/manifest.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638971703340000000
+      ticks: 638982079030000000
     m_Hash: 2814399497
   m_LockFileStatus:
-    m_FilePath: /Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Packages/packages-lock.json
+    m_FilePath: /Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638971703340000000
+      ticks: 638982079030000000
     m_Hash: 686939199
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
   m_LocalFileStatus: []
-m_ProjectPath: /Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Packages
+m_ProjectPath: /Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Packages
 m_EditorVersion: 6000.0.58f1 (44b8bf3a3225)
 m_ResolvedPackages:
 - packageId: com.unity.collab-proxy@2.10.0
@@ -27,7 +27,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 2.10.0
   source: 1
-  resolvedPath: /Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.collab-proxy@1e5e48aff19d
+  resolvedPath: /Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.collab-proxy@1e5e48aff19d
   assetPath: Packages/com.unity.collab-proxy
   name: com.unity.collab-proxy
   displayName: Unity Version Control
@@ -126,9 +126,13 @@ m_ResolvedPackages:
     - 2.9.2
     - 2.9.3
     - 2.10.0
+    - 2.10.1
+    - 2.10.2
     compatible:
     - 2.9.3
     - 2.10.0
+    - 2.10.1
+    - 2.10.2
     recommended: 2.9.3
     deprecated: []
   dependencies: []
@@ -216,7 +220,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.2
   source: 2
-  resolvedPath: /Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.feature.development@767aadbc6eb7
+  resolvedPath: /Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.feature.development@767aadbc6eb7
   assetPath: Packages/com.unity.feature.development
   name: com.unity.feature.development
   displayName: Engineering
@@ -326,7 +330,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.14.2
   source: 1
-  resolvedPath: /Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.inputsystem@be6c4fd0abf5
+  resolvedPath: /Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.inputsystem@be6c4fd0abf5
   assetPath: Packages/com.unity.inputsystem
   name: com.unity.inputsystem
   displayName: Input System
@@ -440,7 +444,7 @@ m_ResolvedPackages:
       violations: []
   hideInEditor: 1
   entitlements:
-    licensingModel: 1
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 638900632848680000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.inputsystem@1.14/manual/index.html
@@ -483,7 +487,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.0.0
   source: 2
-  resolvedPath: /Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.multiplayer.center@f3fb577b3546
+  resolvedPath: /Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.multiplayer.center@f3fb577b3546
   assetPath: Packages/com.unity.multiplayer.center
   name: com.unity.multiplayer.center
   displayName: Multiplayer Center
@@ -576,7 +580,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.8.9
   source: 1
-  resolvedPath: /Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.timeline@6b9e48457ddb
+  resolvedPath: /Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.timeline@6b9e48457ddb
   assetPath: Packages/com.unity.timeline
   name: com.unity.timeline
   displayName: Timeline
@@ -773,7 +777,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 2.0.0
   source: 2
-  resolvedPath: /Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.ugui@aa507f3228f0
+  resolvedPath: /Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.ugui@aa507f3228f0
   assetPath: Packages/com.unity.ugui
   name: com.unity.ugui
   displayName: Unity UI
@@ -868,7 +872,7 @@ m_ResolvedPackages:
   isDirectDependency: 1
   version: 1.9.7
   source: 1
-  resolvedPath: /Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.visualscripting@6279e2b7c485
+  resolvedPath: /Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.visualscripting@6279e2b7c485
   assetPath: Packages/com.unity.visualscripting
   name: com.unity.visualscripting
   displayName: Visual Scripting
@@ -954,7 +958,7 @@ m_ResolvedPackages:
       violations: []
   hideInEditor: 1
   entitlements:
-    licensingModel: 1
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 638835226812630000
   documentationUrl: 
@@ -3729,7 +3733,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 2.0.23
   source: 1
-  resolvedPath: /Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.ide.visualstudio@198cdf337d13
+  resolvedPath: /Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.ide.visualstudio@198cdf337d13
   assetPath: Packages/com.unity.ide.visualstudio
   name: com.unity.ide.visualstudio
   displayName: Visual Studio Editor
@@ -3846,7 +3850,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 3.0.37
   source: 1
-  resolvedPath: /Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.ide.rider@0baf0f91edc0
+  resolvedPath: /Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.ide.rider@0baf0f91edc0
   assetPath: Packages/com.unity.ide.rider
   name: com.unity.ide.rider
   displayName: JetBrains Rider Editor
@@ -3979,7 +3983,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 1.0.0
   source: 1
-  resolvedPath: /Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.editorcoroutines@7d48783e7b8c
+  resolvedPath: /Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.editorcoroutines@7d48783e7b8c
   assetPath: Packages/com.unity.editorcoroutines
   name: com.unity.editorcoroutines
   displayName: Editor Coroutines
@@ -3988,7 +3992,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 
-  type: asset
+  type: 
   description: 'The editor coroutines package allows developers to start constructs
     similar to Unity''s monobehaviour based coroutines within the editor using abitrary
     objects. '
@@ -4027,7 +4031,7 @@ m_ResolvedPackages:
       violations: []
   hideInEditor: 1
   entitlements:
-    licensingModel: 1
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 637232611380000000
   documentationUrl: 
@@ -4067,7 +4071,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 1.2.3
   source: 1
-  resolvedPath: /Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.performance.profile-analyzer@a68e7bc84997
+  resolvedPath: /Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.performance.profile-analyzer@a68e7bc84997
   assetPath: Packages/com.unity.performance.profile-analyzer
   name: com.unity.performance.profile-analyzer
   displayName: Profile Analyzer
@@ -4122,7 +4126,7 @@ m_ResolvedPackages:
       violations: []
   hideInEditor: 1
   entitlements:
-    licensingModel: 1
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 638699545898200000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.performance.profile-analyzer@1.2/manual/index.html
@@ -4163,7 +4167,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 1.5.1
   source: 2
-  resolvedPath: /Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.test-framework@1f954279c37e
+  resolvedPath: /Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.test-framework@1f954279c37e
   assetPath: Packages/com.unity.test-framework
   name: com.unity.test-framework
   displayName: Test Framework
@@ -4252,7 +4256,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 1.2.6
   source: 1
-  resolvedPath: /Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.testtools.codecoverage@205a02cbcb39
+  resolvedPath: /Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.testtools.codecoverage@205a02cbcb39
   assetPath: Packages/com.unity.testtools.codecoverage
   name: com.unity.testtools.codecoverage
   displayName: Code Coverage
@@ -4261,7 +4265,7 @@ m_ResolvedPackages:
     email: 
     url: 
   category: 
-  type: assets
+  type: 
   description: Use this package to export code coverage data and reports from your
     automated tests. Additionally, the Code Coverage package offers a Coverage Recording
     feature which allows capturing coverage data on demand, for manual testing or
@@ -4341,7 +4345,7 @@ m_ResolvedPackages:
       violations: []
   hideInEditor: 1
   entitlements:
-    licensingModel: 1
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 638575857900000000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.testtools.codecoverage@1.2/manual/index.html
@@ -4386,7 +4390,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 2.1.0
   source: 1
-  resolvedPath: /Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.settings-manager@41738c275190
+  resolvedPath: /Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.settings-manager@41738c275190
   assetPath: Packages/com.unity.settings-manager
   name: com.unity.settings-manager
   displayName: Settings Manager
@@ -4432,7 +4436,7 @@ m_ResolvedPackages:
       violations: []
   hideInEditor: 1
   entitlements:
-    licensingModel: 1
+    licensingModel: 0
   isAssetStorePackage: 0
   datePublishedTicks: 638792046006940000
   documentationUrl: https://docs.unity3d.com/Packages/com.unity.settings-manager@2.1/manual/index.html
@@ -4474,7 +4478,7 @@ m_ResolvedPackages:
   isDirectDependency: 0
   version: 2.0.5
   source: 2
-  resolvedPath: /Users/lucasmoore/Documents/CSCI 4168/Group Project/Project Repo/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.ext.nunit@031a54704bff
+  resolvedPath: /Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.ext.nunit@031a54704bff
   assetPath: Packages/com.unity.ext.nunit
   name: com.unity.ext.nunit
   displayName: Custom NUnit
