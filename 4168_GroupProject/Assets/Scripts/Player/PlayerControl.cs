@@ -10,7 +10,12 @@ public class PlayerControl : MonoBehaviour
     const string WALK = "PLACEHOLDER";
 
     //Movement
+    public float lookSensitivity = 3f;
     public float speed = 5f;
+    private float rotationY = 0f;
+
+    //Physics
+    private Rigidbody rigidbody;
 
     // Animation
     private Animator playerAnimator;
@@ -20,6 +25,8 @@ public class PlayerControl : MonoBehaviour
     void Start()
     {
         playerAnimator = GetComponent<Animator>();
+        Cursor.lockState = CursorLockMode.Locked;
+        rigidbody = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -39,9 +46,9 @@ public class PlayerControl : MonoBehaviour
     void HandlePosition(){
 
         //Movement variables
-        float xTranslation;
-        float yTranslation;
-        float zTranslation;
+        float xTranslation = 0f;
+        float yTranslation = 0f;
+        float zTranslation = 0f;
 
         //Input handling
         if (Input.GetKey(KeyCode.W)){
@@ -49,7 +56,7 @@ public class PlayerControl : MonoBehaviour
             SetAnimationState(WALK);
         }
         if (Input.GetKey(KeyCode.S)){ 
-            zTranslation -= 1f
+            zTranslation -= 1f;
             SetAnimationState(WALK);
         };
         if (Input.GetKey(KeyCode.D)){
@@ -67,14 +74,14 @@ public class PlayerControl : MonoBehaviour
         }
 
         //Moving in look direction
-        Vector3 move = transform.forward * z + transform.right * x;
+        Vector3 move = transform.forward * zTranslation + transform.right * xTranslation;
         move.y = 0f;
         if (move.magnitude > 1f)
             move.Normalize();
 
         //Compute velocity
         Vector3 moveVelocity = move * speed;
-        rb.linearVelocity = new Vector3(moveVelocity.x, rb.linearVelocity.y, moveVelocity.z);
+        rigidbody.linearVelocity = new Vector3(moveVelocity.x, rigidbody.linearVelocity.y, moveVelocity.z);
     }
     
     //Update current animation state
