@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1493.3334
     height: 842.6667
   m_ShowMode: 4
-  m_Title: Inspector
+  m_Title: Scene
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 332}
   m_MaxSize: {x: 10000, y: 10000}
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 87
+  controlID: 95
   draggingID: 0
 --- !u!114 &10
 MonoBehaviour:
@@ -338,7 +338,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Models/CameraMonster
+    - Assets/Models/VoiceMonster
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -348,16 +348,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Models/CameraMonster
+  - Assets/Models/VoiceMonster
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\dania\Documents\git\csci4168\CSCI4168_GroupProject\4168_GroupProject
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 52.5}
-    m_SelectedIDs: e2820000
-    m_LastClickedID: 33506
-    m_ExpandedIDs: 0000000072820000c282000000ca9a3bffffff7f
+    m_SelectedIDs: 32850000
+    m_LastClickedID: 34098
+    m_ExpandedIDs: 00000000ba8400000e85000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -386,7 +386,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000072820000
+    m_ExpandedIDs: 00000000ba840000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -483,9 +483,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: e6820000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 22fbffff
+      m_ExpandedIDs: b6f8ffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1225,9 +1225,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -0.112749696, y: -0.8109761, z: -1.4082242}
+    m_Target: {x: 1.1806132, y: -0.70354056, z: -2.1757545}
     speed: 2
-    m_Value: {x: -0.112749696, y: -0.8109761, z: -1.4082242}
+    m_Value: {x: 1.1806132, y: -0.70354056, z: -2.1757545}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1273,13 +1273,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.482
   m_Rotation:
-    m_Target: {x: -0.079752706, y: 0.91593826, z: -0.22784717, w: -0.32060328}
+    m_Target: {x: -0.031165626, y: 0.9682899, z: -0.19105521, w: -0.15795058}
     speed: 2
-    m_Value: {x: -0.07943192, y: 0.91616374, z: -0.22693071, w: -0.3206822}
+    m_Value: {x: -0.031323448, y: 0.968095, z: -0.19202271, w: -0.15791878}
   m_Size:
-    m_Target: 4.634018
+    m_Target: 4.7696195
     speed: 2
-    m_Value: 4.852375
+    m_Value: 4.564229
   m_Ortho:
     m_Target: 0
     speed: 2
