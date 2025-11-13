@@ -9,6 +9,16 @@
     "/Applications/Unity/Hub/Editor/6000.0.58f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/BuiltInPackagesCombined.sha1"
   ],
   "outputs": {
+    "com.unity.cinemachine@3.1.5": {
+      "name": "com.unity.cinemachine",
+      "displayName": "Cinemachine",
+      "resolvedPath": "/Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.cinemachine@5342685532bb",
+      "fingerprint": "5342685532bbf7fa5b3a314c0b7ddba04ff17eff",
+      "editorCompatibility": "2022.3.0a1",
+      "version": "3.1.5",
+      "source": "registry",
+      "testable": false
+    },
     "com.unity.collab-proxy@2.10.0": {
       "name": "com.unity.collab-proxy",
       "displayName": "Unity Version Control",
@@ -410,6 +420,16 @@
       "source": "registry",
       "testable": false
     },
+    "com.unity.splines@2.8.1": {
+      "name": "com.unity.splines",
+      "displayName": "Splines",
+      "resolvedPath": "/Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.splines@b909627b5095",
+      "fingerprint": "b909627b5095061d48761597bbb8384d6f04e510",
+      "editorCompatibility": "2022.3.0a1",
+      "version": "2.8.1",
+      "source": "registry",
+      "testable": false
+    },
     "com.unity.settings-manager@2.1.0": {
       "name": "com.unity.settings-manager",
       "displayName": "Settings Manager",
@@ -428,6 +448,16 @@
       "editorCompatibility": "2019.4.0a1",
       "version": "2.0.5",
       "source": "builtin",
+      "testable": false
+    },
+    "com.unity.mathematics@1.3.2": {
+      "name": "com.unity.mathematics",
+      "displayName": "Mathematics",
+      "resolvedPath": "/Users/adrianlloyd/Desktop/School/CSCI 4168/Group Project/CSCI4168_GroupProject/4168_GroupProject/Library/PackageCache/com.unity.mathematics@8017b507cc74",
+      "fingerprint": "8017b507cc74bf0a1dd14b18aa860569f807314d",
+      "editorCompatibility": "2021.3.0a1",
+      "version": "1.3.2",
+      "source": "registry",
       "testable": false
     }
   }

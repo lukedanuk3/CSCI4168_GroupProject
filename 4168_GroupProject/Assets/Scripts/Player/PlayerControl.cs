@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
+    //FPS camera transform
+    public Transform cameraTransform;
 
     //Animation constants
     const string IDLE = "PLACEHOLDER";
@@ -17,13 +19,20 @@ public class PlayerControl : MonoBehaviour
     //Physics
     private Rigidbody rigidbody;
 
-    // Animation
+    //Animation
     private Animator playerAnimator;
     public bool isAnimated = true;
     private string currentState = "Idle";
+
+    //Game world and character
+    private GameObject[] interactables;
+    public float interactionRange;
     
     void Start()
     {
+        //Load all interactable objects in the level into the Interactables array
+        interactables = GameObject.FindGameObjectsWithTag("Interactable");
+
         playerAnimator = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         rigidbody = GetComponent<Rigidbody>();
@@ -32,14 +41,8 @@ public class PlayerControl : MonoBehaviour
     void Update()
     {
         //Handle player input
-        HandleMouseMovement();
         HandlePosition();
-    }
 
-    void HandleMouseMovement(){
-        float mouseX = Input.GetAxis("Mouse X") * lookSensitivity;
-        rotationY += mouseX;
-        transform.rotation = Quaternion.Euler(0f, rotationY, 0f);
     }
 
     //Player movement control
@@ -73,15 +76,48 @@ public class PlayerControl : MonoBehaviour
             SetAnimationState(IDLE);
         }
 
-        //Moving in look direction
-        Vector3 move = transform.forward * zTranslation + transform.right * xTranslation;
-        move.y = 0f;
+        //Input for interacton with objects
+        if (Input.GetKeyUp(KeyCode.E)){
+            AttemptToInteract();
+        }
+
+        Vector3 camForward = cameraTransform.forward;
+        Vector3 camRight = cameraTransform.right;
+
+        camForward.y = 0f;
+        camRight.y = 0f;
+        camForward.Normalize();
+        camRight.Normalize();
+
+        Vector3 move = camForward * zTranslation + camRight * xTranslation;
         if (move.magnitude > 1f)
             move.Normalize();
 
-        //Compute velocity
         Vector3 moveVelocity = move * speed;
         rigidbody.linearVelocity = new Vector3(moveVelocity.x, rigidbody.linearVelocity.y, moveVelocity.z);
+    }
+
+    //Try to interact with nearby object
+    void AttemptToInteract(){
+        //Iterate through interactable objects to find one within range
+        foreach(GameObject interactable in interactables){
+            float distanceToInteractable = Vector3.Distance(transform.position, interactable.transform.position);
+
+            if (distanceToInteractable <= interactionRange)
+            {
+                HandleInteraction(interactable);
+            }
+        }
+    }
+
+    //Handle interaction
+    void HandleInteraction(GameObject targetObject){
+        targetObject.GetComponent<InteractionHandler>().Interact(gameObject);
+    }
+
+    //Tool functons
+    public void EquipTool(GameObject tool){
+        Debug.Log("Equipped tool " + tool.name);
     }
     
     //Update current animation state
