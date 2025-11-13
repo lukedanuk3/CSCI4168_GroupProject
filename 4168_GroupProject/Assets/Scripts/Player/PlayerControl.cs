@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -27,6 +28,9 @@ public class PlayerControl : MonoBehaviour
     //Game world and character
     private GameObject[] interactables;
     public float interactionRange;
+
+    //Inventory
+    public List<GameObject> inventory;
     
     void Start()
     {
@@ -117,7 +121,12 @@ public class PlayerControl : MonoBehaviour
 
     //Tool functons
     public void EquipTool(GameObject tool){
-        Debug.Log("Equipped tool " + tool.name);
+        if (inventory.Count < 2) {
+            Debug.Log("Equipped tool " + tool.name);
+            inventory.Add(tool);
+        }else{
+            Debug.Log("Inventory full");
+        }
     }
     
     //Update current animation state
