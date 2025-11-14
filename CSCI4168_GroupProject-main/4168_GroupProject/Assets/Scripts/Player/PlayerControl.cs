@@ -18,7 +18,7 @@ public class PlayerControl : MonoBehaviour
     private float rotationY = 0f;
 
     //Physics
-    private Rigidbody rigidbody;
+    public Rigidbody rigidbody;
 
     //Animation
     private Animator playerAnimator;
