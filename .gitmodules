@@ -1,0 +1,3 @@
+[submodule "Assets/PSX-Shaders"]
+	path = Assets/PSX-Shaders
+	url = https://github.com/Math-Man/URP-PSX-FORKED.git
