@@ -407,6 +407,7 @@
 -analyzer:"/Applications/Unity/Hub/Editor/6000.0.58f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
 "Assets/Scripts/Objects/DoorHandler.cs"
 "Assets/Scripts/Objects/InteractionHandler.cs"
+"Assets/Scripts/Player/CameraToolControl.cs"
 "Assets/Scripts/Player/PlayerControl.cs"
 -langversion:9.0
 /deterministic

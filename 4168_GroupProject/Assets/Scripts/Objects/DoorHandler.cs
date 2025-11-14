@@ -4,7 +4,8 @@ public class DoorHandler : MonoBehaviour
 {
     
     public void Interact(){
-        //open or close door
+        Debug.Log("Interacted with door");
+        //open or close door...
     }
     
 }

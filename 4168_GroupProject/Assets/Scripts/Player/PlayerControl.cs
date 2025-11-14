@@ -31,11 +31,17 @@ public class PlayerControl : MonoBehaviour
 
     //Inventory
     public List<GameObject> inventory;
+
+    //Player's camera tool
+    public GameObject camera;
+    CameraToolControl cameraControl;
     
     void Start()
     {
         //Load all interactable objects in the level into the Interactables array
         interactables = GameObject.FindGameObjectsWithTag("Interactable");
+
+        cameraControl = camera.GetComponent<CameraToolControl>();
 
         playerAnimator = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
@@ -85,6 +91,11 @@ public class PlayerControl : MonoBehaviour
             AttemptToInteract();
         }
 
+        //Opening camera
+        if (Input.GetKeyUp(KeyCode.C)){
+            cameraControl.OpenClose();
+        }
+
         Vector3 camForward = cameraTransform.forward;
         Vector3 camRight = cameraTransform.right;
 
@@ -128,7 +139,7 @@ public class PlayerControl : MonoBehaviour
             Debug.Log("Inventory full");
         }
     }
-    
+
     //Update current animation state
     void SetAnimationState(string newState){
         if (currentState == newState) return;
