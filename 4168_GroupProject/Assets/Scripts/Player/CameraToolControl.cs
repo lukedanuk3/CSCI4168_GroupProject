@@ -1,15 +1,23 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraToolControl : MonoBehaviour
 {
+
+    public Camera fpsCamera;
+
+    public GameObject uiPanel;
     bool isOpen;
 
     void Update(){
         if (isOpen){
-            if (Input.GetKey(KeyCode.Return)){
+            uiPanel.SetActive(true);
+            if (Input.GetKeyUp(KeyCode.Return)){
                 TakePicture();
             }
+        }else{
+            uiPanel.SetActive(false);
         }
     }
 
@@ -18,7 +26,7 @@ public class CameraToolControl : MonoBehaviour
     }
 
     public void TakePicture(){
-        Plane[] frustumPlanes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
+        Plane[] frustumPlanes = GeometryUtility.CalculateFrustumPlanes(fpsCamera);
         List<GameObject> visibleObjects = new List<GameObject>();
         foreach (GameObject item in FindObjectsOfType<GameObject>())
         {
