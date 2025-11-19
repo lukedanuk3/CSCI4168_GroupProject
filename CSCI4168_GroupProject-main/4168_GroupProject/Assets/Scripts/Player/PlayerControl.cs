@@ -18,7 +18,7 @@ public class PlayerControl : MonoBehaviour
     private float rotationY = 0f;
 
     //Physics
-    public Rigidbody rigidbody;
+    private Rigidbody rigidbody;
 
     //Animation
     private Animator playerAnimator;
@@ -31,11 +31,22 @@ public class PlayerControl : MonoBehaviour
 
     //Inventory
     public List<GameObject> inventory;
+    private int currentSlot;
+    GameObject currentTool;
+    public Transform toolHolder;
+    public Vector3 toolRelativePosition;
+    public Vector3 toolRelativeRotation;
+
+    //Player's camera tool
+    public GameObject camera;
+    CameraToolControl cameraControl;
     
     void Start()
     {
         //Load all interactable objects in the level into the Interactables array
         interactables = GameObject.FindGameObjectsWithTag("Interactable");
+
+        cameraControl = camera.GetComponent<CameraToolControl>();
 
         playerAnimator = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
@@ -46,7 +57,6 @@ public class PlayerControl : MonoBehaviour
     {
         //Handle player input
         HandlePosition();
-
     }
 
     //Player movement control
@@ -83,6 +93,19 @@ public class PlayerControl : MonoBehaviour
         //Input for interacton with objects
         if (Input.GetKeyUp(KeyCode.E)){
             AttemptToInteract();
+        }
+
+        //Opening camera
+        if (Input.GetKeyUp(KeyCode.C)){
+            cameraControl.OpenClose();
+        }
+
+        //Switching tools in inventory
+        if (Input.GetKeyUp(KeyCode.Q)){
+            //Didn't use a bool here because of the variable naming difficulties that would come with that
+            if (currentSlot == 0) currentSlot = 1;
+            else currentSlot = 0;
+            SelectTool(currentSlot);
         }
 
         Vector3 camForward = cameraTransform.forward;
@@ -124,11 +147,28 @@ public class PlayerControl : MonoBehaviour
         if (inventory.Count < 2) {
             Debug.Log("Equipped tool " + tool.name);
             inventory.Add(tool);
+            SelectTool(inventory.Count - 1);
         }else{
             Debug.Log("Inventory full");
         }
     }
-    
+
+    public void SelectTool(int inventoryIndex){
+        if (currentTool != null) currentTool.SetActive(false);
+
+        if (inventoryIndex < inventory.Count){
+            GameObject selected = inventory[inventoryIndex];
+            selected.SetActive(true);
+
+            selected.transform.SetParent(toolHolder, false);
+
+            selected.transform.localPosition = selected.GetComponent<ToolData>().relativePosition;
+            selected.transform.localEulerAngles = selected.GetComponent<ToolData>().relativeRotation;
+
+            currentTool = selected;
+        }
+    }
+
     //Update current animation state
     void SetAnimationState(string newState){
         if (currentState == newState) return;
