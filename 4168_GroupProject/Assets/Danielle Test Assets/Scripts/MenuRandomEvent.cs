@@ -25,6 +25,7 @@ public class MenuRandomEvent : MonoBehaviour
     {
         randomNumber = Random.Range(0, 5); // 20% chance of event occuring
         Debug.Log(randomNumber);
+        //randomNumber = 0;
     }
 
     // Update is called once per frame

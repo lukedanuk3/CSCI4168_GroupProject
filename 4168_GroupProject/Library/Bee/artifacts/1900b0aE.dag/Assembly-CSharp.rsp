@@ -124,6 +124,7 @@
 -define:ENABLE_TILEMAP
 -define:ENABLE_TIMELINE
 -define:ENABLE_INPUT_SYSTEM
+-define:ENABLE_LEGACY_INPUT_MANAGER
 -define:TEXTCORE_FONT_ENGINE_1_5_OR_NEWER
 -define:TEXTCORE_TEXT_ENGINE_1_5_OR_NEWER
 -define:CSHARP_7_OR_LATER
@@ -401,8 +402,17 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.58f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.58f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.58f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
-"Assets/Danielle Test Assets/ButtonController.cs"
-"Assets/Danielle Test Assets/MenuRandomEvent.cs"
+"Assets/Danielle Test Assets/Scripts/ButtonController.cs"
+"Assets/Danielle Test Assets/Scripts/ButtonItem.cs"
+"Assets/Danielle Test Assets/Scripts/ItemManager.cs"
+"Assets/Danielle Test Assets/Scripts/MenuRandomEvent.cs"
+"Assets/Danielle Test Assets/Scripts/PlayerControl.cs"
+"Assets/Danielle Test Assets/Scripts/TakeDamage.cs"
+"Assets/Danielle Test Assets/Scripts/tempGameplayUIswap.cs"
+"Assets/Danielle Test Assets/Scripts/tempMove.cs"
+"Assets/Danielle Test Assets/Scripts/tempSelectUIswap.cs"
+"Assets/Danielle Test Assets/Scripts/tempSwapItem.cs"
+"Assets/Danielle Test Assets/Scripts/UIManager.cs"
 -langversion:9.0
 /deterministic
 /optimize+
