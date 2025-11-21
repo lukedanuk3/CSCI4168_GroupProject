@@ -1,0 +1,8 @@
+# Unity junk – do not track
+Library/
+Temp/
+Logs/
+Obj/
+Build/
+Builds/
+UserSettings/
