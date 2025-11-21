@@ -303,8 +303,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38f29734ecf27bf44ac5c89bd1d4f444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slot1: {fileID: 507005861}
-  slot2: {fileID: 567950095}
+  slot1_selection: {fileID: 507005861}
+  slot2_selection: {fileID: 567950095}
+  slot1_gameplay: {fileID: 1577744896}
+  slot2_gameplay: {fileID: 141891905}
   crowbar: {fileID: 21300000, guid: 4f43a738e42b38846bfb0d5990905043, type: 3}
   boltcutter: {fileID: 21300000, guid: 4afdeec9741fe4143a1a8fe303c58f7b, type: 3}
   wirecutter: {fileID: 21300000, guid: 0b7abb676993f534dbdcb21b80bebbcd, type: 3}
@@ -401,7 +403,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &141891906
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3817,7 +3819,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1577744897
 RectTransform:
   m_ObjectHideFlags: 0

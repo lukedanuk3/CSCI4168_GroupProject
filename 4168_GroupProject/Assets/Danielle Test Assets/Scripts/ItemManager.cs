@@ -8,8 +8,11 @@ public class ItemManager : MonoBehaviour
     private string tool1;
     private string tool2;
 
-    public GameObject slot1;
-    public GameObject slot2;
+    public GameObject slot1_selection;
+    public GameObject slot2_selection;
+
+    public GameObject slot1_gameplay;
+    public GameObject slot2_gameplay;
 
     public Sprite crowbar;
     public Sprite boltcutter;
@@ -19,8 +22,8 @@ public class ItemManager : MonoBehaviour
 
     public void Start()
     {
-        slot1.SetActive(false);
-        slot2.SetActive(false);
+        slot1_selection.SetActive(false);
+        slot2_selection.SetActive(false);
     }
 
     public void updateItems(string s)
@@ -32,14 +35,16 @@ public class ItemManager : MonoBehaviour
                 if (tool1 == null)
                 {
                     tool1 = "crowbar";
-                    slot1.SetActive(true);
+                    slot1_selection.SetActive(true);
+                    slot1_gameplay.SetActive(true);
                     updateUI();
                     return;
                 }
                 if (tool2 == null)
                 {
                     tool2 = "crowbar";
-                    slot2.SetActive(true);
+                    slot2_selection.SetActive(true);
+                    slot2_gameplay.SetActive(true);
                     updateUI();
                     return;
                 }
@@ -56,14 +61,16 @@ public class ItemManager : MonoBehaviour
                 if (tool1 == null)
                 {
                     tool1 = "boltcutter";
-                    slot1.SetActive(true);
+                    slot1_selection.SetActive(true);
+                    slot1_gameplay.SetActive(true);
                     updateUI();
                     return;
                 }
                 if (tool2 == null)
                 {
                     tool2 = "boltcutter";
-                    slot2.SetActive(true);
+                    slot2_selection.SetActive(true);
+                    slot2_gameplay.SetActive(true);
                     updateUI();
                     return;
                 }
@@ -80,14 +87,16 @@ public class ItemManager : MonoBehaviour
                 if (tool1 == null)
                 {
                     tool1 = "wirecutter";
-                    slot1.SetActive(true);
+                    slot1_selection.SetActive(true);
+                    slot1_gameplay.SetActive(true);
                     updateUI();
                     return;
                 }
                 if (tool2 == null)
                 {
                     tool2 = "wirecutter";
-                    slot2.SetActive(true);
+                    slot2_selection.SetActive(true);
+                    slot2_gameplay.SetActive(true);
                     updateUI();
                     return;
                 }
@@ -103,34 +112,40 @@ public class ItemManager : MonoBehaviour
     {
         if (tool1 == "crowbar")
         {
-            slot1.GetComponent<Image>().sprite = crowbar;
+            slot1_selection.GetComponent<Image>().sprite = crowbar;
+            slot1_gameplay.GetComponent<Image>().sprite = crowbar;
         }
         if (tool2 == "crowbar")
         {
-            slot2.GetComponent<Image>().sprite = crowbar;
+            slot2_selection.GetComponent<Image>().sprite = crowbar;
+            slot2_gameplay.GetComponent<Image>().sprite = crowbar;
         }
         if (tool1 == "wirecutter")
         {
-            slot1.GetComponent<Image>().sprite = wirecutter;
+            slot1_selection.GetComponent<Image>().sprite = wirecutter;
+            slot1_gameplay.GetComponent<Image>().sprite = wirecutter;
         }
         if (tool2 == "wirecutter")
         {
-            slot2.GetComponent<Image>().sprite = wirecutter;
+            slot2_selection.GetComponent<Image>().sprite = wirecutter;
+            slot2_gameplay.GetComponent<Image>().sprite = wirecutter;
         }
         if (tool1 == "boltcutter")
         {
-            slot1.GetComponent<Image>().sprite = boltcutter;
+            slot1_selection.GetComponent<Image>().sprite = boltcutter;
+            slot1_gameplay.GetComponent<Image>().sprite = boltcutter;
         }
         if (tool2 == "boltcutter")
         {
-            slot2.GetComponent<Image>().sprite = boltcutter;
+            slot2_selection.GetComponent<Image>().sprite = boltcutter;
+            slot2_gameplay.GetComponent<Image>().sprite = boltcutter;
         }
 
         playerController.updateItems(tool1, 0);
         playerController.updateItems(tool2, 1);
 
-        string[] items = playerController.getItems();
-        Debug.Log("Debug test player controller items: 1: " + items[0] + " 2: " + items[1]);
+        //string[] items = playerController.getItems();
+        //Debug.Log("Debug test player controller items: 1: " + items[0] + " 2: " + items[1]);
 
     }
 
