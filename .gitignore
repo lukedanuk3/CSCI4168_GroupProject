@@ -11,6 +11,10 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 *.log
+4168_GroupProject/Library/
+4168_GroupProject/Temp/
+4168_GroupProject/Logs/
+4168_GroupProject/UserSettings/
 
 # By default unity supports Blender asset imports, *.blend1 blender files do not need to be commited to version control.
 *.blend1
