@@ -13,7 +13,7 @@ public class InteractionHandler : MonoBehaviour
 
     public void Interact(GameObject player){
         if (objectType == TOOL){
-            player.GetComponent<PlayerControl>().EquipTool(gameObject);
+            player.GetComponent<PlayerControl>().PickUpTool(gameObject);
         }else if (objectType == DOOR){
             gameObject.GetComponent<DoorHandler>().Interact();
         }else if (objectType == BUTTON){
