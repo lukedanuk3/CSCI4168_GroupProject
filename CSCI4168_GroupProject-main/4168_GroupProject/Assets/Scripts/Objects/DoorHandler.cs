@@ -7,11 +7,10 @@ public class DoorHandler : MonoBehaviour
 
     public GameObject doorOpenInstructions;
     public void Interact(){
-            if(Input.GetKeyDown(KeyCode.E)){
-                Interact();
-                gameObject.transform.Rotate(0,90,0, Space.World);        
-                Debug.Log("Interacted with door");
-            }
+        Debug.Log("Testing");
+        gameObject.transform.Rotate(0,90,0, Space.World);        
+        Debug.Log("Interacted with door");
+        
         //open or close door...
     }
 
