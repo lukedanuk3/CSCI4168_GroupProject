@@ -7,16 +7,13 @@ public class DoorHandler : MonoBehaviour
 
     public GameObject doorOpenInstructions;
     public void Interact(){
-        Debug.Log("Testing");
-        gameObject.transform.Rotate(0,90,0, Space.World);        
-        Debug.Log("Interacted with door");
+        Open();
         
         //open or close door...
     }
 
     private void OnTriggerStay(Collider other){
         if(other.tag == "Door"){
-            doorOpenInstructions.SetActive(true);
             if(Input.GetKeyDown(KeyCode.E)){
                 Interact();
                 other.transform.Rotate(0,90,0, Space.World);
@@ -31,4 +28,12 @@ public class DoorHandler : MonoBehaviour
         }
     }
     
+    public void Open(){
+        if(gameObject.transform.rotation.y == 0){
+            gameObject.transform.Rotate(0,-90,0, Space.World);        
+        }
+        else{
+            gameObject.transform.Rotate(0,90,0, Space.World);        
+        }
+    }
 }
