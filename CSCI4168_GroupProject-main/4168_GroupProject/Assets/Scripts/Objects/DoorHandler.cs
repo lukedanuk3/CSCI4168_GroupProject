@@ -5,6 +5,7 @@ using UnityEngine;
 public class DoorHandler : MonoBehaviour
 {
 
+    private IEnumerator coroutineInstance;
     public GameObject doorOpenInstructions;
     public void Interact(){
         Open();
@@ -29,18 +30,35 @@ public class DoorHandler : MonoBehaviour
     }
     
     public void Open(){
+        Animator anim = gameObject.GetComponent<Animator>();
+        anim.SetBool("HasBeenOpened", true);
         if(gameObject.transform.rotation.y == 0){
-            gameObject.transform.Rotate(0,-90,0, Space.World);        
+            Debug.Log("Opening Door");
+            anim.SetBool("IsClosed", false);
+            anim.SetTrigger("OpenClose");
+            // gameObject.transform.Rotate(0,-90,0, Space.World); 
+            coroutineInstance = CloseDoor(anim, gameObject, 2.0f);    
+            StartCoroutine(coroutineInstance);
+   
         }
         else{
-            gameObject.transform.Rotate(0,90,0, Space.World);        
+            StopCoroutine(coroutineInstance);
+            anim.SetBool("IsClosed", true);  
+            anim.SetTrigger("OpenClose");
+
         }
-        StartCoroutine(CloseDoor(gameObject, 2.0f));
+        // anim.SetTrigger("OpenClose");     
     }
-    IEnumerator CloseDoor(GameObject door, float delayTime){
+    IEnumerator CloseDoor(Animator anim, GameObject door, float delayTime){
         yield return new WaitForSeconds(delayTime);
         if(door.transform.rotation.y != 0){
-            door.transform.Rotate(0, 90, 0, Space.World);
+            if(anim.GetBool("IsClosed") == false){
+                Debug.Log("Door is opened");
+                anim.SetBool("IsClosed", true);
+                anim.SetTrigger("OpenClose");  
+            }
+
+            // door.transform.Rotate(0, 90, 0, Space.World);
         }
     }
 }
