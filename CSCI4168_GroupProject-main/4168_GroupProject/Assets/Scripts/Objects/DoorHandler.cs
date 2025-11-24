@@ -35,5 +35,12 @@ public class DoorHandler : MonoBehaviour
         else{
             gameObject.transform.Rotate(0,90,0, Space.World);        
         }
+        StartCoroutine(CloseDoor(gameObject, 2.0f));
+    }
+    IEnumerator CloseDoor(GameObject door, float delayTime){
+        yield return new WaitForSeconds(delayTime);
+        if(door.transform.rotation.y != 0){
+            door.transform.Rotate(0, 90, 0, Space.World);
+        }
     }
 }

@@ -18,7 +18,7 @@ public class PlayerControl : MonoBehaviour
     private float rotationY = 0f;
 
     //Physics
-    public Rigidbody rigidbody;
+    private Rigidbody rigidbody;
 
     //Animation
     private Animator playerAnimator;
@@ -36,6 +36,10 @@ public class PlayerControl : MonoBehaviour
     public Transform toolHolder;
     public Vector3 toolRelativePosition;
     public Vector3 toolRelativeRotation;
+
+    //Tool use
+    private int toolCoolDown = 100;
+    private bool toolInUse = false;
 
     //Player's camera tool
     public GameObject camera;
@@ -55,8 +59,23 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
+
+        //Sprint speed multiplier
+        if (Input.GetKeyDown(KeyCode.LeftShift)) speed *= 1.5f;
+        if (Input.GetKeyUp(KeyCode.LeftShift)) speed /= 1.5f;
+
         //Handle player input
         HandlePosition();
+        HandleOtherInput();
+
+        if (toolInUse){
+            toolCoolDown--;
+            if (toolCoolDown == 0) {
+                SelectTool(currentSlot);
+                toolInUse = false;
+                toolCoolDown = 100;
+            }
+        }
     }
 
     //Player movement control
@@ -90,6 +109,23 @@ public class PlayerControl : MonoBehaviour
             SetAnimationState(IDLE);
         }
 
+        Vector3 camForward = cameraTransform.forward;
+        Vector3 camRight = cameraTransform.right;
+
+        camForward.y = 0f;
+        camRight.y = 0f;
+        camForward.Normalize();
+        camRight.Normalize();
+
+        Vector3 move = camForward * zTranslation + camRight * xTranslation;
+        if (move.magnitude > 1f)
+            move.Normalize();
+
+        Vector3 moveVelocity = move * speed;
+        rigidbody.linearVelocity = new Vector3(moveVelocity.x, rigidbody.linearVelocity.y, moveVelocity.z);
+    }
+
+    void HandleOtherInput(){
         //Input for interacton with objects
         if (Input.GetKeyUp(KeyCode.E)){
             AttemptToInteract();
@@ -108,20 +144,19 @@ public class PlayerControl : MonoBehaviour
             SelectTool(currentSlot);
         }
 
-        Vector3 camForward = cameraTransform.forward;
-        Vector3 camRight = cameraTransform.right;
+        //Get click
+        if (Input.GetMouseButtonDown(0)){
+            if (currentTool != null){
+                UseCurrentTool();
+            }
+        }
+    }
 
-        camForward.y = 0f;
-        camRight.y = 0f;
-        camForward.Normalize();
-        camRight.Normalize();
-
-        Vector3 move = camForward * zTranslation + camRight * xTranslation;
-        if (move.magnitude > 1f)
-            move.Normalize();
-
-        Vector3 moveVelocity = move * speed;
-        rigidbody.linearVelocity = new Vector3(moveVelocity.x, rigidbody.linearVelocity.y, moveVelocity.z);
+    void UseCurrentTool(){
+        string toolType = currentTool.GetComponent<ToolData>().toolType;
+        if (toolType == "CROWBAR"){
+            if (!toolInUse) UseCrowbar();
+        }
     }
 
     //Try to interact with nearby object
@@ -143,9 +178,10 @@ public class PlayerControl : MonoBehaviour
     }
 
     //Tool functons
-    public void EquipTool(GameObject tool){
+
+    public void PickUpTool(GameObject tool){
         if (inventory.Count < 2) {
-            Debug.Log("Equipped tool " + tool.name);
+            Debug.Log("Picked up tool " + tool.name);
             inventory.Add(tool);
             SelectTool(inventory.Count - 1);
         }else{
@@ -167,6 +203,44 @@ public class PlayerControl : MonoBehaviour
 
             currentTool = selected;
         }
+    }
+
+    //Tool use...
+
+    //Crowbar
+    void UseCrowbar(){
+        List<GameObject> boards = ObjectsInViewOfType("Board");
+        if (boards != null){
+            foreach (GameObject board in boards){
+                board.GetComponent<BoardBehaviour>().Break();
+            }
+        }
+
+        float usageX = 90;
+        float usageY = 90;
+        float usageZ = 90;
+
+        currentTool.transform.localEulerAngles = currentTool.GetComponent<ToolData>().relativeRotation + new Vector3(usageX, usageY, usageZ);
+        toolInUse = true;
+    }
+
+
+    //Return GameObjects in frame matching type
+    List<GameObject> ObjectsInViewOfType(string objectType){
+        Plane[] frustumPlanes = GeometryUtility.CalculateFrustumPlanes(cameraControl.fpsCamera);
+        List<GameObject> visibleObjects = new List<GameObject>();
+        foreach (GameObject item in FindObjectsOfType<GameObject>())
+        {
+            Renderer renderer = item.GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                if (GeometryUtility.TestPlanesAABB(frustumPlanes, renderer.bounds))
+                {
+                    if (item.tag == objectType) visibleObjects.Add(item);
+                }
+            }
+        }
+        return visibleObjects;
     }
 
     //Update current animation state
