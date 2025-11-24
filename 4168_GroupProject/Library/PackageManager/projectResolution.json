@@ -58,6 +58,16 @@
       "source": "builtin",
       "testable": false
     },
+    "com.unity.probuilder@6.0.7": {
+      "name": "com.unity.probuilder",
+      "displayName": "ProBuilder",
+      "resolvedPath": "C:\\Users\\Sasha\\Desktop\\CSCI4168_GroupProject\\4168_GroupProject\\Library\\PackageCache\\com.unity.probuilder@9b6693f09f97",
+      "fingerprint": "9b6693f09f975498d3b4d16d907779e200d3f81b",
+      "editorCompatibility": "6000.0.0a1",
+      "version": "6.0.7",
+      "source": "registry",
+      "testable": false
+    },
     "com.unity.render-pipelines.universal@17.0.4": {
       "name": "com.unity.render-pipelines.universal",
       "displayName": "Universal Render Pipeline",
@@ -440,6 +450,16 @@
       "source": "builtin",
       "testable": false
     },
+    "com.unity.settings-manager@2.1.0": {
+      "name": "com.unity.settings-manager",
+      "displayName": "Settings Manager",
+      "resolvedPath": "C:\\Users\\Sasha\\Desktop\\CSCI4168_GroupProject\\4168_GroupProject\\Library\\PackageCache\\com.unity.settings-manager@41738c275190",
+      "fingerprint": "41738c27519039c335849eb78949382f4d7a3544",
+      "editorCompatibility": "2022.3.0a1",
+      "version": "2.1.0",
+      "source": "registry",
+      "testable": false
+    },
     "com.unity.ide.visualstudio@2.0.23": {
       "name": "com.unity.ide.visualstudio",
       "displayName": "Visual Studio Editor",
@@ -548,16 +568,6 @@
       "editorCompatibility": "2023.3.0b1",
       "version": "1.0.1",
       "source": "builtin",
-      "testable": false
-    },
-    "com.unity.settings-manager@2.1.0": {
-      "name": "com.unity.settings-manager",
-      "displayName": "Settings Manager",
-      "resolvedPath": "C:\\Users\\Sasha\\Desktop\\CSCI4168_GroupProject\\4168_GroupProject\\Library\\PackageCache\\com.unity.settings-manager@41738c275190",
-      "fingerprint": "41738c27519039c335849eb78949382f4d7a3544",
-      "editorCompatibility": "2022.3.0a1",
-      "version": "2.1.0",
-      "source": "registry",
       "testable": false
     },
     "com.unity.ext.nunit@2.0.5": {
