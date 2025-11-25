@@ -7,8 +7,16 @@ public class PlayerControl : MonoBehaviour
 {
     //Used when checking interaction range
     InteractionHandler interactionHandler;
+
+    //Used to display UI for specific interactions
+    public GameObject doorOpenInstructions;
+    public GameObject toolPickUpInstructions;
+    public GameObject trapBreakInstructions;
+    [Space]
+
     //FPS camera transform
     public Transform cameraTransform;
+    [Space]
 
     //Animation constants
     const string IDLE = "PLACEHOLDER";
@@ -18,6 +26,7 @@ public class PlayerControl : MonoBehaviour
     public float lookSensitivity = 3f;
     public float speed = 5f;
     private float rotationY = 0f;
+    [Space]
 
     //Physics
     private Rigidbody rigidbody;
@@ -69,6 +78,9 @@ public class PlayerControl : MonoBehaviour
         //Handle player input
         HandlePosition();
         HandleOtherInput();
+        
+        //Check Interaction Range
+        CheckInteraction();
 
         if (toolInUse){
             toolCoolDown--;
@@ -162,22 +174,26 @@ public class PlayerControl : MonoBehaviour
     }
 
     //Check if player is in range of an interactable
-    void CheckInteractionRange(){
-        foreach(GameObject interactable in interactables){
-            interactionHandler = interactable.GetComponent<InteractionHandler>();
-            float distanceToInteractable = Vector3.Distance(transform.position, interactable.transform.position);
-
-            if(distanceToInteractable <= interactionRange){
-                if(interactionHandler.objectType == "DOOR"){
-                    Debug.Log("In range of door");
-                }
-                if(interactionHandler.objectType == "TOOL"){
-                    Debug.Log("In range of tool");
-                }
-
+    void CheckInteraction(){
+        RaycastHit hit;
+        Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+        if(Physics.Raycast(ray, out hit, interactionRange)){
+            if(hit.collider.tag == "Door"){
+                    Debug.Log("Door in range");
+                    doorOpenInstructions.SetActive(true);
             }
-        }
+            else if (hit.collider.tag == "Tool"){
+                // toolPickUpInstructions.SetActive(true);
+            }
+            }
+            else{
+                doorOpenInstructions.SetActive(false);
+            }
+       
     }
+    //Show Interaction Text
+    
+    
     //Try to interact with nearby object
     void AttemptToInteract(){
         //Iterate through interactable objects to find one within range

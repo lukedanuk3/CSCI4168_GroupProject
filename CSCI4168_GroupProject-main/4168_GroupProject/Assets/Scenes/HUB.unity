@@ -687,6 +687,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8777dd10554ab4049bc5e5c2cab0d0b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorOpenInstructions: {fileID: 1065455862}
+  toolPickUpInstructions: {fileID: 0}
+  trapBreakInstructions: {fileID: 0}
   cameraTransform: {fileID: 13985469}
   lookSensitivity: 3
   speed: 10
@@ -697,19 +700,6 @@ MonoBehaviour:
   toolRelativePosition: {x: 0, y: 0, z: 0}
   toolRelativeRotation: {x: 0, y: 0, z: 0}
   camera: {fileID: 1729865746}
---- !u!114 &179093835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179093825}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06b7464cfb0574b759f80675c806cd59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectType: 
 --- !u!1 &396459622
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,9 +1057,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6307746681147263951, guid: 1d03290cd1f6446ee8a8362cf2715fe6, type: 3}
       insertIndex: 5
       addedObject: {fileID: 179093829}
-    - targetCorrespondingSourceObject: {fileID: 6307746681147263951, guid: 1d03290cd1f6446ee8a8362cf2715fe6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 179093835}
     - targetCorrespondingSourceObject: {fileID: 6013408623699814340, guid: 1d03290cd1f6446ee8a8362cf2715fe6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 13985473}
@@ -2894,7 +2881,7 @@ GameObject:
   - component: {fileID: 1719840563}
   m_Layer: 0
   m_Name: Cube (4)
-  m_TagString: Interactable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4147,9 +4134,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1499627947}
     m_Modifications:
+    - target: {fileID: 583822520341399274, guid: e355aee006ed44bcfa4133f7799e3cd2, type: 3}
+      propertyPath: m_TagString
+      value: Door
+      objectReference: {fileID: 0}
     - target: {fileID: 740256943213197799, guid: e355aee006ed44bcfa4133f7799e3cd2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.8484802
+      value: -2.08
       objectReference: {fileID: 0}
     - target: {fileID: 740256943213197799, guid: e355aee006ed44bcfa4133f7799e3cd2, type: 3}
       propertyPath: m_LocalPosition.y
