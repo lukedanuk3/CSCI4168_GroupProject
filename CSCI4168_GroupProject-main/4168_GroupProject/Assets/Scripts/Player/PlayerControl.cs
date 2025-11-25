@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
+    //Used when checking interaction range
+    InteractionHandler interactionHandler;
     //FPS camera transform
     public Transform cameraTransform;
 
@@ -159,6 +161,23 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    //Check if player is in range of an interactable
+    void CheckInteractionRange(){
+        foreach(GameObject interactable in interactables){
+            interactionHandler = interactable.GetComponent<InteractionHandler>();
+            float distanceToInteractable = Vector3.Distance(transform.position, interactable.transform.position);
+
+            if(distanceToInteractable <= interactionRange){
+                if(interactionHandler.objectType == "DOOR"){
+                    Debug.Log("In range of door");
+                }
+                if(interactionHandler.objectType == "TOOL"){
+                    Debug.Log("In range of tool");
+                }
+
+            }
+        }
+    }
     //Try to interact with nearby object
     void AttemptToInteract(){
         //Iterate through interactable objects to find one within range
