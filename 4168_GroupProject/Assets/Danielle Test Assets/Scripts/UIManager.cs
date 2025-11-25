@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,10 +14,12 @@ public class UIManager : MonoBehaviour
     public GameObject gameplayUI;
     public GameObject selectionUI;
 
+    public TMP_Text lifeText;
+
     public void UpdateHealth(int health)
     {
-        Debug.Log("updating health");
-        Debug.Log(health);
+        //Debug.Log("updating health");
+        //Debug.Log(health);
         if (health == 3)
         {
             Debug.Log("enabling");
@@ -74,6 +77,19 @@ public class UIManager : MonoBehaviour
     public void setSelectionUIInactive()
     {
         selectionUI.SetActive(false);
+    }
+
+    public void increaseCounter()
+    {
+        int curr = int.Parse(lifeText.text);
+        //Debug.Log(curr);
+        int newCurr = curr + 1;
+        //Debug.Log(newCurr);
+        if (newCurr > 5)
+        {
+            newCurr = 5;
+        }
+        lifeText.text = newCurr + "";
     }
 
 }

@@ -412,6 +412,7 @@
 "Assets/Danielle Test Assets/Scripts/tempMove.cs"
 "Assets/Danielle Test Assets/Scripts/tempSelectUIswap.cs"
 "Assets/Danielle Test Assets/Scripts/tempSwapItem.cs"
+"Assets/Danielle Test Assets/Scripts/tempUpdateCounter.cs"
 "Assets/Danielle Test Assets/Scripts/UIManager.cs"
 -langversion:9.0
 /deterministic
