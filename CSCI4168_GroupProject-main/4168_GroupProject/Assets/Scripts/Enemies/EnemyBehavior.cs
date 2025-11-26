@@ -7,12 +7,12 @@ public class EnemyBehavior : MonoBehaviour
 {
     [Range(0,50)] [SerializeField] float sightRange = 20;
     private NavMeshAgent agent;
-    private Transform playerPosition;
+    private GameObject player;
     [SerializeField] AudioSource audioSource;
     Animator animator;
 
     [SerializeField] Transform[] points;
-    private int currentPoint = 0;
+    private int currentPoint;
     private float pointReach = 0.5f;
 
     /*
@@ -25,38 +25,45 @@ public class EnemyBehavior : MonoBehaviour
         animator = GetComponent<Animator>();
         animator.SetBool("isWalking", false);
         agent = GetComponent<NavMeshAgent>();
-        playerPosition = GameObject.FindWithTag("Player").transform;
+        player = GameObject.FindWithTag("Player");
         audioSource = GetComponent<AudioSource>();
         agent.autoBraking = false;
+        currentPoint = Random.Range(0, points.Length);
         }
     // Update is called once per frame
     void Update()
     {
-        if(playerPosition == null || !agent.isActiveAndEnabled){
+        if(player.transform.position == null || !agent.isActiveAndEnabled){
             return;
         }
-        //Consistently updates the enemy's distance from the player
-        float distanceFromPlayer = Vector3.Distance(playerPosition.position, this.transform.position);
 
-        //If the player is within the enemy's sight, and the enemy isn't dead, ChasePlayer() will be invoked
-        if(distanceFromPlayer <= sightRange){
-            ChasePlayer();
-        }
+        //Consistently updates the enemy's distance from the player
+        float distanceFromPlayer = Vector3.Distance(player.transform.position, this.transform.position);
+
+        if(gameObject.tag == "CameraMonster"){
+            //If the player is within the enemy's sight, and the enemy isn't dead, ChasePlayer() will be invoked
+            // if(distanceFromPlayer <= sightRange){
+            //     ChasePlayer();
+            // }
+
+            //If the enemy is not within the enemy's sight, then they will invoke Patrol(), to patrol a list of pre-determined points
+            if(points.Length > 0)
+                Patrol();
 
         //If the enemy is not within the enemy's sight, then they will invoke Patrol(), to patrol a list of pre-determined points
-        else{
-            Patrol();
         }
+
+        if(gameObject.tag == "FollowMonster"){
+            FollowPlayer();
+        }
+
     }
 
 
+    //Method for when enemy is patrolling around the map, not knowing where the enemy currently is
     void Patrol(){
 
         if(!agent.isActiveAndEnabled){
-            return;
-        }
-        //If the enemy has no points, then nothing will happen in this method
-        if(points.Length == 0){
             return;
         }
 
@@ -68,38 +75,81 @@ public class EnemyBehavior : MonoBehaviour
 
         //if the agent is within reach of his distance, then the enemy will make its way to the next waypoint
         if(!agent.pathPending && agent.remainingDistance < pointReach){
-
-            //adds 1 to currentPoint and finds the remainder from points.Length to ensure it never looks for a point that doesn't exist
-            //and thus goes in an endless cycle
-            currentPoint = (currentPoint + 1) % points.Length;
-            agent.SetDestination(points[currentPoint].position);
+            GetNewDestination();
         }
     }
+
+    //This method will get a new destination for our enemy
+    void GetNewDestination(){
+
+        //Temporarily stores our current position's value in our list
+            int tempNumber = currentPoint;
+
+            //Gets the next random position from our list
+            currentPoint = Random.Range(0, points.Length);
+
+            //If our new position is the exact same as our previous position, then we'll endlessly assign a random number to
+            //currentPoint, until it's different from our previous value, ensuring a new position is always assigned
+            if(currentPoint == tempNumber){
+                while(currentPoint == tempNumber){
+                    currentPoint = Random.Range(0, points.Length);
+                }
+            }
+            agent.SetDestination(points[currentPoint].position);
+    }
+
     //This method will chase the player, so long as the conditions to call it are met
     void ChasePlayer(){
         if(!agent.isActiveAndEnabled){
             return;
         }
         animator.SetBool("isWalking", true);
-        agent.SetDestination(playerPosition.position);
+        agent.SetDestination(player.transform.position);
+    }
+
+    //This method will follow the player, unless they're looked at (using PlayerSeesEnemy), in which case they'll stop
+    void FollowPlayer(){
+        if(PlayerSeesEnemy()){
+            if(agent.enabled != false){
+                agent.enabled = false;
+            }
+        }
+        else{
+            if(agent.enabled = false){
+               agent.enabled = true;
+            }
+            agent.SetDestination(player.transform.position);
+        }
+        agent.SetDestination(player.transform.position);
+    }
+
+    //This method will check if the player actively sees the enemy.
+    //If they do, the enemy will stop moving completely, imitating a statue
+    public bool PlayerSeesEnemy(){
+        Transform camera = player.GetComponent<PlayerControl>().cameraTransform;
+        RaycastHit hit;
+        Ray ray = new Ray(camera.position, camera.forward);
+        // Checks if something hits within 30 meters
+        if(Physics.Raycast(ray, out hit, 30)){
+            //If the player's camera sees the follow monster, it will stop moving altogether
+            if(hit.collider.tag == "FollowMonster"){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
     }
     //This method will only run if the enemy collides with other objects
     private void OnCollisionEnter(Collision collision){
 
         //This following block of code will only run if the enemy has run into an object whose tag is "Player"
         //In other words, this will only run if the enemy's come in contact with our enemy
-        if(collision.gameObject.tag == ("Player")){
-
-            //Get collider object for the player, and our enemy
-            Collider player = collision.collider;
-            Collider enemyAgent = GetComponent<Collider>();
-
-
-
-        }
-
         if(collision.gameObject.tag == "Interactable"){
-
+            collision.gameObject.GetComponent<InteractionHandler>().Interact(gameObject);
         }
     }
 } 
