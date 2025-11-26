@@ -44,7 +44,7 @@ public class EnemyBehavior : MonoBehaviour
             //If the player is within the enemy's sight, and the enemy isn't dead, ChasePlayer() will be invoked
             // if(distanceFromPlayer <= sightRange){
             //     ChasePlayer();
-            // }
+            //
 
             //If the enemy is not within the enemy's sight, then they will invoke Patrol(), to patrol a list of pre-determined points
             if(points.Length > 0)
@@ -118,15 +118,15 @@ public class EnemyBehavior : MonoBehaviour
 
     //This method will follow the player, unless they're looked at (using PlayerSeesEnemy), in which case they'll stop
     void FollowPlayer(){
+        animator.SetBool("isMoving", true);
         if(PlayerSeesEnemy()){
-            if(agent.enabled != false){
-                agent.enabled = false;
-            }
+            Debug.Log("Player is in view of enemy");
+            agent.isStopped = true;
+            animator.SetBool("isMoving", false);
         }
         else{
-            if(agent.enabled = false){
-               agent.enabled = true;
-            }
+            animator.SetBool("isMoving", true);
+            agent.isStopped = false;
             agent.SetDestination(player.transform.position);
         }
         agent.SetDestination(player.transform.position);
@@ -136,21 +136,21 @@ public class EnemyBehavior : MonoBehaviour
     //If they do, the enemy will stop moving completely, imitating a statue
     public bool PlayerSeesEnemy(){
         Transform camera = player.GetComponent<PlayerControl>().cameraTransform;
-        RaycastHit hit;
-        Ray ray = new Ray(camera.position, camera.forward);
+        Vector3 directionToEnemy = (transform.position - camera.position).normalized;
+        float angle = Vector3.Angle(camera.forward, directionToEnemy);
+
         // Checks if something hits within 30 meters
-        if(Physics.Raycast(ray, out hit, 30)){
-            //If the player's camera sees the follow monster, it will stop moving altogether
-            if(hit.collider.tag == "FollowMonster"){
-                return true;
-            }
-            else{
-                return false;
+        if(angle < 60f){
+            RaycastHit hit;
+            if(Physics.Raycast(camera.position, directionToEnemy, out hit, 30f)){
+                //If the player's camera sees the follow monster, it will stop moving altogether
+                if(hit.transform == transform){
+                    Debug.Log("In view of monster");
+                    return true;
+                }
             }
         }
-        else{
-            return false;
-        }
+        return false;
     }
     //This method will only run if the enemy collides with other objects
     private void OnCollisionEnter(Collision collision){
