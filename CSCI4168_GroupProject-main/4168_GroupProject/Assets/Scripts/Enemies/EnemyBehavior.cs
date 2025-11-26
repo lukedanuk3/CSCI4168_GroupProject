@@ -69,19 +69,26 @@ public class EnemyBehavior : MonoBehaviour
 
         //sets the enemy's animation state to walking, to signify he's moving
         animator.SetBool("isWalking", true);
+        // Debug.Log("Point Chosen: " + currentPoint);
+        // Debug.Log("Original Destination: " + points[currentPoint].position);
+        // Debug.Log("Original local Destination: " + points[currentPoint].position);
+
 
         //sets the enemy's destination to be the first point in its list of waypoints
         agent.SetDestination(points[currentPoint].position);
 
         //if the agent is within reach of his distance, then the enemy will make its way to the next waypoint
         if(!agent.pathPending && agent.remainingDistance < pointReach){
+            Debug.Log("Path Complete! Getting New Path");
+            animator.SetBool("isWalking", false);
             GetNewDestination();
+            Debug.Log("New Path: " + points[currentPoint].position);
         }
     }
 
     //This method will get a new destination for our enemy
     void GetNewDestination(){
-
+        Debug.Log("Getting new waypoint");
         //Temporarily stores our current position's value in our list
             int tempNumber = currentPoint;
 
@@ -95,6 +102,8 @@ public class EnemyBehavior : MonoBehaviour
                     currentPoint = Random.Range(0, points.Length);
                 }
             }
+            Debug.Log("New point found");
+            Debug.Log(points[currentPoint].position);
             agent.SetDestination(points[currentPoint].position);
     }
 
