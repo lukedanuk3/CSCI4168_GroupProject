@@ -33,24 +33,23 @@ public class EnemyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player.transform.position == null || !agent.isActiveAndEnabled){
-            return;
-        }
+        // // if(player.transform.position == null || !agent.isActiveAndEnabled){
+        //     return;
+        // }
 
         //Consistently updates the enemy's distance from the player
         float distanceFromPlayer = Vector3.Distance(player.transform.position, this.transform.position);
 
         if(gameObject.tag == "CameraMonster"){
             //If the player is within the enemy's sight, and the enemy isn't dead, ChasePlayer() will be invoked
-            // if(distanceFromPlayer <= sightRange){
-            //     ChasePlayer();
-            //
+            if(EnemySeesPlayer()){
+                ChasePlayer();
+            }
 
             //If the enemy is not within the enemy's sight, then they will invoke Patrol(), to patrol a list of pre-determined points
             if(points.Length > 0)
                 Patrol();
 
-        //If the enemy is not within the enemy's sight, then they will invoke Patrol(), to patrol a list of pre-determined points
         }
 
         if(gameObject.tag == "FollowMonster"){
@@ -109,6 +108,7 @@ public class EnemyBehavior : MonoBehaviour
 
     //This method will chase the player, so long as the conditions to call it are met
     void ChasePlayer(){
+        Debug.Log("Destination: " + agent.destination);
         if(!agent.isActiveAndEnabled){
             return;
         }
@@ -132,6 +132,23 @@ public class EnemyBehavior : MonoBehaviour
         agent.SetDestination(player.transform.position);
     }
 
+
+    public bool EnemySeesPlayer(){
+        Transform camera = player.GetComponent<PlayerControl>().cameraTransform;
+        Vector3 directionToPlayer = (camera.position - transform.position).normalized;
+        float angle = Vector3.Angle(transform.forward, directionToPlayer);
+
+        if(angle < 60f){
+            RaycastHit hit;
+            if(Physics.Raycast(transform.position, directionToPlayer, out hit, 30f)){
+                if(hit.transform == player.transform){
+                    Debug.Log("Spooky Squid sees player");
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     //This method will check if the player actively sees the enemy.
     //If they do, the enemy will stop moving completely, imitating a statue
     public bool PlayerSeesEnemy(){
