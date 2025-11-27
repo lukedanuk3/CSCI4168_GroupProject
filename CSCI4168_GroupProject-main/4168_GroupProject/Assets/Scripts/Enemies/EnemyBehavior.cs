@@ -30,7 +30,8 @@ public class EnemyBehavior : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         agent.autoBraking = false;
         currentPoint = Random.Range(0, points.Length);
-        rotationSpeed = 2f;
+        agent.updateRotation = false;
+        rotationSpeed = 2;
         }
     // Update is called once per frame
     void Update()
@@ -46,7 +47,7 @@ public class EnemyBehavior : MonoBehaviour
         // Vector3 direction = agent.velocity.normalized;
         // Quaternion lookRotation = Quaternion.LookRotation(direction);
         // transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
-        transform.rotation = Quaternion.LookRotation(agent.velocity);
+
 
         if(gameObject.tag == "CameraMonster"){
             //If the player is within the enemy's sight, and the enemy isn't dead, ChasePlayer() will be invoked
@@ -67,6 +68,12 @@ public class EnemyBehavior : MonoBehaviour
             FollowPlayer();
         }
 
+        Vector3 direction = agent.desiredVelocity;
+        if(direction.sqrMagnitude > 0.01f){
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
+        }
+
     }
 
 
@@ -85,7 +92,7 @@ public class EnemyBehavior : MonoBehaviour
 
 
         //sets the enemy's destination to be the first point in its list of waypoints
-        agent.SetDestination(points[currentPoint].position);
+        // agent.SetDestination(points[currentPoint].position);
 
         //if the agent is within reach of his distance, then the enemy will make its way to the next waypoint
         if(!agent.pathPending && agent.remainingDistance < pointReach){
