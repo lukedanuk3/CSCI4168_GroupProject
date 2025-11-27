@@ -9,9 +9,12 @@ public class DoorHandler : MonoBehaviour
     private float originalRotation;
     private float newRotation;
     private float currentRotation;
+    Animator anim;
 
     private void Start(){
+        anim = gameObject.GetComponent<Animator>();
         originalRotation = gameObject.transform.localEulerAngles.y;
+        anim.SetBool("IsClosed", true);
     }
     public GameObject doorOpenInstructions;
     public void Interact(){
@@ -37,11 +40,10 @@ public class DoorHandler : MonoBehaviour
     }
     
     public void Open(){
-        Animator anim = gameObject.GetComponent<Animator>();
-        Debug.Log("Current Rotation: " + gameObject.transform.localEulerAngles.y);
-        Debug.Log("Original Rotation: " + originalRotation);
-        if(gameObject.transform.localEulerAngles.y == originalRotation){
+        Debug.Log(anim.GetBool("IsClosed"));
+        if(anim.GetBool("IsClosed") == true){
             if(anim.GetBool("HasBeenOpened") == false){
+                Debug.Log("Door has never been opened before");
                 anim.SetBool("HasBeenOpened", true);
             }
             Debug.Log("Opening Door");
@@ -66,14 +68,12 @@ public class DoorHandler : MonoBehaviour
     }
     IEnumerator CloseDoor(Animator anim, GameObject door, float delayTime){
         yield return new WaitForSeconds(delayTime);
-        if(door.transform.localEulerAngles.y != 0){
-            if(anim.GetBool("IsClosed") == false){
-                Debug.Log("Door is opened");
-                anim.SetBool("IsClosed", true);
-                anim.SetTrigger("OpenClose");  
+        if(anim.GetBool("IsClosed") == false){
+            Debug.Log("Door is opened");
+            anim.SetBool("IsClosed", true);
+            anim.SetTrigger("OpenClose");  
             }
 
             // door.transform.Rotate(0, 90, 0, Space.World);
-        }
     }
 }

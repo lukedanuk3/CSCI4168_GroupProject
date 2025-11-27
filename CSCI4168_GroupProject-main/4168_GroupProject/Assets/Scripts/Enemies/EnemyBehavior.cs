@@ -31,7 +31,6 @@ public class EnemyBehavior : MonoBehaviour
         agent.autoBraking = false;
         currentPoint = Random.Range(0, points.Length);
         rotationSpeed = 2f;
-        agent.updateRotation = false;
         }
     // Update is called once per frame
     void Update()
