@@ -179,7 +179,6 @@ public class PlayerControl : MonoBehaviour
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
         if(Physics.Raycast(ray, out hit, interactionRange)){
             if(hit.collider.tag == "Door"){
-                    Debug.Log("Door in range");
                     doorOpenInstructions.SetActive(true);
             }
             else if (hit.collider.tag == "Tool"){
