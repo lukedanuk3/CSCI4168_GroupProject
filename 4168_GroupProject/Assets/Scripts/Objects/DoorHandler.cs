@@ -1,0 +1,64 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DoorHandler : MonoBehaviour
+{
+
+    private IEnumerator coroutineInstance;
+    public GameObject doorOpenInstructions;
+    public void Interact(){
+        Open();
+        
+        //open or close door...
+    }
+
+    private void OnTriggerStay(Collider other){
+        if(other.tag == "Door"){
+            if(Input.GetKeyDown(KeyCode.E)){
+                Interact();
+                other.transform.Rotate(0,90,0, Space.World);
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other){
+        if(other.tag == "Door"){
+            doorOpenInstructions.SetActive(false);
+            other.transform.Rotate(0,-90,0, Space.World);
+        }
+    }
+    
+    public void Open(){
+        Animator anim = gameObject.GetComponent<Animator>();
+        anim.SetBool("HasBeenOpened", true);
+        if(gameObject.transform.rotation.y == 0){
+            Debug.Log("Opening Door");
+            anim.SetBool("IsClosed", false);
+            anim.SetTrigger("OpenClose");
+            // gameObject.transform.Rotate(0,-90,0, Space.World); 
+            coroutineInstance = CloseDoor(anim, gameObject, 2.0f);    
+            StartCoroutine(coroutineInstance);
+   
+        }
+        else{
+            StopCoroutine(coroutineInstance);
+            anim.SetBool("IsClosed", true);  
+            anim.SetTrigger("OpenClose");
+
+        }
+        // anim.SetTrigger("OpenClose");     
+    }
+    IEnumerator CloseDoor(Animator anim, GameObject door, float delayTime){
+        yield return new WaitForSeconds(delayTime);
+        if(door.transform.rotation.y != 0){
+            if(anim.GetBool("IsClosed") == false){
+                Debug.Log("Door is opened");
+                anim.SetBool("IsClosed", true);
+                anim.SetTrigger("OpenClose");  
+            }
+
+            // door.transform.Rotate(0, 90, 0, Space.World);
+        }
+    }
+}
