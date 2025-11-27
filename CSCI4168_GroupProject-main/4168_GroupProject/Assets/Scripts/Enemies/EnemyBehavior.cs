@@ -14,6 +14,7 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] Transform[] points;
     private int currentPoint;
     private float pointReach = 0.5f;
+    private float rotationSpeed;
 
     /*
     When the scene starts, we'll do the following
@@ -29,6 +30,8 @@ public class EnemyBehavior : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         agent.autoBraking = false;
         currentPoint = Random.Range(0, points.Length);
+        rotationSpeed = 2f;
+        agent.updateRotation = false;
         }
     // Update is called once per frame
     void Update()
@@ -40,6 +43,12 @@ public class EnemyBehavior : MonoBehaviour
         //Consistently updates the enemy's distance from the player
         float distanceFromPlayer = Vector3.Distance(player.transform.position, this.transform.position);
 
+        //Update the enemy's direction based on their direction of movement
+        // Vector3 direction = agent.velocity.normalized;
+        // Quaternion lookRotation = Quaternion.LookRotation(direction);
+        // transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
+        transform.rotation = Quaternion.LookRotation(agent.velocity);
+
         if(gameObject.tag == "CameraMonster"){
             //If the player is within the enemy's sight, and the enemy isn't dead, ChasePlayer() will be invoked
             if(EnemySeesPlayer()){
@@ -47,9 +56,12 @@ public class EnemyBehavior : MonoBehaviour
             }
 
             //If the enemy is not within the enemy's sight, then they will invoke Patrol(), to patrol a list of pre-determined points
-            if(points.Length > 0)
-                Patrol();
-
+            else{
+                Debug.Log("Player not in sight");
+                if(points.Length > 0){
+                    Patrol();
+                }
+            }
         }
 
         if(gameObject.tag == "FollowMonster"){

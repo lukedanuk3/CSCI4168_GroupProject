@@ -42,9 +42,12 @@ public class DoorHandler : MonoBehaviour
    
         }
         else{
-            StopCoroutine(coroutineInstance);
-            anim.SetBool("IsClosed", true);  
-            anim.SetTrigger("OpenClose");
+            if(coroutineInstance != null){
+                StopCoroutine(coroutineInstance);
+                anim.SetBool("IsClosed", true);  
+                anim.SetTrigger("OpenClose");
+            }
+ 
 
         }
         // anim.SetTrigger("OpenClose");     
