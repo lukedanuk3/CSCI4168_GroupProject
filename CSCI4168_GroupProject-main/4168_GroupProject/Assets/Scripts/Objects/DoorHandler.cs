@@ -16,27 +16,10 @@ public class DoorHandler : MonoBehaviour
         originalRotation = gameObject.transform.localEulerAngles.y;
         anim.SetBool("IsClosed", true);
     }
-    public GameObject doorOpenInstructions;
     public void Interact(){
         Open();
         
         //open or close door...
-    }
-
-    private void OnTriggerStay(Collider other){
-        if(other.tag == "Door"){
-            if(Input.GetKeyDown(KeyCode.E)){
-                Interact();
-                other.transform.Rotate(0,90,0, Space.World);
-            }
-        }
-    }
-
-    private void OnTriggerExit(Collider other){
-        if(other.tag == "Door"){
-            doorOpenInstructions.SetActive(false);
-            other.transform.Rotate(0,-90,0, Space.World);
-        }
     }
     
     public void Open(){
