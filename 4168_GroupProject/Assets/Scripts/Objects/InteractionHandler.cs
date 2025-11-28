@@ -11,7 +11,7 @@ public class InteractionHandler : MonoBehaviour
 
     public string objectType;
 
-    public void Interact(GameObject player){
+    /*public void Interact(GameObject player){
         if (objectType == TOOL){
             player.GetComponent<PlayerControl>().PickUpTool(gameObject);
         }else if (objectType == DOOR){
@@ -19,6 +19,6 @@ public class InteractionHandler : MonoBehaviour
         }else if (objectType == BUTTON){
             //TODO: buttons?
         }
-    }
+    }*/
 
 }

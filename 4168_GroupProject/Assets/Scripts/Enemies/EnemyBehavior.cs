@@ -21,7 +21,7 @@ public class EnemyBehavior : MonoBehaviour
         - Obtain our player's beginning coordinates
         - Assign the enemy's death sound (guess who it is)
     */
-    void Start(){
+    /*void Start(){
         animator = GetComponent<Animator>();
         animator.SetBool("isWalking", false);
         agent = GetComponent<NavMeshAgent>();
@@ -135,7 +135,7 @@ public class EnemyBehavior : MonoBehaviour
 
     public bool EnemySeesPlayer(){
         Transform camera = player.GetComponent<PlayerControl>().cameraTransform;
-        Vector3 directionToPlayer = (camera.position - transform.position).normalized;
+        Vector3 directionToPlayer = (GetComponent<Camera>().position - transform.position).normalized;
         float angle = Vector3.Angle(transform.forward, directionToPlayer);
 
         if(angle < 60f){
@@ -177,5 +177,5 @@ public class EnemyBehavior : MonoBehaviour
         if(collision.gameObject.tag == "Interactable"){
             collision.gameObject.GetComponent<InteractionHandler>().Interact(gameObject);
         }
-    }
+    }*/
 } 
