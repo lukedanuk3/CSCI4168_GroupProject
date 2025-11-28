@@ -20,6 +20,7 @@ public class MenuRandomEvent : MonoBehaviour
     private bool waiting = false;
     private bool moveBack = false;
 
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

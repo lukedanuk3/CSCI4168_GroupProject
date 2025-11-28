@@ -48,6 +48,14 @@ public class PlayerControl : MonoBehaviour
     public Vector3 toolRelativePosition;
     public Vector3 toolRelativeRotation;
 
+    //Tool Inventory
+    private string[] items = new string[2];
+
+    //Player's health
+    public int health = 3;
+
+    //UI Manager
+    public UIManager uiManager;
     //Tool use
     private int toolCoolDown = 100;
     private bool toolInUse = false;
@@ -285,4 +293,41 @@ public class PlayerControl : MonoBehaviour
         if (isAnimated)
             playerAnimator.Play(currentState);
     }
+
+    //Remove health from the player
+    public void takeDamage()
+    {
+        health--;
+        uiManager.UpdateHealth(health);
+    }
+
+    //Add health to the player 
+    public void heal()
+    {
+        health++;
+        uiManager.UpdateHealth(health);
+    }
+
+    //Display the health the player has
+    public int returnHealth()
+    {
+        return health;
+    }
+
+    //Update the tools the player has equipped
+    public bool updateItems(string s, int index)
+    {
+        if (index < 0 || index > 1)
+        {
+            return false;
+        }
+        items[index] = s;
+        return true;
+    }
+
+    //Return the tools the player currently has equipped
+    public string[] getItems()
+    {
+        return items;
+    }    
 }
