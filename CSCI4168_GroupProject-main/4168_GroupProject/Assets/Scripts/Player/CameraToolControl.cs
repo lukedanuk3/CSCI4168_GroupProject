@@ -4,11 +4,10 @@ using UnityEngine.UI;
 
 public class CameraToolControl : MonoBehaviour
 {
-
     public Camera fpsCamera;
 
     public GameObject uiPanel;
-    bool isOpen;
+    public bool isOpen;
 
     void Update(){
         if (isOpen){

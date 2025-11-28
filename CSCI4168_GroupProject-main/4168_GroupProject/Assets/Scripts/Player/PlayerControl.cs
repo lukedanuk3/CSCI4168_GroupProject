@@ -39,6 +39,7 @@ public class PlayerControl : MonoBehaviour
     //Game world and character
     private GameObject[] interactables;
     public float interactionRange;
+    private GameObject[] cameraEnemies;
 
     //Inventory
     public List<GameObject> inventory;
@@ -68,6 +69,14 @@ public class PlayerControl : MonoBehaviour
     {
         //Load all interactable objects in the level into the Interactables array
         interactables = GameObject.FindGameObjectsWithTag("Interactable");
+        cameraEnemies = GameObject.FindGameObjectsWithTag("CameraMonster");
+        foreach (GameObject cameraEnemy in cameraEnemies){
+            foreach(Renderer render in cameraEnemy.GetComponentsInChildren<Renderer>()){
+                if(render != null){
+                    render.enabled = false;
+                }
+            }
+        }
 
         cameraControl = camera.GetComponent<CameraToolControl>();
 
@@ -97,6 +106,25 @@ public class PlayerControl : MonoBehaviour
                 toolInUse = false;
                 toolCoolDown = 100;
             }
+        }
+        if(cameraControl.uiPanel.activeInHierarchy){
+            Debug.Log("Camera is open");
+            foreach (GameObject cameraEnemy in cameraEnemies){
+                foreach(Renderer render in cameraEnemy.GetComponentsInChildren<Renderer>()){
+                    if(render != null){
+                        render.enabled = true;
+                    }
+                }
+            }
+        }
+        else{
+            foreach (GameObject cameraEnemy in cameraEnemies){
+                foreach(Renderer render in cameraEnemy.GetComponentsInChildren<Renderer>()){
+                    if(render != null){
+                        render.enabled = false;
+                    }
+                }
+            }   
         }
     }
 
@@ -190,11 +218,12 @@ public class PlayerControl : MonoBehaviour
                     doorOpenInstructions.SetActive(true);
             }
             else if (hit.collider.tag == "Tool"){
-                // toolPickUpInstructions.SetActive(true);
+                    toolPickUpInstructions.SetActive(true);
             }
             }
             else{
                 doorOpenInstructions.SetActive(false);
+                toolPickUpInstructions.SetActive(false);
             }
        
     }

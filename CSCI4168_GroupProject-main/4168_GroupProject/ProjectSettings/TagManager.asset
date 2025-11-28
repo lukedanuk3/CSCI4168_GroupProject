@@ -8,6 +8,10 @@ TagManager:
   - Interactable
   - CameraMonster
   - FollowMonster
+  - Enemy
+  - Objective
+  - Board
+  - Tool
   layers:
   - Default
   - TransparentFX
