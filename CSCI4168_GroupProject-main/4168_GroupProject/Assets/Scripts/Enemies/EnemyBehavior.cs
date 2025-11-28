@@ -23,7 +23,7 @@ public class EnemyBehavior : MonoBehaviour
         - Assign the enemy's death sound (guess who it is)
     */
     void Start(){
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         animator.SetBool("isWalking", false);
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player");
