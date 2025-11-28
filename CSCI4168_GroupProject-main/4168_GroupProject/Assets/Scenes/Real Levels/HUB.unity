@@ -3125,6 +3125,10 @@ PrefabInstance:
       value: TestCharacter
       objectReference: {fileID: 0}
     - target: {fileID: 6307746681147263951, guid: 1d03290cd1f6446ee8a8362cf2715fe6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6307746681147263951, guid: 1d03290cd1f6446ee8a8362cf2715fe6, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
