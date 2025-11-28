@@ -187,8 +187,7 @@ public class EnemyBehavior : MonoBehaviour
         return false;
     }
     //This method will only run if the enemy collides with other objects
-    private void OnCollisionEnter(Collision collision){
-
+    private void OnTriggerEnter(Collider collision){
         //This following block of code will only run if the enemy has run into an object whose tag is "Player"
         //In other words, this will only run if the enemy's come in contact with our enemy
         if(collision.gameObject.tag == "Interactable"){

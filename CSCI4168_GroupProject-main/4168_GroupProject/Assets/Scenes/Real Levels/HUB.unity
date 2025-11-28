@@ -961,6 +961,8 @@ MonoBehaviour:
   toolHolder: {fileID: 0}
   toolRelativePosition: {x: 0, y: 0, z: 0}
   toolRelativeRotation: {x: 0, y: 0, z: 0}
+  health: 3
+  uiManager: {fileID: 0}
   camera: {fileID: 13985468}
 --- !u!1 &193688619
 GameObject:
@@ -2001,7 +2003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 607547a95d51549cab295bf9e6af5625, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.978073
+      value: -7.922
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 607547a95d51549cab295bf9e6af5625, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2152,7 +2154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2d60563fe89584399a1f002e136bca2f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.6284637
+      value: -3.33
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2d60563fe89584399a1f002e136bca2f, type: 3}
       propertyPath: m_LocalRotation.w
