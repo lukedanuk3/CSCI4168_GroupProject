@@ -57,7 +57,6 @@ public class EnemyBehavior : MonoBehaviour
 
             //If the enemy is not within the enemy's sight, then they will invoke Patrol(), to patrol a list of pre-determined points
             else{
-                Debug.Log("Player not in sight");
                 if(points.Length > 0){
                     Patrol();
                 }
@@ -193,6 +192,7 @@ public class EnemyBehavior : MonoBehaviour
         //This following block of code will only run if the enemy has run into an object whose tag is "Player"
         //In other words, this will only run if the enemy's come in contact with our enemy
         if(collision.gameObject.tag == "Interactable"){
+            Debug.Log("Enemy Interacted with door");
             collision.gameObject.GetComponent<InteractionHandler>().Interact(gameObject);
         }
     }
