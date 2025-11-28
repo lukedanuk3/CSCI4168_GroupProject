@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638983019197025859
-    m_Hash: 2796663711
+      ticks: 638998872056546103
+    m_Hash: 2863968313
   m_LockFileStatus:
     m_FilePath: C:/Users/dania/Documents/git/csci4168/CSCI4168_GroupProject/4168_GroupProject/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638983019197025859
-    m_Hash: 144411762
+      ticks: 638998872056656748
+    m_Hash: 2420082261
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_LocalPackages:
@@ -22,6 +22,138 @@ m_LocalPackages:
 m_ProjectPath: C:/Users/dania/Documents/git/csci4168/CSCI4168_GroupProject/4168_GroupProject/Packages
 m_EditorVersion: 6000.0.58f1 (44b8bf3a3225)
 m_ResolvedPackages:
+- packageId: com.unity.ai.navigation@2.0.9
+  testable: 0
+  isDirectDependency: 1
+  version: 2.0.9
+  source: 1
+  resolvedPath: C:\Users\dania\Documents\git\csci4168\CSCI4168_GroupProject\4168_GroupProject\Library\PackageCache\com.unity.ai.navigation@5218e4bf7edc
+  assetPath: Packages/com.unity.ai.navigation
+  name: com.unity.ai.navigation
+  displayName: AI Navigation
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: 
+  description: The AI Navigation package contains high-level components that allow
+    you to use navmeshes to incorporate navigation and pathfinding in your game.
+    With this package installed you can build and use navmeshes at runtime and at
+    edit time, create dynamic obstacles, and use links to allow specific actions
+    (like jumping) as your characters navigate between navmeshes.
+  errors: []
+  versions:
+    all:
+    - 1.0.0-exp.2
+    - 1.0.0-exp.3
+    - 1.0.0-exp.4
+    - 1.1.0-pre.1
+    - 1.1.0-pre.2
+    - 1.1.1
+    - 1.1.3
+    - 1.1.4
+    - 1.1.5
+    - 1.1.6
+    - 1.1.7
+    - 2.0.0-pre.3
+    - 2.0.0-pre.4
+    - 2.0.0
+    - 2.0.3
+    - 2.0.4
+    - 2.0.5
+    - 2.0.6
+    - 2.0.7
+    - 2.0.8
+    - 2.0.9
+    compatible:
+    - 2.0.9
+    recommended: 2.0.9
+    deprecated: []
+  dependencies:
+  - name: com.unity.modules.ai
+    version: 1.0.0
+  resolvedDependencies:
+  - name: com.unity.modules.ai
+    version: 1.0.0
+  keywords:
+  - carving
+  - mesh
+  - navigation
+  - navmesh
+  - NavMesh
+  - navmesh agent
+  - navmesh link
+  - navmeshlink
+  - navmesh modifier
+  - navmeshmodifier
+  - navmesh modifier volume
+  - navmeshmodifiervolume
+  - navmesh obstacle
+  - navmesh surface
+  - navmeshsurface
+  - offmesh link
+  - off-mesh link
+  - pathfinding
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+    compliance:
+      status: 0
+      violations: []
+  hideInEditor: 1
+  entitlements:
+    licensingModel: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 638919725134710000
+  documentationUrl: https://docs.unity3d.com/Packages/com.unity.ai.navigation@2.0/manual/index.html
+  hasRepository: 1
+  repository:
+    type: git
+    url: https://github.cds.internal.unity3d.com/unity/com.unity.ai.navigation.git
+    revision: 91b1bd9119720d8e48b9f9de9ad18da1e8c1088e
+    path: 
+  unityLifecycle:
+    version: 2.0.9
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+  git:
+    hash: 
+    revision: 
+  upmReserved: '{"changelog":"### Added\n* New sample scene **9_agent_cornering_control**
+    to demonstrate controlling an agent''s velocity in order to better navigate tight
+    corners. ([UUM-59747](https://issuetracker.unity3d.com/product/unity/issues/guid/UUM-59747))\n\n###
+    Fixed\n* Fixed samples not correctly configuring navigation agent types when
+    imported into a project.\n* Foldouts in **AI Navigation** overlay collapse when
+    toggling settings. ([NAVB-144](https://issuetracker.unity3d.com/product/unity/issues/guid/NAVB-144))\n*
+    Fixed poor performance when enabling/disabling increasing numbers of NavMeshModifiers.
+    ([NAVB-96](https://issuetracker.unity3d.com/product/unity/issues/guid/NAVB-96))\n*
+    A small white square was displayed in the scene on top of the gizmo icons for
+    NavMesh Link, NavMesh Modifier Volume and NavMesh Surface. ([NAVB-154](https://issuetracker.unity3d.com/product/unity/issues/guid/NAVB-154))\n*
+    **Navigation Updater** no longer attempts to process scenes and prefabs from
+    the read-only **Packages** folder. ([NAVB-146](https://issuetracker.unity3d.com/product/unity/issues/guid/NAVB-146))"}'
+  assetStore:
+    productId: 
+  fingerprint: 5218e4bf7edc04fcad4ed3836c1c41aef334b996
+  editorCompatibility:
+    compatibilityLevel: 0
+    minimumPackageVersion: 2.0.9
+    minimumUnityVersion: 6000.0.0a1
+  compliance:
+    status: 0
+    violation:
+      scopePatternExpression: 
+      message: 
+      readMoreLink: 
 - packageId: com.unity.collab-proxy@2.10.0
   testable: 0
   isDirectDependency: 1
@@ -404,10 +536,12 @@ m_ResolvedPackages:
     - 1.14.2
     - 1.15.0
     - 1.16.0
+    - 1.17.0
     compatible:
     - 1.14.2
     - 1.15.0
     - 1.16.0
+    - 1.17.0
     recommended: 1.14.2
     deprecated: []
   dependencies:

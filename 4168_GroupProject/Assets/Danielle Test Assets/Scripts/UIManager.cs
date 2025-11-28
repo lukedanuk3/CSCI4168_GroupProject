@@ -13,23 +13,20 @@ public class UIManager : MonoBehaviour
 
     public GameObject gameplayUI;
     public GameObject selectionUI;
+    public GameObject gameOverUI;
 
     public TMP_Text lifeText;
 
     public void UpdateHealth(int health)
     {
-        //Debug.Log("updating health");
-        //Debug.Log(health);
         if (health == 3)
         {
-            Debug.Log("enabling");
             health1.gameObject.SetActive(false);
             health2.gameObject.SetActive(false);
             health3.gameObject.SetActive(false);
         }
         if (health == 2)
         {
-            Debug.Log("enabling");
             health1.gameObject.SetActive(true);
             health2.gameObject.SetActive(false);
             health3.gameObject.SetActive(false);
@@ -77,6 +74,14 @@ public class UIManager : MonoBehaviour
     public void setSelectionUIInactive()
     {
         selectionUI.SetActive(false);
+    }
+
+    public void activateGameOver()
+    {
+        // disable gameplay UI
+        gameplayUI.SetActive(false);
+        // enable game over screen
+        gameOverUI.SetActive(true);
     }
 
     public void increaseCounter()
