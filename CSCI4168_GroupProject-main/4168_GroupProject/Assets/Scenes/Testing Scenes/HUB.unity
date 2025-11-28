@@ -581,7 +581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fpsCamera: {fileID: 13985472}
-  uiPanel: {fileID: 1383471060}
+  uiPanel: {fileID: 872752771}
 --- !u!114 &13985476
 MonoBehaviour:
   m_ObjectHideFlags: 0
