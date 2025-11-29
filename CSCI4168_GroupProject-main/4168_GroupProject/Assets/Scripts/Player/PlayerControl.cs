@@ -12,6 +12,8 @@ public class PlayerControl : MonoBehaviour
     public GameObject doorOpenInstructions;
     public GameObject toolPickUpInstructions;
     public GameObject trapBreakInstructions;
+    public GameObject levelSelectInstructions;
+    public GameObject toolSelectInstructions;
     [Space]
 
     //FPS camera transform
@@ -215,15 +217,22 @@ public class PlayerControl : MonoBehaviour
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
         if(Physics.Raycast(ray, out hit, interactionRange)){
             if(hit.collider.tag == "Door"){
-                    doorOpenInstructions.SetActive(true);
+                doorOpenInstructions.SetActive(true);
             }
             else if (hit.collider.tag == "Tool"){
-                    toolPickUpInstructions.SetActive(true);
+                toolPickUpInstructions.SetActive(true);
             }
+            else if(hit.collider.tag == "LevelSelector"){
+                levelSelectInstructions.SetActive(true);
+            }
+            else if(hit.collider.tag == "ToolSelector")
+                toolSelectInstructions.SetActive(true);
             }
             else{
                 doorOpenInstructions.SetActive(false);
                 toolPickUpInstructions.SetActive(false);
+                toolSelectInstructions.SetActive(false);
+                levelSelectInstructions.SetActive(false);
             }
        
     }

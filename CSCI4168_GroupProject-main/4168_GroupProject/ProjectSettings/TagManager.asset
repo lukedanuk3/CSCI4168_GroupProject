@@ -12,6 +12,9 @@ TagManager:
   - Objective
   - Board
   - Tool
+  - LevelSelector
+  - ToolSelector
+  - Radio
   layers:
   - Default
   - TransparentFX

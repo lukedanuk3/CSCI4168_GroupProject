@@ -8,6 +8,8 @@ public class InteractionHandler : MonoBehaviour
     const string TOOL = "TOOL";
     const string DOOR = "DOOR";
     const string BUTTON = "BUTTON";
+    const string TOOLSELECTOR = "TOOLS";
+    const string LEVELSELECTOR = "LEVEL";
 
     public string objectType;
 
@@ -18,6 +20,12 @@ public class InteractionHandler : MonoBehaviour
             gameObject.GetComponent<DoorHandler>().Interact();
         }else if (objectType == BUTTON){
             //TODO: buttons?
+        }
+        else if(objectType == TOOLSELECTOR){
+
+        }
+        else if(objectType == LEVELSELECTOR){
+
         }
     }
 
