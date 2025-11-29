@@ -227,12 +227,13 @@ public class PlayerControl : MonoBehaviour
             }
             else if(hit.collider.tag == "ToolSelector")
                 toolSelectInstructions.SetActive(true);
-            }
+
             else{
                 doorOpenInstructions.SetActive(false);
                 toolPickUpInstructions.SetActive(false);
                 toolSelectInstructions.SetActive(false);
                 levelSelectInstructions.SetActive(false);
+            }
             }
        
     }

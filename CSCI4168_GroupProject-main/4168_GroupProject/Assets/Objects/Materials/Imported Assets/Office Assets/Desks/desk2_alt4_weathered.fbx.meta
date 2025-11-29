@@ -3,7 +3,12 @@ guid: 55242ec4a4896400fa6b110359ace304
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: desk_2_timeworn
+    second: {fileID: 2100000, guid: a45029fdc967048d385700f1d59bbc52, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
