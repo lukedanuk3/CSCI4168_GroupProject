@@ -3853,7 +3853,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376908633842720052, guid: e355aee006ed44bcfa4133f7799e3cd2, type: 3}
       propertyPath: m_Name
-      value: TestDoor (4)
+      value: Potential Exit 2
       objectReference: {fileID: 0}
     - target: {fileID: 3883892398181148571, guid: e355aee006ed44bcfa4133f7799e3cd2, type: 3}
       propertyPath: m_Controller
@@ -16535,7 +16535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376908633842720052, guid: e355aee006ed44bcfa4133f7799e3cd2, type: 3}
       propertyPath: m_Name
-      value: TestDoor (8)
+      value: Potential Exit
       objectReference: {fileID: 0}
     - target: {fileID: 3944772908914626325, guid: e355aee006ed44bcfa4133f7799e3cd2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17217,7 +17217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376908633842720052, guid: e355aee006ed44bcfa4133f7799e3cd2, type: 3}
       propertyPath: m_Name
-      value: TestDoor (5)
+      value: Potential Exit 3
       objectReference: {fileID: 0}
     - target: {fileID: 3944772908914626325, guid: e355aee006ed44bcfa4133f7799e3cd2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -20791,6 +20791,8 @@ MonoBehaviour:
   doorOpenInstructions: {fileID: 2079495046}
   toolPickUpInstructions: {fileID: 549393693}
   trapBreakInstructions: {fileID: 0}
+  levelSelectInstructions: {fileID: 0}
+  toolSelectInstructions: {fileID: 0}
   cameraTransform: {fileID: 1744605164}
   lookSensitivity: 3
   speed: 10

@@ -7682,7 +7682,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376908633842720052, guid: e355aee006ed44bcfa4133f7799e3cd2, type: 3}
       propertyPath: m_Name
-      value: TestDoor (10)
+      value: Potential Exit 2
       objectReference: {fileID: 0}
     - target: {fileID: 3883892398181148571, guid: e355aee006ed44bcfa4133f7799e3cd2, type: 3}
       propertyPath: m_Controller
@@ -18461,7 +18461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376908633842720052, guid: e355aee006ed44bcfa4133f7799e3cd2, type: 3}
       propertyPath: m_Name
-      value: TestDoor (7)
+      value: Potential Exit 3
       objectReference: {fileID: 0}
     - target: {fileID: 3883892398181148571, guid: e355aee006ed44bcfa4133f7799e3cd2, type: 3}
       propertyPath: m_Controller
@@ -34228,6 +34228,8 @@ MonoBehaviour:
   doorOpenInstructions: {fileID: 0}
   toolPickUpInstructions: {fileID: 0}
   trapBreakInstructions: {fileID: 0}
+  levelSelectInstructions: {fileID: 0}
+  toolSelectInstructions: {fileID: 0}
   cameraTransform: {fileID: 1453849515}
   lookSensitivity: 10
   speed: 10
@@ -34237,6 +34239,8 @@ MonoBehaviour:
   toolHolder: {fileID: 0}
   toolRelativePosition: {x: 0, y: 0, z: 0}
   toolRelativeRotation: {x: 0, y: 0, z: 0}
+  health: 3
+  uiManager: {fileID: 0}
   camera: {fileID: 1453849512}
 --- !u!136 &1632244769
 CapsuleCollider:
@@ -43726,7 +43730,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2376908633842720052, guid: e355aee006ed44bcfa4133f7799e3cd2, type: 3}
       propertyPath: m_Name
-      value: TestDoor (3)
+      value: Potential Exit
       objectReference: {fileID: 0}
     - target: {fileID: 3883892398181148571, guid: e355aee006ed44bcfa4133f7799e3cd2, type: 3}
       propertyPath: m_Controller
