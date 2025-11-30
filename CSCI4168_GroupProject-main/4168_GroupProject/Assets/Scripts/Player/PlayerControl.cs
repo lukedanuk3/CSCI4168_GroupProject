@@ -126,9 +126,15 @@ public class PlayerControl : MonoBehaviour
         HandlePosition();
         HandleOtherInput();
         if(currentState == WALK){
-            Debug.Log("Player is walking");
             if(!walkSound.isPlaying){
                 walkSound.Play();
+            }
+            if(Input.GetKey(KeyCode.LeftShift)){
+                Debug.Log("player is running");
+                walkSound.pitch = 2.0f;
+            }
+            else{
+                walkSound.pitch = 1.0f;
             }
         }
         else{
