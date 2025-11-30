@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Unity.AI.Navigation;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -23,8 +24,8 @@ public class PlayerControl : MonoBehaviour
     [Space]
 
     //Used to close select UIs
-    public bool toolSelectIsActive;
-    public bool levelSelectIsActive;
+    private bool toolSelectIsActive;
+    private bool levelSelectIsActive;
 
     //Used to store the user's selected level
     public string levelName;
@@ -32,13 +33,21 @@ public class PlayerControl : MonoBehaviour
 
     //Audio for player
     public AudioSource walkSound;
+    
     //FPS camera transform
     public Transform cameraTransform;
     [Space]
 
+    //NavMesh surface
+    public NavMeshSurface navMeshSurface;
+
+    //Used to turn off doors for NavMesh baking
+    private GameObject[] doors;
+    [Space]
+
     //Animation constants
-    const string IDLE = "PLACEHOLDER";
-    const string WALK = "PLACEHOLDER";
+    const string IDLE = "IDLE";
+    const string WALK = "WALK";
 
     //Movement
     public float lookSensitivity = 3f;
@@ -96,10 +105,11 @@ public class PlayerControl : MonoBehaviour
             }
         }
 
+        doors = GameObject.FindGameObjectsWithTag("Door");
         cameraControl = camera.GetComponent<CameraToolControl>();
 
         playerAnimator = GetComponent<Animator>();
-        // Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
         rigidbody = GetComponent<Rigidbody>();
         toolSelectIsActive = false;
         levelSelectIsActive = false;
@@ -115,6 +125,15 @@ public class PlayerControl : MonoBehaviour
         //Handle player input
         HandlePosition();
         HandleOtherInput();
+        if(currentState == WALK){
+            Debug.Log("Player is walking");
+            if(!walkSound.isPlaying){
+                walkSound.Play();
+            }
+        }
+        else{
+            walkSound.Stop();
+        }
         
         //Check Interaction Range
         CheckInteraction();
@@ -343,6 +362,7 @@ public class PlayerControl : MonoBehaviour
         if (boards != null){
             foreach (GameObject board in boards){
                 board.GetComponent<BoardBehaviour>().Break();
+                RebuildNavMeshSurface();
             }
         }
 
@@ -428,6 +448,7 @@ public class PlayerControl : MonoBehaviour
     
     //Removes the level select UI
     public void selectLevel(){
+        Cursor.lockState = CursorLockMode.None;
         levelSelectIsActive = true;
         levelSelectUI.SetActive(true);
     }
@@ -435,17 +456,20 @@ public class PlayerControl : MonoBehaviour
     //Removes the flag on the level select UI, making it visible again to the player
     public void finishSelectingLevel(){
         levelSelectIsActive = false;
+        Cursor.lockState = CursorLockMode.Locked;
         levelSelectUI.SetActive(false);
     }
 
     //Removes the flag on the tool select UI, making it visible again to the player
     public void finishSelectingTools(){
+        Cursor.lockState = CursorLockMode.Locked;
         toolSelectIsActive = false;
         toolSelectUI.SetActive(false);
     }
 
     //Removes the tool select UI
     public void selectTools(){
+        Cursor.lockState = CursorLockMode.None;
         toolSelectIsActive = true;
         toolSelectUI.SetActive(true);
     }
@@ -454,6 +478,17 @@ public class PlayerControl : MonoBehaviour
     public void LoadChosenLevel(){
         if(levelIsSelected){
             SceneManager.LoadScene(levelName);
+        }
+    }
+
+    private void RebuildNavMeshSurface(){
+        foreach (GameObject door in doors){
+            door.SetActive(false);
+        }
+        navMeshSurface.BuildNavMesh();
+        Debug.Log("Navmesh rebuilt");
+        foreach (GameObject door in doors){
+            door.SetActive(true);
         }
     }
 }

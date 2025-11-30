@@ -11,6 +11,7 @@ public class ItemManager : MonoBehaviour
 
     public GameObject slot1_selection;
     public GameObject slot2_selection;
+    
 
     public GameObject slot1_gameplay;
     public GameObject slot2_gameplay;
@@ -109,6 +110,10 @@ public class ItemManager : MonoBehaviour
         }
     }
 
+    // public void PlaySelectSound(AudioSource pickUpSound){
+    //     pickUpSound.Play();
+    // }
+    
     private void updateUI()
     {
         if (tool1 == "crowbar")

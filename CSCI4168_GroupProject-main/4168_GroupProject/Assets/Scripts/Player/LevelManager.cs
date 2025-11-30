@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class LevelManager : MonoBehaviour
 {
@@ -14,5 +16,9 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     public void SelectLevel(string level){
         player.updateLevelChoice(level);
+    }
+
+    public void EndGame(){
+        Application.Quit();
     }
 }

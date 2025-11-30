@@ -5,6 +5,9 @@ using UnityEngine.UI;
 public class CameraToolControl : MonoBehaviour
 {
     public Camera fpsCamera;
+    public AudioSource openSound;
+    public AudioSource closeSound;
+    public AudioSource photoTakingSound;
 
     public GameObject uiPanel;
     public bool isOpen;
@@ -22,9 +25,25 @@ public class CameraToolControl : MonoBehaviour
 
     public void OpenClose(){
         isOpen = !isOpen;
+        if(isOpen){
+            if(closeSound.isPlaying){
+                closeSound.Stop();
+            }
+            openSound.time = 0.5f;
+            openSound.Play();
+        }
+        else{
+            if(openSound.isPlaying){
+                openSound.Stop();
+            }
+            closeSound.Play();
+        }
     }
 
     public void TakePicture(){
+        if(!photoTakingSound.isPlaying){
+            photoTakingSound.Play();
+        }
         Plane[] frustumPlanes = GeometryUtility.CalculateFrustumPlanes(fpsCamera);
         List<GameObject> visibleObjects = new List<GameObject>();
         foreach (GameObject item in FindObjectsOfType<GameObject>())

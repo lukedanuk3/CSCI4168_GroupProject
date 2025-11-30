@@ -136,10 +136,12 @@ public class EnemyBehavior : MonoBehaviour
     //This method will follow the player, unless they're looked at (using PlayerSeesEnemy), in which case they'll stop
     void FollowPlayer(){
         animator.SetBool("isMoving", true);
+        audioSource.Play();
         if(PlayerSeesEnemy()){
             Debug.Log("Player is in view of enemy");
             agent.isStopped = true;
             animator.SetBool("isMoving", false);
+            audioSource.Stop();
         }
         else{
             animator.SetBool("isMoving", true);

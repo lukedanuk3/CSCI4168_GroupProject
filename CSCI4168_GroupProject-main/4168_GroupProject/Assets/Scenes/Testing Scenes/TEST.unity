@@ -1613,11 +1613,11 @@ Transform:
   m_GameObject: {fileID: 405038490}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.50747013, y: -0.5031382, z: 0.7592206}
+  m_LocalPosition: {x: 0.5074701, y: 0.5031382, z: 0.7592206}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1341254232}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &415134482
 GameObject:
@@ -3469,12 +3469,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000108238}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.6119614, y: 1.6706108, z: -2.9841402}
+  m_LocalRotation: {x: -0, y: 0.7045303, z: -0, w: 0.709674}
+  m_LocalPosition: {x: 6.8987207, y: 0.6809341, z: -11.876205}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1341254244}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1000108240
 MonoBehaviour:
@@ -3502,6 +3502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fpsCamera: {fileID: 1341254231}
   uiPanel: {fileID: 1776365930}
+  isOpen: 0
 --- !u!1 &1032531774
 GameObject:
   m_ObjectHideFlags: 0
@@ -4511,7 +4512,16 @@ PrefabInstance:
     - {fileID: 1442565100103595406, guid: 1d03290cd1f6446ee8a8362cf2715fe6, type: 3}
     - {fileID: 482384356203295705, guid: 1d03290cd1f6446ee8a8362cf2715fe6, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 366349777903137830, guid: 1d03290cd1f6446ee8a8362cf2715fe6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1000108239}
+    - targetCorrespondingSourceObject: {fileID: 8319667534248673294, guid: 1d03290cd1f6446ee8a8362cf2715fe6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 405038491}
+    - targetCorrespondingSourceObject: {fileID: 8319667534248673294, guid: 1d03290cd1f6446ee8a8362cf2715fe6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1462027714}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6307746681147263951, guid: 1d03290cd1f6446ee8a8362cf2715fe6, type: 3}
       insertIndex: 5
@@ -4563,15 +4573,26 @@ MonoBehaviour:
   doorOpenInstructions: {fileID: 1257657374}
   toolPickUpInstructions: {fileID: 8192591}
   trapBreakInstructions: {fileID: 0}
+  levelSelectInstructions: {fileID: 0}
+  toolSelectInstructions: {fileID: 0}
+  needToChooseLevel: {fileID: 0}
+  nextLevelInstructions: {fileID: 0}
+  toolSelectUI: {fileID: 0}
+  levelSelectUI: {fileID: 0}
+  toolSelectIsActive: 0
+  levelSelectIsActive: 0
+  levelName: 
+  levelIsSelected: 0
+  walkSound: {fileID: 0}
   cameraTransform: {fileID: 1341254232}
   lookSensitivity: 3
   speed: 10
   isAnimated: 1
   interactionRange: 5
   inventory: []
-  toolHolder: {fileID: 0}
-  toolRelativePosition: {x: 0, y: 0, z: 0}
-  toolRelativeRotation: {x: 0, y: 0, z: 0}
+  toolHolder: {fileID: 405038491}
+  toolRelativePosition: {x: 0.5074701, y: 0.5031382, z: 0.7592206}
+  toolRelativeRotation: {x: -81.51, y: 39.354, z: 11.704}
   health: 3
   uiManager: {fileID: 0}
   camera: {fileID: 1341254230}
@@ -4633,6 +4654,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fpsCamera: {fileID: 1341254231}
   uiPanel: {fileID: 1776365930}
+  isOpen: 0
+--- !u!4 &1341254244 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 366349777903137830, guid: 1d03290cd1f6446ee8a8362cf2715fe6, type: 3}
+  m_PrefabInstance: {fileID: 1341254228}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1350212857
 GameObject:
   m_ObjectHideFlags: 0
@@ -4995,7 +5022,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1776365933}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1341254232}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7544,9 +7571,6 @@ SceneRoots:
   - {fileID: 1051408539}
   - {fileID: 188760222}
   - {fileID: 1772149427}
-  - {fileID: 405038491}
-  - {fileID: 1000108239}
   - {fileID: 1600328949}
-  - {fileID: 1462027714}
   - {fileID: 1341254228}
   - {fileID: 2096240677}
