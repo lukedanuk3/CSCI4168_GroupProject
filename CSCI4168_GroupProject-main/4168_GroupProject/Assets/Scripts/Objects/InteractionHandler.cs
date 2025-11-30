@@ -22,11 +22,12 @@ public class InteractionHandler : MonoBehaviour
             //TODO: buttons?
         }
         else if(objectType == TOOLSELECTOR){
-            // player.GetComponent<PlayerControl>().SelectTool();
+            Debug.Log("Selecting tools");
+            player.GetComponent<PlayerControl>().selectTools();
 
         }
         else if(objectType == LEVELSELECTOR){
-            // player.GetComponent<PlayerHandler>().SelectLevel();
+            player.GetComponent<PlayerControl>().selectLevel();
         }
     }
 

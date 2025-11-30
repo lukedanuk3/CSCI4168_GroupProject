@@ -14,8 +14,13 @@ public class PlayerControl : MonoBehaviour
     public GameObject trapBreakInstructions;
     public GameObject levelSelectInstructions;
     public GameObject toolSelectInstructions;
+    public GameObject toolSelectUI;
+    public GameObject levelSelectUI;
     [Space]
 
+    //Used to close select UIs
+    public bool toolSelectIsActive;
+    public bool levelSelectIsActive;
 
     //Audio for player
     public AudioSource walkSound;
@@ -88,6 +93,8 @@ public class PlayerControl : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         rigidbody = GetComponent<Rigidbody>();
+        toolSelectIsActive = false;
+        levelSelectIsActive = false;
     }
 
     void Update()
@@ -382,4 +389,12 @@ public class PlayerControl : MonoBehaviour
     {
         return items;
     }    
+
+    public void selectLevel(){
+        levelSelectUI.SetActive(true);
+    }
+
+    public void selectTools(){
+        toolSelectUI.SetActive(true);
+    }
 }

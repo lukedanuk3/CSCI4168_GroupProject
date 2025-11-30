@@ -1114,8 +1114,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 134735573}
-  - component: {fileID: 134735574}
-  - component: {fileID: 134735575}
   m_Layer: 5
   m_Name: ItemManager
   m_TagString: Untagged
@@ -1142,38 +1140,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &134735574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134735572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38f29734ecf27bf44ac5c89bd1d4f444, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &134735575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134735572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf37931c0fd2b4bd8946a9a7a08f079d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slot1_selection: {fileID: 0}
-  slot2_selection: {fileID: 0}
-  slot1_gameplay: {fileID: 0}
-  slot2_gameplay: {fileID: 0}
-  crowbar: {fileID: 0}
-  boltcutter: {fileID: 0}
-  wirecutter: {fileID: 0}
-  playerController: {fileID: 0}
 --- !u!1 &146637886
 GameObject:
   m_ObjectHideFlags: 0
@@ -1785,6 +1751,9 @@ MonoBehaviour:
   trapBreakInstructions: {fileID: 146637886}
   levelSelectInstructions: {fileID: 2058079042}
   toolSelectInstructions: {fileID: 169069326}
+  toolSelectUI: {fileID: 1542368166}
+  levelSelectUI: {fileID: 2058079042}
+  walkSound: {fileID: 0}
   cameraTransform: {fileID: 13985469}
   lookSensitivity: 3
   speed: 10
@@ -1797,6 +1766,46 @@ MonoBehaviour:
   health: 3
   uiManager: {fileID: 0}
   camera: {fileID: 13985468}
+--- !u!114 &179093835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179093825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c900b013f19b9449fa1e0e2271d201db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health1: {fileID: 0}
+  health2: {fileID: 0}
+  health3: {fileID: 0}
+  tool1: {fileID: 0}
+  tool2: {fileID: 0}
+  gameplayUI: {fileID: 0}
+  selectionUI: {fileID: 0}
+  lifeText: {fileID: 0}
+--- !u!114 &179093836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 179093825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf37931c0fd2b4bd8946a9a7a08f079d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot1_selection: {fileID: 1731522970}
+  slot2_selection: {fileID: 1556351417}
+  slot1_gameplay: {fileID: 1185080701}
+  slot2_gameplay: {fileID: 156162866}
+  crowbar: {fileID: 21300000, guid: 510b800efe7a6430c87781a70aa9ca3f, type: 3}
+  boltcutter: {fileID: 21300000, guid: 091352a01f67742efad526a95eacfdfc, type: 3}
+  wirecutter: {fileID: 0}
+  playerController: {fileID: 179093829}
 --- !u!1 &193688619
 GameObject:
   m_ObjectHideFlags: 0
@@ -2113,7 +2122,6 @@ GameObject:
   - component: {fileID: 287674733}
   - component: {fileID: 287674732}
   - component: {fileID: 287674731}
-  - component: {fileID: 287674730}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2141,18 +2149,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -128.8}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &287674730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 287674728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0478dadaefb6d04409ec346acda9375d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &287674731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2197,7 +2193,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 287674730}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ButtonItem, Assembly-CSharp
         m_MethodName: OnButtonClick
         m_Mode: 1
@@ -7101,6 +7097,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6307746681147263951, guid: 1d03290cd1f6446ee8a8362cf2715fe6, type: 3}
       insertIndex: 5
       addedObject: {fileID: 179093829}
+    - targetCorrespondingSourceObject: {fileID: 6307746681147263951, guid: 1d03290cd1f6446ee8a8362cf2715fe6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 179093835}
+    - targetCorrespondingSourceObject: {fileID: 6307746681147263951, guid: 1d03290cd1f6446ee8a8362cf2715fe6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 179093836}
     - targetCorrespondingSourceObject: {fileID: 6013408623699814340, guid: 1d03290cd1f6446ee8a8362cf2715fe6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 13985473}
@@ -7333,7 +7335,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 84ce604a444b4454baa08a0ae0766b1a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8a0e9e758a85a4a8ca31e458fd1297f4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8638,7 +8640,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 84ce604a444b4454baa08a0ae0766b1a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 90e66d5c7597d47ad9937314e7cf7ede, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10386,7 +10388,6 @@ GameObject:
   - component: {fileID: 1522549468}
   - component: {fileID: 1522549467}
   - component: {fileID: 1522549466}
-  - component: {fileID: 1522549465}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -10414,18 +10415,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -128.8}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1522549465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1522549463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0478dadaefb6d04409ec346acda9375d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1522549466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10470,7 +10459,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1522549465}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ButtonItem, Assembly-CSharp
         m_MethodName: OnButtonClick
         m_Mode: 1
@@ -12652,7 +12641,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4afdeec9741fe4143a1a8fe303c58f7b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 091352a01f67742efad526a95eacfdfc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13671,7 +13660,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4f43a738e42b38846bfb0d5990905043, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 510b800efe7a6430c87781a70aa9ca3f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14103,7 +14092,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2974f7b05da1d78438017c7bfb55713d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1fd46f8874b9f41d6bb642d7f478d8d4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16019,6 +16008,7 @@ MonoBehaviour:
   skipInstructions: {fileID: 5424893}
   instructionsSource: {fileID: 3755915335490540455}
   skipAudio: {fileID: 3755915335490540457}
+  hasPlayedBefore: 0
 --- !u!82 &3755915335490540457
 AudioSource:
   m_ObjectHideFlags: 0
