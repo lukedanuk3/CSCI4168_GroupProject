@@ -10,6 +10,8 @@ public class CameraToolControl : MonoBehaviour
     public AudioSource photoTakingSound;
 
     public GameObject uiPanel;
+    public GameObject enemyInView;
+    public GameObject objectiveInView;
     public bool isOpen;
 
     void Update(){

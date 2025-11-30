@@ -655,7 +655,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fpsCamera: {fileID: 13985472}
+  openSound: {fileID: 0}
+  closeSound: {fileID: 0}
+  photoTakingSound: {fileID: 0}
   uiPanel: {fileID: 1384832536}
+  enemyInView: {fileID: 0}
+  objectiveInView: {fileID: 0}
   isOpen: 0
 --- !u!114 &13985476
 MonoBehaviour:
@@ -1784,12 +1789,11 @@ MonoBehaviour:
   nextLevelInstructions: {fileID: 760093033}
   toolSelectUI: {fileID: 1542368166}
   levelSelectUI: {fileID: 1315256112}
-  toolSelectIsActive: 0
-  levelSelectIsActive: 0
   levelName: 
   levelIsSelected: 0
   walkSound: {fileID: 0}
   cameraTransform: {fileID: 13985469}
+  navMeshSurface: {fileID: 0}
   lookSensitivity: 3
   speed: 10
   isAnimated: 1
@@ -16591,10 +16595,10 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 6578cf86306a24c2a8dce16d630b61ae, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

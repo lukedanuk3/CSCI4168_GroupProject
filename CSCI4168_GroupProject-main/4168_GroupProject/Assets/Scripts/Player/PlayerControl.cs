@@ -308,7 +308,9 @@ public class PlayerControl : MonoBehaviour
                 needToChooseLevel.SetActive(false);
                 nextLevelInstructions.SetActive(false);
             }
-       
+            if(cameraControl.uiPanel.activeInHierarchy){
+                CheckCameraRange(ray, hit);
+            }
     }
     //Show Interaction Text
     
@@ -494,6 +496,17 @@ public class PlayerControl : MonoBehaviour
         Debug.Log("Navmesh rebuilt");
         foreach (GameObject door in doors){
             door.SetActive(true);
+        }
+    }
+
+    private void CheckCameraRange(Ray ray, RaycastHit hit){
+        if(Physics.Raycast(ray, out hit, 30f)){
+            if(hit.collider.tag == "CameraMonster" || hit.collider.tag == "FollowMonster"){
+                Debug.Log("Monster in camera");
+            }
+            else if(hit.collider.tag == "Objective"){
+                Debug.Log("Objective In View");
+            }
         }
     }
 }
