@@ -247,19 +247,25 @@ public class PlayerControl : MonoBehaviour
                 if(!levelSelectIsActive){
                 levelSelectInstructions.SetActive(true);
                 }
+                else{
+                levelSelectInstructions.SetActive(false);
+                }
             }
             else if(hit.collider.tag == "ToolSelector")
                 if(!toolSelectIsActive){
                     Debug.Log("Tool select is not active");
                     toolSelectInstructions.SetActive(true);
                 }
+                else{
+                    toolSelectInstructions.SetActive(false);
+                }
 
-            else{
+            }
+                else{
                 doorOpenInstructions.SetActive(false);
                 toolPickUpInstructions.SetActive(false);
                 toolSelectInstructions.SetActive(false);
                 levelSelectInstructions.SetActive(false);
-            }
             }
        
     }
