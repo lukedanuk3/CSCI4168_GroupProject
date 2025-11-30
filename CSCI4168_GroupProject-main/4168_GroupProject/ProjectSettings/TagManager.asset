@@ -15,6 +15,7 @@ TagManager:
   - LevelSelector
   - ToolSelector
   - Radio
+  - NextLevel
   layers:
   - Default
   - TransparentFX

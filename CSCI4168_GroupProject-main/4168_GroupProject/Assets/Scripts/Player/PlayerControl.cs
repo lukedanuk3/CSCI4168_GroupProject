@@ -15,6 +15,9 @@ public class PlayerControl : MonoBehaviour
     public GameObject trapBreakInstructions;
     public GameObject levelSelectInstructions;
     public GameObject toolSelectInstructions;
+    public GameObject needToChooseLevel;
+    public GameObject nextLevelInstructions;
+    [Space]
     public GameObject toolSelectUI;
     public GameObject levelSelectUI;
     [Space]
@@ -255,7 +258,7 @@ public class PlayerControl : MonoBehaviour
                 levelSelectInstructions.SetActive(false);
                 }
             }
-            else if(hit.collider.tag == "ToolSelector")
+            else if(hit.collider.tag == "ToolSelector"){
                 if(!toolSelectIsActive){
                     Debug.Log("Tool select is not active");
                     toolSelectInstructions.SetActive(true);
@@ -263,13 +266,23 @@ public class PlayerControl : MonoBehaviour
                 else{
                     toolSelectInstructions.SetActive(false);
                 }
-
+            }
+            else if(hit.collider.tag == "NextLevel"){
+                if(levelIsSelected){
+                    nextLevelInstructions.SetActive(true);
+                }
+                else{
+                    needToChooseLevel.SetActive(true);
+                }
+            }
             }
                 else{
                 doorOpenInstructions.SetActive(false);
                 toolPickUpInstructions.SetActive(false);
                 toolSelectInstructions.SetActive(false);
                 levelSelectInstructions.SetActive(false);
+                needToChooseLevel.SetActive(false);
+                nextLevelInstructions.SetActive(false);
             }
        
     }
@@ -410,6 +423,7 @@ public class PlayerControl : MonoBehaviour
     public void updateLevelChoice(string level){
         levelName = level;
         levelIsSelected = true;
+        finishSelectingLevel();
     }
     
     //Removes the level select UI
@@ -419,7 +433,7 @@ public class PlayerControl : MonoBehaviour
     }
 
     //Removes the flag on the level select UI, making it visible again to the player
-    public void finishSeletingLevel(){
+    public void finishSelectingLevel(){
         levelSelectIsActive = false;
         levelSelectUI.SetActive(false);
     }
