@@ -23,6 +23,9 @@ public class PlayerControl : MonoBehaviour
     public bool toolSelectIsActive;
     public bool levelSelectIsActive;
 
+    //Used to store the user's selected level
+    public string levelName;
+
     //Audio for player
     public AudioSource walkSound;
     //FPS camera transform
@@ -402,21 +405,30 @@ public class PlayerControl : MonoBehaviour
         return items;
     }    
 
+    //Updates the player's chosen level
+    public void updateLevelChoice(string level;){
+        levelName = level;
+    }
+    
+    //Removes the level select UI
     public void selectLevel(){
         levelSelectIsActive = true;
         levelSelectUI.SetActive(true);
     }
 
+    //Removes the flag on the level select UI, making it visible again to the player
     public void finishSeletingLevel(){
         levelSelectIsActive = false;
         levelSelectUI.SetActive(false);
     }
 
+    //Removes the flag on the tool select UI, making it visible again to the player
     public void finishSelectingTools(){
         toolSelectIsActive = false;
         toolSelectUI.SetActive(false);
     }
 
+    //Removes the tool select UI
     public void selectTools(){
         toolSelectIsActive = true;
         toolSelectUI.SetActive(true);
