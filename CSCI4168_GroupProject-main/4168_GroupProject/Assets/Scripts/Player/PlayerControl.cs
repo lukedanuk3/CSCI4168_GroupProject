@@ -153,7 +153,6 @@ public class PlayerControl : MonoBehaviour
             }
         }
         if(cameraControl.uiPanel.activeInHierarchy){
-            Debug.Log("Camera is open");
             foreach (GameObject cameraEnemy in cameraEnemies){
                 foreach(Renderer render in cameraEnemy.GetComponentsInChildren<Renderer>()){
                     if(render != null){

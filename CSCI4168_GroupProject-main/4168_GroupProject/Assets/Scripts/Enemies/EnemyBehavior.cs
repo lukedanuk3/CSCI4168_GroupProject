@@ -5,10 +5,11 @@ using System.Collections;
 [RequireComponent(typeof(NavMeshAgent))]
 public class EnemyBehavior : MonoBehaviour
 {
-    [Range(0,50)] [SerializeField] float sightRange = 20;
     private NavMeshAgent agent;
     private GameObject player;
-    [SerializeField] AudioSource audioSource;
+    [Space]
+    [SerializeField] AudioClip[] audioClips;
+    private AudioSource audioSource;
     Animator animator;
 
     [SerializeField] Transform[] points;
@@ -32,6 +33,10 @@ public class EnemyBehavior : MonoBehaviour
         currentPoint = Random.Range(0, points.Length);
         agent.updateRotation = false;
         rotationSpeed = 2;
+
+        if(gameObject.tag == "CameraMonster"){
+            StartCoroutine(RandomlyPlayAudio());
+        }
         }
     // Update is called once per frame
     void Update()
@@ -50,6 +55,7 @@ public class EnemyBehavior : MonoBehaviour
 
 
         if(gameObject.tag == "CameraMonster"){
+            RandomlyPlayAudio();
             //If the player is within the enemy's sight, and the enemy isn't dead, ChasePlayer() will be invoked
             if(EnemySeesPlayer()){
                 ChasePlayer();
@@ -136,7 +142,9 @@ public class EnemyBehavior : MonoBehaviour
     //This method will follow the player, unless they're looked at (using PlayerSeesEnemy), in which case they'll stop
     void FollowPlayer(){
         animator.SetBool("isMoving", true);
-        audioSource.Play();
+        if(!audioSource.isPlaying){
+            audioSource.Play();
+        }
         if(PlayerSeesEnemy()){
             Debug.Log("Player is in view of enemy");
             agent.isStopped = true;
@@ -187,6 +195,21 @@ public class EnemyBehavior : MonoBehaviour
             }
         }
         return false;
+    }
+
+    IEnumerator RandomlyPlayAudio(){
+        while(true){
+            float waitTime = Random.Range(5f, 10f);
+            yield return new WaitForSeconds(waitTime);
+
+            if(audioClips.Length != 0){
+                Debug.Log("Picking new audio");
+                int index = Random.Range(0, audioClips.Length);
+                audioSource.clip = audioClips[index];
+                audioSource.Play();
+            }
+        }
+
     }
     //This method will only run if the enemy collides with other objects
     private void OnTriggerEnter(Collider collision){
