@@ -27,6 +27,7 @@ public class InteractionHandler : MonoBehaviour
 
         }
         else if(objectType == LEVELSELECTOR){
+            Debug.Log("Selecting Levels");
             player.GetComponent<PlayerControl>().selectLevel();
         }
     }

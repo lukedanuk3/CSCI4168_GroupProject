@@ -1114,6 +1114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 134735573}
+  - component: {fileID: 134735574}
   m_Layer: 5
   m_Name: ItemManager
   m_TagString: Untagged
@@ -1140,6 +1141,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &134735574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134735572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf37931c0fd2b4bd8946a9a7a08f079d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot1_selection: {fileID: 1731522970}
+  slot2_selection: {fileID: 1556351417}
+  slot1_gameplay: {fileID: 1185080701}
+  slot2_gameplay: {fileID: 156162866}
+  crowbar: {fileID: 21300000, guid: 510b800efe7a6430c87781a70aa9ca3f, type: 3}
+  boltcutter: {fileID: 21300000, guid: 091352a01f67742efad526a95eacfdfc, type: 3}
+  wirecutter: {fileID: 0}
+  playerController: {fileID: 179093829}
 --- !u!1 &146637886
 GameObject:
   m_ObjectHideFlags: 0
@@ -1674,16 +1695,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 177846775}
-        m_TargetAssemblyTypeName: ButtonItem, Assembly-CSharp
-        m_MethodName: OnButtonClick
-        m_Mode: 1
+      - m_Target: {fileID: 134735574}
+        m_TargetAssemblyTypeName: ItemManager, Assembly-CSharp
+        m_MethodName: updateItems
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: BOLTCUTTER
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &177846777
@@ -1752,13 +1773,15 @@ MonoBehaviour:
   levelSelectInstructions: {fileID: 2058079042}
   toolSelectInstructions: {fileID: 169069326}
   toolSelectUI: {fileID: 1542368166}
-  levelSelectUI: {fileID: 2058079042}
+  levelSelectUI: {fileID: 1315256112}
+  toolSelectIsActive: 0
+  levelSelectIsActive: 0
   walkSound: {fileID: 0}
   cameraTransform: {fileID: 13985469}
   lookSensitivity: 3
   speed: 10
   isAnimated: 1
-  interactionRange: 5
+  interactionRange: 3
   inventory: []
   toolHolder: {fileID: 0}
   toolRelativePosition: {x: 0, y: 0, z: 0}
@@ -1786,26 +1809,6 @@ MonoBehaviour:
   gameplayUI: {fileID: 0}
   selectionUI: {fileID: 0}
   lifeText: {fileID: 0}
---- !u!114 &179093836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 179093825}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf37931c0fd2b4bd8946a9a7a08f079d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slot1_selection: {fileID: 1731522970}
-  slot2_selection: {fileID: 1556351417}
-  slot1_gameplay: {fileID: 1185080701}
-  slot2_gameplay: {fileID: 156162866}
-  crowbar: {fileID: 21300000, guid: 510b800efe7a6430c87781a70aa9ca3f, type: 3}
-  boltcutter: {fileID: 21300000, guid: 091352a01f67742efad526a95eacfdfc, type: 3}
-  wirecutter: {fileID: 0}
-  playerController: {fileID: 179093829}
 --- !u!1 &193688619
 GameObject:
   m_ObjectHideFlags: 0
@@ -2193,16 +2196,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ButtonItem, Assembly-CSharp
-        m_MethodName: OnButtonClick
-        m_Mode: 1
+      - m_Target: {fileID: 134735574}
+        m_TargetAssemblyTypeName: ItemManager, Assembly-CSharp
+        m_MethodName: updateItems
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: CROWBAR
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &287674732
@@ -6930,7 +6933,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 991488990}
-  - component: {fileID: 991488991}
   m_Layer: 5
   m_Name: LevelManager
   m_TagString: Untagged
@@ -6957,18 +6959,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &991488991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 991488989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38f29734ecf27bf44ac5c89bd1d4f444, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &996416829
 GameObject:
   m_ObjectHideFlags: 0
@@ -7100,9 +7090,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6307746681147263951, guid: 1d03290cd1f6446ee8a8362cf2715fe6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 179093835}
-    - targetCorrespondingSourceObject: {fileID: 6307746681147263951, guid: 1d03290cd1f6446ee8a8362cf2715fe6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 179093836}
     - targetCorrespondingSourceObject: {fileID: 6013408623699814340, guid: 1d03290cd1f6446ee8a8362cf2715fe6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 13985473}
@@ -10459,16 +10446,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: ButtonItem, Assembly-CSharp
-        m_MethodName: OnButtonClick
-        m_Mode: 1
+      - m_Target: {fileID: 134735574}
+        m_TargetAssemblyTypeName: ItemManager, Assembly-CSharp
+        m_MethodName: updateItems
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: WIRECUTTER
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1522549467
@@ -11535,9 +11522,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: setSelectionUIInactive
+      - m_Target: {fileID: 134735574}
+        m_TargetAssemblyTypeName: ItemManager, Assembly-CSharp
+        m_MethodName: confirmSelection
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

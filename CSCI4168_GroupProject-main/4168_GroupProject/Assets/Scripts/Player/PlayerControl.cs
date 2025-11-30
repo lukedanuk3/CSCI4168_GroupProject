@@ -91,7 +91,7 @@ public class PlayerControl : MonoBehaviour
         cameraControl = camera.GetComponent<CameraToolControl>();
 
         playerAnimator = GetComponent<Animator>();
-        Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.lockState = CursorLockMode.Locked;
         rigidbody = GetComponent<Rigidbody>();
         toolSelectIsActive = false;
         levelSelectIsActive = false;
@@ -243,10 +243,14 @@ public class PlayerControl : MonoBehaviour
                 toolPickUpInstructions.SetActive(true);
             }
             else if(hit.collider.tag == "LevelSelector"){
+                if(!levelSelectIsActive){
                 levelSelectInstructions.SetActive(true);
+                }
             }
             else if(hit.collider.tag == "ToolSelector")
+                if(!toolSelectIsActive){
                 toolSelectInstructions.SetActive(true);
+                }
 
             else{
                 doorOpenInstructions.SetActive(false);
@@ -391,10 +395,22 @@ public class PlayerControl : MonoBehaviour
     }    
 
     public void selectLevel(){
+        levelSelectIsActive = true;
         levelSelectUI.SetActive(true);
     }
 
+    public void finishSeletingLevel(){
+        levelSelectIsActive = false;
+        levelSelectUI.SetActive(false);
+    }
+
+    public void finishSelectingTools(){
+        toolSelectIsActive = false;
+        toolSelectUI.SetActive(false);
+    }
+
     public void selectTools(){
+        toolSelectIsActive = true;
         toolSelectUI.SetActive(true);
     }
 }

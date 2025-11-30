@@ -155,5 +155,8 @@ public class ItemManager : MonoBehaviour
         Debug.Log("tool1: " + tool1 + " tool2: " + tool2);
     }
 
+    public void confirmSelection(){
+        playerController.finishSelectingTools();
+    }
     
 }
