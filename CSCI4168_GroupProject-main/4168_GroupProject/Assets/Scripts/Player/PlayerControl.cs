@@ -203,9 +203,11 @@ public class PlayerControl : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyUp(KeyCode.KeypadEnter)){
+        if (Input.GetKeyUp(KeyCode.Return)){
             if(SceneManager.GetActiveScene().name == "HUB"){
+                Debug.Log("Right scene");
             if(RadioVoiceOver.instance.skipInstructions.activeInHierarchy){
+                Debug.Log("Stopping radio");
                 RadioVoiceOver.instance.StopMusic();
             }
             }

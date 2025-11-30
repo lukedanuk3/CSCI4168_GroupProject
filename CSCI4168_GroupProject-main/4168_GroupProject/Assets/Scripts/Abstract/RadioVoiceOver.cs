@@ -21,6 +21,7 @@ public class RadioVoiceOver : MonoBehaviour
 
     //This method will stop the music when called
     public void StopMusic(){
+        Debug.Log("Stopping music");
         if(instructionsSource.isPlaying){
             instructionsSource.Stop();
         }
