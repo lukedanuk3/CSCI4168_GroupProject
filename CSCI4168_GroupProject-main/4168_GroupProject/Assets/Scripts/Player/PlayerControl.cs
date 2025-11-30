@@ -449,4 +449,11 @@ public class PlayerControl : MonoBehaviour
         toolSelectIsActive = true;
         toolSelectUI.SetActive(true);
     }
+
+    //Loads the chosen level
+    public void LoadChosenLevel(){
+        if(levelIsSelected){
+            SceneManager.LoadScene(levelName);
+        }
+    }
 }

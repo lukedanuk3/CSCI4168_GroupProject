@@ -10,6 +10,7 @@ public class InteractionHandler : MonoBehaviour
     const string BUTTON = "BUTTON";
     const string TOOLSELECTOR = "TOOLS";
     const string LEVELSELECTOR = "LEVEL";
+    const string LEVELLOADER = "LEVELLOADER";
 
     public string objectType;
 
@@ -29,6 +30,9 @@ public class InteractionHandler : MonoBehaviour
         else if(objectType == LEVELSELECTOR){
             Debug.Log("Selecting Levels");
             player.GetComponent<PlayerControl>().selectLevel();
+        }
+        else if(objectType == LEVELLOADER){
+            player.GetComponent<PlayerControl>().LoadChosenLevel();
         }
     }
 
