@@ -25,6 +25,7 @@ public class PlayerControl : MonoBehaviour
 
     //Used to store the user's selected level
     public string levelName;
+    public bool levelIsSelected = false;
 
     //Audio for player
     public AudioSource walkSound;
@@ -406,8 +407,9 @@ public class PlayerControl : MonoBehaviour
     }    
 
     //Updates the player's chosen level
-    public void updateLevelChoice(string level;){
+    public void updateLevelChoice(string level){
         levelName = level;
+        levelIsSelected = true;
     }
     
     //Removes the level select UI

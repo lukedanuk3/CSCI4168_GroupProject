@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void SelectLevel(){
-        
+    void SelectLevel(string level){
+        player.updateLevelChoice(level);
     }
 }
