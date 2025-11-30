@@ -6,6 +6,7 @@ public class RadioVoiceOver : MonoBehaviour
     public GameObject skipInstructions;
     public AudioSource instructionsSource;
     public AudioSource skipAudio;
+    public AudioSource radioStatic;
     public bool hasPlayedBefore;
     
     void Awake(){
@@ -17,10 +18,22 @@ public class RadioVoiceOver : MonoBehaviour
             Destroy(gameObject);
         }
         skipInstructions.SetActive(true);
+        PlayRadioVoiceOver();
+    }
+
+    void Update(){
+        if(skipAudio.isPlaying || instructionsSource.isPlaying){
+            if(!radioStatic.isPlaying){
+                radioStatic.Play();
+            }
+        }
+        if(!skipAudio.isPlaying && !instructionsSource.isPlaying){
+            radioStatic.Stop();
+        }
     }
 
     //This method will stop the music when called
-    public void StopMusic(){
+    public void StopRadioVoiceOver(){
         Debug.Log("Stopping music");
         if(instructionsSource.isPlaying){
             instructionsSource.Stop();
@@ -30,7 +43,8 @@ public class RadioVoiceOver : MonoBehaviour
     }
 
     //This method will play the music when called
-    public void PlayMusic(){
+    public void PlayRadioVoiceOver(){
+        Debug.Log("Starting audio");
         if(!instructionsSource.isPlaying){
             instructionsSource.Play();
         }

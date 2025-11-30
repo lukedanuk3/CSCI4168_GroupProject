@@ -9,7 +9,7 @@ public class EnemyBehavior : MonoBehaviour
     private GameObject player;
     [Space]
     [SerializeField] AudioClip[] audioClips;
-    private AudioSource audioSource;
+    public AudioSource audioSource;
     Animator animator;
 
     [SerializeField] Transform[] points;
@@ -37,6 +37,7 @@ public class EnemyBehavior : MonoBehaviour
         if(gameObject.tag == "CameraMonster"){
             StartCoroutine(RandomlyPlayAudio());
         }
+
         }
     // Update is called once per frame
     void Update()

@@ -91,6 +91,8 @@ public class PlayerControl : MonoBehaviour
     //Player's camera tool
     public GameObject camera;
     CameraToolControl cameraControl;
+    public GameObject enemyInCamera;
+    public GameObject objectiveInCamera;
     
     void Start()
     {
@@ -250,7 +252,7 @@ public class PlayerControl : MonoBehaviour
                 Debug.Log("Right scene");
             if(RadioVoiceOver.instance.skipInstructions.activeInHierarchy){
                 Debug.Log("Stopping radio");
-                RadioVoiceOver.instance.StopMusic();
+                RadioVoiceOver.instance.StopRadioVoiceOver();
             }
             }
         }
@@ -503,10 +505,20 @@ public class PlayerControl : MonoBehaviour
         if(Physics.Raycast(ray, out hit, 30f)){
             if(hit.collider.tag == "CameraMonster" || hit.collider.tag == "FollowMonster"){
                 Debug.Log("Monster in camera");
+                enemyInCamera.SetActive(true);
             }
             else if(hit.collider.tag == "Objective"){
                 Debug.Log("Objective In View");
+                objectiveInCamera.SetActive(true);
             }
+            else{
+                enemyInCamera.SetActive(false);
+                objectiveInCamera.SetActive(false);
+            }
+        }
+        else{
+                enemyInCamera.SetActive(false);
+                objectiveInCamera.SetActive(false);
         }
     }
 }
