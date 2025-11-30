@@ -16,6 +16,9 @@ public class PlayerControl : MonoBehaviour
     public GameObject toolSelectInstructions;
     [Space]
 
+
+    //Audio for player
+    public AudioSource walkSound;
     //FPS camera transform
     public Transform cameraTransform;
     [Space]
