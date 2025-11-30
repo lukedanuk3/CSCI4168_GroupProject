@@ -6,6 +6,7 @@ public class RadioVoiceOver : MonoBehaviour
     public GameObject skipInstructions;
     public AudioSource instructionsSource;
     public AudioSource skipAudio;
+    public bool hasPlayedBefore;
     
     void Awake(){
         if(instance == null){
@@ -33,4 +34,5 @@ public class RadioVoiceOver : MonoBehaviour
             instructionsSource.Play();
         }
     }
+
 }

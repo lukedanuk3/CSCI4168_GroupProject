@@ -9,6 +9,8 @@ public class DoorHandler : MonoBehaviour
     private float originalRotation;
     private float newRotation;
     private float currentRotation;
+    public AudioSource openSound;
+    public AudioSource closeSound;
     Animator anim;
 
     private void Start(){
@@ -30,6 +32,7 @@ public class DoorHandler : MonoBehaviour
                 anim.SetBool("HasBeenOpened", true);
             }
             Debug.Log("Opening Door");
+            openSound.Play();
             anim.SetBool("IsClosed", false);
             anim.SetTrigger("OpenClose");
 
@@ -41,6 +44,11 @@ public class DoorHandler : MonoBehaviour
         else{
             if(coroutineInstance != null){
                 StopCoroutine(coroutineInstance);
+
+                // if(openSound.isPlaying){
+                //     openSound.Stop();
+                // }
+                // closeSound.Play();
                 anim.SetBool("IsClosed", true);  
                 anim.SetTrigger("OpenClose");
             }
@@ -53,6 +61,7 @@ public class DoorHandler : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         if(anim.GetBool("IsClosed") == false){
             Debug.Log("Door is opened");
+            // closeSound.Play();
             anim.SetBool("IsClosed", true);
             anim.SetTrigger("OpenClose");  
             }
