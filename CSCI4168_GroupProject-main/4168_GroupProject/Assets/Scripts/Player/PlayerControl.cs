@@ -202,6 +202,14 @@ public class PlayerControl : MonoBehaviour
                 UseCurrentTool();
             }
         }
+
+        if (Input.GetKeyUp(KeyCode.KeypadEnter)){
+            if(SceneManager.GetActiveScene().name == "HUB"){
+            if(RadioVoiceOver.instance.skipInstructions.activeInHierarchy){
+                RadioVoiceOver.instance.StopMusic();
+            }
+            }
+        }
     }
 
     void UseCurrentTool(){

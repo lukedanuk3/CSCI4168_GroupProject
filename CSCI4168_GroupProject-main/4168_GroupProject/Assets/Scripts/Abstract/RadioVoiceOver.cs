@@ -2,15 +2,35 @@ using UnityEngine;
 
 public class RadioVoiceOver : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
+    public static RadioVoiceOver instance;
+    public GameObject skipInstructions;
+    public AudioSource instructionsSource;
+    public AudioSource skipAudio;
+    
+    void Awake(){
+        if(instance == null){
+            instance = this;
+            instructionsSource = GetComponent<AudioSource>();
+        }
+        else{
+            Destroy(gameObject);
+        }
+        skipInstructions.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    //This method will stop the music when called
+    public void StopMusic(){
+        if(instructionsSource.isPlaying){
+            instructionsSource.Stop();
+        }
+        skipAudio.Play();
+        skipInstructions.SetActive(false);
+    }
+
+    //This method will play the music when called
+    public void PlayMusic(){
+        if(!instructionsSource.isPlaying){
+            instructionsSource.Play();
+        }
     }
 }
