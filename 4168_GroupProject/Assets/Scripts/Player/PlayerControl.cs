@@ -29,6 +29,8 @@ public class PlayerControl : MonoBehaviour
     private GameObject[] interactables;
     public float interactionRange;
 
+    public GameObject doorOpenInstructions;
+
     //Inventory
     public List<GameObject> inventory;
     private int currentSlot;
@@ -44,6 +46,8 @@ public class PlayerControl : MonoBehaviour
     //Player's camera tool
     public GameObject camera;
     CameraToolControl cameraControl;
+
+private Vector3 cameraStartLocalPos;
     
     void Start()
     {
@@ -123,6 +127,8 @@ public class PlayerControl : MonoBehaviour
 
         Vector3 moveVelocity = move * speed;
         rigidbody.linearVelocity = new Vector3(moveVelocity.x, rigidbody.linearVelocity.y, moveVelocity.z);
+
+        HandleHeadBob(move.magnitude);
     }
 
     void HandleOtherInput(){
@@ -156,6 +162,12 @@ public class PlayerControl : MonoBehaviour
         string toolType = currentTool.GetComponent<ToolData>().toolType;
         if (toolType == "CROWBAR"){
             if (!toolInUse) UseCrowbar();
+        }else if (toolType == "BOLTCUTTERS"){
+            if (!toolInUse) UseBoltCutters();
+        }else if (toolType == "WIRECUTTERS"){
+            if (!toolInUse) UseWireCutters();
+        }else if (toolType == "FLASHLIGHT"){
+            currentTool.GetComponent<FlashlightBehaviour>().Toggle();
         }
     }
 
@@ -185,7 +197,10 @@ public class PlayerControl : MonoBehaviour
             inventory.Add(tool);
             SelectTool(inventory.Count - 1);
         }else{
-            Debug.Log("Inventory full");
+            inventory.RemoveAt(currentSlot);
+            inventory.Add(tool);
+            currentSlot = 1;
+            SelectTool(currentSlot);
         }
     }
 
@@ -205,6 +220,11 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    void HandleHeadBob(float movementMagnitude){
+        //bobbing
+    }
+
+
     //Tool use...
 
     //Crowbar
@@ -213,6 +233,38 @@ public class PlayerControl : MonoBehaviour
         if (boards != null){
             foreach (GameObject board in boards){
                 board.GetComponent<BoardBehaviour>().Break();
+            }
+        }
+
+        float usageX = 90;
+        float usageY = 90;
+        float usageZ = 90;
+
+        currentTool.transform.localEulerAngles = currentTool.GetComponent<ToolData>().relativeRotation + new Vector3(usageX, usageY, usageZ);
+        toolInUse = true;
+    }
+
+    void UseBoltCutters(){
+        List<GameObject> steels = ObjectsInViewOfType("Steel");
+        if (steels != null){
+            foreach (GameObject steel in steels){
+                steel.GetComponent<SteelBehaviour>().Break();
+            }
+        }
+
+        float usageX = 90;
+        float usageY = 90;
+        float usageZ = 90;
+
+        currentTool.transform.localEulerAngles = currentTool.GetComponent<ToolData>().relativeRotation + new Vector3(usageX, usageY, usageZ);
+        toolInUse = true;
+    }
+
+    void UseWireCutters(){
+        List<GameObject> wires = ObjectsInViewOfType("Wire");
+        if (wires != null){
+            foreach (GameObject wire in wires){
+                wire.GetComponent<WireBehaviour>().Snip();
             }
         }
 
@@ -242,6 +294,20 @@ public class PlayerControl : MonoBehaviour
         }
         return visibleObjects;
     }
+
+    void CheckInteraction(){
+        RaycastHit hit;
+        Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
+        if (Physics.Raycast(ray, out hit, interactionRange)){
+            if (hit.collider.tag == "Door"){
+                Debug.Log("Found door");
+                if (doorOpenInstructions != null) doorOpenInstructions.SetActive(true);
+            }else{
+                if (doorOpenInstructions != null) doorOpenInstructions.SetActive(false);
+            }
+        }
+    }
+
 
     //Update current animation state
     void SetAnimationState(string newState){

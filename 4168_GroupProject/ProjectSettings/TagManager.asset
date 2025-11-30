@@ -8,6 +8,9 @@ TagManager:
   - Enemy
   - Objective
   - Board
+  - Steel
+  - Wires
+  - Wire
   layers:
   - Default
   - TransparentFX
