@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerControl : MonoBehaviour
 {
+
     //Used when checking interaction range
     InteractionHandler interactionHandler;
 
@@ -249,7 +250,8 @@ public class PlayerControl : MonoBehaviour
             }
             else if(hit.collider.tag == "ToolSelector")
                 if(!toolSelectIsActive){
-                toolSelectInstructions.SetActive(true);
+                    Debug.Log("Tool select is not active");
+                    toolSelectInstructions.SetActive(true);
                 }
 
             else{
