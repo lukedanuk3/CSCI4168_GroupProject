@@ -91,6 +91,9 @@ public class PlayerControl : MonoBehaviour
     //Tool use
     private int toolCoolDown = 100;
     private bool toolInUse = false;
+    
+
+    private bool initialized = false;
 
     //Player's camera tool
     public GameObject camera;
@@ -104,14 +107,30 @@ public class PlayerControl : MonoBehaviour
         if(instance == null){
             instance = this;
             DontDestroyOnLoad(gameObject);
+            Debug.Log("Player created");
         }
         else if(instance != this){
+            Debug.Log("Destroying duplicate player");
             Destroy(gameObject);
-        }    }
+        }    
+    }
     void Start()
     {
-        //Load all interactable objects in the level into the Interactables array
-        interactables = GameObject.FindGameObjectsWithTag("Interactable");
+        if(!initialized)
+        {
+            //Load all interactable objects in the level into the Interactables array
+            interactables = GameObject.FindGameObjectsWithTag("Interactable");
+
+            //Get 
+            cameraControl = camera.GetComponent<CameraToolControl>();
+
+            playerAnimator = GetComponent<Animator>();
+            Cursor.lockState = CursorLockMode.Locked;
+            rigidbody = GetComponent<Rigidbody>();
+            uiManager.setGameplayUIActive();
+            uiManager.resetCounter();
+            initialized = true;
+        }
 
         //Load the camera enemies, and render them inivisible
         cameraEnemies = GameObject.FindGameObjectsWithTag("CameraMonster");
@@ -126,15 +145,6 @@ public class PlayerControl : MonoBehaviour
         //Find all doors marked "Door" or "Exit"
         doors = GameObject.FindGameObjectsWithTag("Door");
         exits = GameObject.FindGameObjectsWithTag("Exit");
-
-        //Get 
-        cameraControl = camera.GetComponent<CameraToolControl>();
-
-        playerAnimator = GetComponent<Animator>();
-        Cursor.lockState = CursorLockMode.Locked;
-        rigidbody = GetComponent<Rigidbody>();
-        uiManager.setGameplayUIActive();
-        uiManager.resetCounter();
     }
 
     void Update()
