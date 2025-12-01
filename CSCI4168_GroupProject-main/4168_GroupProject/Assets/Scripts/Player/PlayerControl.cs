@@ -114,6 +114,7 @@ public class PlayerControl : MonoBehaviour
         }
 
         doors = GameObject.FindGameObjectsWithTag("Door");
+        exits = GameObject.FindGameObjectsWithTag("Exit");
         cameraControl = camera.GetComponent<CameraToolControl>();
 
         playerAnimator = GetComponent<Animator>();
@@ -523,6 +524,7 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    //Rebuilds the navmesh surface after a trap is broken
     private void RebuildNavMeshSurface(){
         foreach (GameObject door in doors){
             door.SetActive(false);
@@ -534,6 +536,7 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    //Checks what's in the camera's view
     private void CheckCameraRange(Ray ray, RaycastHit hit){
         if(cameraControl.isOpen){
         if(Physics.Raycast(ray, out hit, 30f)){
@@ -542,7 +545,6 @@ public class PlayerControl : MonoBehaviour
                 enemyInCamera.SetActive(true);
             }
             else if(hit.collider.tag == "Objective"){
-                Debug.Log("Objective In View");
                 objectiveInCamera.SetActive(true);
             }
             else{
@@ -563,8 +565,12 @@ public class PlayerControl : MonoBehaviour
 
     private void CheckGoalCounter(){
         int currentCounter = int.Parse(uiManager.lifeText.text);
-        if(currentCounter >= 5){
+        if(currentCounter >= 5 && goalReached == false){
             goalReached = true;
+            int index = Random.Range(0, exits.Length);
+            GameObject exit = exits[index];
+            exit.GetComponent<ExitHandler>().UnlockDoor();
+            Debug.Log(exit);
         }
     }
 }

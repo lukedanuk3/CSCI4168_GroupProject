@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     public GameObject gameplayUI;
     public GameObject selectionUI;
     public GameObject gameOverUI;
+    public GameObject victoryUI;
 
     public TMP_Text lifeText;
 
@@ -85,6 +86,12 @@ public class UIManager : MonoBehaviour
         setGameplayUIInactive();
         // enable game over screen
         gameOverUI.SetActive(true);
+    }
+
+    public void activateVictory(){
+        setGameplayUIInactive();
+        setSelectionUIInactive();
+        victoryUI.SetActive(true);
     }
     public void increaseCounter()
     {

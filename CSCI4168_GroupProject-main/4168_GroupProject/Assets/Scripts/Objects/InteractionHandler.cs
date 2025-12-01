@@ -37,7 +37,7 @@ public class InteractionHandler : MonoBehaviour
         }
 
         else if(objectType == EXIT){
-
+            gameObject.GetComponentInChildren<ExitHandler>().Interact();
         }
     }
 

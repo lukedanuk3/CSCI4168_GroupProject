@@ -21,7 +21,6 @@ public class DoorHandler : MonoBehaviour
     public void Interact(){
         Open();
         
-        //open or close door...
     }
     
     public void Open(){
@@ -36,7 +35,6 @@ public class DoorHandler : MonoBehaviour
             anim.SetBool("IsClosed", false);
             anim.SetTrigger("OpenClose");
 
-            // gameObject.transform.Rotate(0,-90,0, Space.World); 
             coroutineInstance = CloseDoor(anim, gameObject, 2.0f);    
             StartCoroutine(coroutineInstance);
    
@@ -55,7 +53,6 @@ public class DoorHandler : MonoBehaviour
             Debug.Log("Door hates ya");
 
         }
-        // anim.SetTrigger("OpenClose");     
     }
     IEnumerator CloseDoor(Animator anim, GameObject door, float delayTime){
         yield return new WaitForSeconds(delayTime);
@@ -69,6 +66,5 @@ public class DoorHandler : MonoBehaviour
             anim.SetTrigger("OpenClose");  
             }
 
-            // door.transform.Rotate(0, 90, 0, Space.World);
     }
 }

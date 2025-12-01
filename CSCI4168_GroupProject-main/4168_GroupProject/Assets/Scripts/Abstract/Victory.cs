@@ -1,12 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameOver : MonoBehaviour
+public class Victory : MonoBehaviour
 {
     public enum buttonOptions
     {
         quit,
-        reload,
         goBackToHub
     }
 
@@ -23,13 +22,7 @@ public class GameOver : MonoBehaviour
         if (choice == buttonOptions.goBackToHub)
         {
             //reload the current scene
-            Debug.Log("This will reload the current level.");
-            string currentScene = SceneManager.GetActiveScene().name;
-            SceneManager.LoadScene(currentScene);
-        }
-
-        if (choice == buttonOptions.goBackToHub)
-        {
+            Debug.Log("This will take the user back to the HUB");
             SceneManager.LoadScene("HUB");
         }
     }

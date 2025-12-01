@@ -63,9 +63,13 @@ public class CameraToolControl : MonoBehaviour
 
                     }
                     else if (item.tag == "Objective"){
-                        //Objective spotted
-                        Debug.Log("Objective seen!");
+                        if(!item.GetComponent<ItemPhotoHandler>().CheckIfPhotoAlreadyTaken()){
+                        item.GetComponent<ItemPhotoHandler>().PhotoNowTaken();
                         uiManager.increaseCounter();
+                        }
+                        else{
+                        Debug.Log("Object's already had its picture taken");
+                        }
                     }
                 }
             }
