@@ -82,7 +82,7 @@ public class UIManager : MonoBehaviour
     public void activateGameOver()
     {
         // disable gameplay UI
-        gameplayUI.SetActive(false);
+        setGameplayUIInactive();
         // enable game over screen
         gameOverUI.SetActive(true);
     }

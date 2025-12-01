@@ -117,6 +117,7 @@ public class PlayerControl : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
         toolSelectIsActive = false;
         levelSelectIsActive = false;
+        uiManager.setGameplayUIActive();
     }
 
     void Update()
@@ -364,6 +365,12 @@ public class PlayerControl : MonoBehaviour
         if (inventoryIndex < inventory.Count){
             GameObject selected = inventory[inventoryIndex];
             selected.SetActive(true);
+            if(inventoryIndex = 1){
+                uiManager.tool1Active();
+            }
+            else if(inventoryIndex = 2){
+                uiManager.tool2Active();
+            }
 
             selected.transform.SetParent(toolHolder, false);
 
