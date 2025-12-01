@@ -12,6 +12,7 @@ public class CameraToolControl : MonoBehaviour
     public GameObject uiPanel;
     public GameObject enemyInView;
     public GameObject objectiveInView;
+    public GameObject player;
     public bool isOpen;
 
     void Update(){
@@ -56,12 +57,17 @@ public class CameraToolControl : MonoBehaviour
                 if (GeometryUtility.TestPlanesAABB(frustumPlanes, renderer.bounds))
                 {
                     //Object is in frame, so check tag
-                    if (item.tag == "Enemy"){
+                    if (item.tag == "FollowMonster"){
                         //Enemy spotted
                         Debug.Log("Enemy seen!");
-                    }else if (item.tag == "Objective"){
+                    }
+                    else if (item.tag == "CameraMonster"){
+                        
+                    }
+                    else if (item.tag == "Objective"){
                         //Objective spotted
                         Debug.Log("Objective seen!");
+                        // player.GetComponent<UIManager>().increaseCounter();
                     }
                 }
             }

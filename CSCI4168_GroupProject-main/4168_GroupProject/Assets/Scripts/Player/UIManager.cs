@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
 
     public GameObject gameplayUI;
     public GameObject selectionUI;
+    public GameObject gameOverUI;
 
     public TMP_Text lifeText;
 
@@ -78,7 +79,13 @@ public class UIManager : MonoBehaviour
     {
         selectionUI.SetActive(false);
     }
-
+    public void activateGameOver()
+    {
+        // disable gameplay UI
+        gameplayUI.SetActive(false);
+        // enable game over screen
+        gameOverUI.SetActive(true);
+    }
     public void increaseCounter()
     {
         int curr = int.Parse(lifeText.text);

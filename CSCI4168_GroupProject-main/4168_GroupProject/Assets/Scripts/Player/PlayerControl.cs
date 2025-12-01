@@ -81,6 +81,8 @@ public class PlayerControl : MonoBehaviour
 
     //Player's health
     public int health = 3;
+    public float healTime = 10;
+    private float timer = 0;
 
     //UI Manager
     public UIManager uiManager;
@@ -171,6 +173,15 @@ public class PlayerControl : MonoBehaviour
                     }
                 }
             }   
+        }
+
+        if (health < 3){
+            timer = timer + Time.deltaTime;
+            if (timer > healTime){
+                heal();
+                //Debug.Log("Healed! Current health: " + health);
+                timer = 0;
+            }
         }
     }
 
@@ -415,6 +426,9 @@ public class PlayerControl : MonoBehaviour
     public void takeDamage()
     {
         health--;
+        if(health < 0){
+            uiManager.activateGameOver();
+        }
         uiManager.UpdateHealth(health);
     }
 
