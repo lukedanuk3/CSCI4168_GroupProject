@@ -11904,9 +11904,6 @@ MonoBehaviour:
   health3: {fileID: 891348890}
   tool1: {fileID: 755127646}
   tool2: {fileID: 861419216}
-  crowbar: {fileID: 0}
-  boltcutters: {fileID: 0}
-  wirecutters: {fileID: 0}
   gameplayUI: {fileID: 2091336590}
   selectionUI: {fileID: 286511887}
   levelUI: {fileID: 2083265582}
@@ -13838,8 +13835,11 @@ MonoBehaviour:
   slot1_gameplay: {fileID: 755127643}
   slot2_gameplay: {fileID: 861419214}
   crowbar: {fileID: 21300000, guid: 510b800efe7a6430c87781a70aa9ca3f, type: 3}
+  crowbarObject: {fileID: 1760220800}
   boltcutter: {fileID: 21300000, guid: 091352a01f67742efad526a95eacfdfc, type: 3}
+  boltcutterObject: {fileID: 0}
   wirecutter: {fileID: 0}
+  wirecutterObject: {fileID: 0}
   playerController: {fileID: 179093829}
 --- !u!1 &1628899853
 GameObject:
@@ -15619,6 +15619,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1759331762}
   m_CullTransparentMesh: 1
+--- !u!1 &1760220800 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5827940404983275882, guid: 9410bc88cc7c342b18e36aaa4b022d28, type: 3}
+  m_PrefabInstance: {fileID: 854471080}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1768472806
 GameObject:
   m_ObjectHideFlags: 0

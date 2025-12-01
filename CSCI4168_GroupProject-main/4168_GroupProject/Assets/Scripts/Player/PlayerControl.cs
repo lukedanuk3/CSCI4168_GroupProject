@@ -133,6 +133,7 @@ public class PlayerControl : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         rigidbody = GetComponent<Rigidbody>();
+        uiManager.setGameplayUIActive();
         uiManager.resetCounter();
     }
 
@@ -394,7 +395,7 @@ public class PlayerControl : MonoBehaviour
         if (inventory.Count < 2) {
             Debug.Log("Picked up tool " + tool.name);
             inventory.Add(tool);
-            SelectTool(inventory.Count - 1);
+            // SelectTool(inventory.Count - 1);
         }else{
             Debug.Log("Inventory full");
         }

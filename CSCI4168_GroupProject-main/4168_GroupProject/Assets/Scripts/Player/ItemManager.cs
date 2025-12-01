@@ -17,10 +17,18 @@ public class ItemManager : MonoBehaviour
 
     public GameObject slot1_gameplay;
     public GameObject slot2_gameplay;
+    [Space]
 
     public Sprite crowbar;
+    public GameObject crowbarObject;
+    [Space]
     public Sprite boltcutter;
+    public GameObject boltcutterObject;
+    [Space]
+
     public Sprite wirecutter;
+    public GameObject wirecutterObject;
+    [Space]
 
     public PlayerControl playerController;
 
@@ -50,6 +58,7 @@ public class ItemManager : MonoBehaviour
                     tool1 = "crowbar";
                     slot1_selection.SetActive(true);
                     slot1_gameplay.SetActive(true);
+                    playerController.PickUpTool(crowbarObject);
                     updateUI();
                     return;
                 }
@@ -58,6 +67,7 @@ public class ItemManager : MonoBehaviour
                     tool2 = "crowbar";
                     slot2_selection.SetActive(true);
                     slot2_gameplay.SetActive(true);
+                    playerController.PickUpTool(crowbarObject);
                     updateUI();
                     return;
                 }
