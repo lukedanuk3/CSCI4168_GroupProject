@@ -60,7 +60,7 @@ public class CameraToolControl : MonoBehaviour
                         Debug.Log("Enemy seen!");
                     }
                     else if (item.tag == "CameraMonster"){
-
+                        item.GetComponent<EnemyBehavior>().FreezeEnemy(item);
                     }
                     else if (item.tag == "Objective"){
                         if(!item.GetComponent<ItemPhotoHandler>().CheckIfPhotoAlreadyTaken()){

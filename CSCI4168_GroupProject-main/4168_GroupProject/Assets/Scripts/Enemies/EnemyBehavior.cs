@@ -7,6 +7,8 @@ public class EnemyBehavior : MonoBehaviour
 {
     private NavMeshAgent agent;
     private GameObject player;
+    private Rigidbody rb;
+    private RigidbodyConstraints originalConstraints;
     [Space]
     [SerializeField] AudioClip[] audioClips;
     public AudioSource audioSource;
@@ -33,6 +35,8 @@ public class EnemyBehavior : MonoBehaviour
         currentPoint = Random.Range(0, points.Length);
         agent.updateRotation = false;
         rotationSpeed = 2;
+        rb = GetComponent<Rigidbody>();
+        originalConstraints = rb.constraints;
 
         if(gameObject.tag == "CameraMonster"){
             StartCoroutine(RandomlyPlayAudio());
@@ -147,7 +151,6 @@ public class EnemyBehavior : MonoBehaviour
             audioSource.Play();
         }
         if(PlayerSeesEnemy()){
-            Debug.Log("Player is in view of enemy");
             agent.isStopped = true;
             animator.SetBool("isMoving", false);
             audioSource.Stop();
@@ -170,7 +173,6 @@ public class EnemyBehavior : MonoBehaviour
             RaycastHit hit;
             if(Physics.Raycast(transform.position, directionToPlayer, out hit, 60f)){
                 if(hit.transform == player.transform){
-                    Debug.Log("Spooky Squid sees player");
                     return true;
                 }
             }
@@ -190,7 +192,6 @@ public class EnemyBehavior : MonoBehaviour
             if(Physics.Raycast(camera.position, directionToEnemy, out hit, 30f)){
                 //If the player's camera sees the follow monster, it will stop moving altogether
                 if(hit.transform == transform){
-                    Debug.Log("In view of monster");
                     return true;
                 }
             }
@@ -211,6 +212,17 @@ public class EnemyBehavior : MonoBehaviour
             }
         }
 
+    }
+
+    public void FreezeEnemy(GameObject enemy){
+        Debug.Log("Freezing enemy");
+        rb.constraints = RigidbodyConstraints.FreezeAll; 
+        StartCoroutine(UnfreezeAfterDelay(5f));
+    }
+
+    IEnumerator UnfreezeAfterDelay(float delay){
+        yield return new WaitForSeconds(delay);
+        rb.constraints = originalConstraints;
     }
     //This method will only run if the enemy collides with other objects
     private void OnTriggerEnter(Collider collision){
