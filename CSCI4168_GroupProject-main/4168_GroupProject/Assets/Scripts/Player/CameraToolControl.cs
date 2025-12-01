@@ -10,9 +10,7 @@ public class CameraToolControl : MonoBehaviour
     public AudioSource photoTakingSound;
 
     public GameObject uiPanel;
-    public GameObject enemyInView;
-    public GameObject objectiveInView;
-    public GameObject player;
+    public UIManager uiManager;
     public bool isOpen;
 
     void Update(){
@@ -62,12 +60,12 @@ public class CameraToolControl : MonoBehaviour
                         Debug.Log("Enemy seen!");
                     }
                     else if (item.tag == "CameraMonster"){
-                        
+
                     }
                     else if (item.tag == "Objective"){
                         //Objective spotted
                         Debug.Log("Objective seen!");
-                        // player.GetComponent<UIManager>().increaseCounter();
+                        uiManager.increaseCounter();
                     }
                 }
             }

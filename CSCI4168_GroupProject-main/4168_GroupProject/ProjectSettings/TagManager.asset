@@ -16,6 +16,7 @@ TagManager:
   - ToolSelector
   - Radio
   - NextLevel
+  - Exit
   layers:
   - Default
   - TransparentFX

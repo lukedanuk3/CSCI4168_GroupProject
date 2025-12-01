@@ -24,8 +24,8 @@ public class PlayerControl : MonoBehaviour
     [Space]
 
     //Used to close select UIs
-    private bool toolSelectIsActive;
-    private bool levelSelectIsActive;
+    private bool toolSelectIsActive = false;
+    private bool levelSelectIsActive = false;
 
     //Used to store the user's selected level
     public string levelName;
@@ -43,6 +43,7 @@ public class PlayerControl : MonoBehaviour
 
     //Used to turn off doors for NavMesh baking
     private GameObject[] doors;
+    private GameObject[] exits;
     [Space]
 
     //Animation constants
@@ -95,6 +96,9 @@ public class PlayerControl : MonoBehaviour
     CameraToolControl cameraControl;
     public GameObject enemyInCamera;
     public GameObject objectiveInCamera;
+
+    //Used to keep track on if goal's been achieved
+    private bool goalReached = false;
     
     void Start()
     {
@@ -115,8 +119,6 @@ public class PlayerControl : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         rigidbody = GetComponent<Rigidbody>();
-        toolSelectIsActive = false;
-        levelSelectIsActive = false;
         uiManager.setGameplayUIActive();
     }
 
@@ -184,6 +186,8 @@ public class PlayerControl : MonoBehaviour
                 timer = 0;
             }
         }
+
+        CheckGoalCounter();
     }
 
     //Player movement control
@@ -242,6 +246,14 @@ public class PlayerControl : MonoBehaviour
         //Opening camera
         if (Input.GetKeyUp(KeyCode.C)){
             cameraControl.OpenClose();
+            Debug.Log(cameraControl.isOpen);
+            if(cameraControl.isOpen){
+                uiManager.setGameplayUIInactive();
+            }
+            else{
+                Debug.Log("Camera is closed");
+                uiManager.setGameplayUIActive();
+            }
         }
 
         //Switching tools in inventory
@@ -262,7 +274,7 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Return)){
             if(SceneManager.GetActiveScene().name == "HUB"){
                 Debug.Log("Right scene");
-            if(RadioVoiceOver.instance.skipInstructions.activeInHierarchy){
+            if(RadioVoiceOver.instance != null && RadioVoiceOver.instance.skipInstructions.activeInHierarchy){
                 Debug.Log("Stopping radio");
                 RadioVoiceOver.instance.StopRadioVoiceOver();
             }
@@ -314,7 +326,7 @@ public class PlayerControl : MonoBehaviour
                 }
             }
             }
-                else{
+            else{
                 doorOpenInstructions.SetActive(false);
                 toolPickUpInstructions.SetActive(false);
                 toolSelectInstructions.SetActive(false);
@@ -365,10 +377,10 @@ public class PlayerControl : MonoBehaviour
         if (inventoryIndex < inventory.Count){
             GameObject selected = inventory[inventoryIndex];
             selected.SetActive(true);
-            if(inventoryIndex = 1){
+            if(inventoryIndex == 1){
                 uiManager.tool1Active();
             }
-            else if(inventoryIndex = 2){
+            else if(inventoryIndex == 2){
                 uiManager.tool2Active();
             }
 
@@ -523,6 +535,7 @@ public class PlayerControl : MonoBehaviour
     }
 
     private void CheckCameraRange(Ray ray, RaycastHit hit){
+        if(cameraControl.isOpen){
         if(Physics.Raycast(ray, out hit, 30f)){
             if(hit.collider.tag == "CameraMonster" || hit.collider.tag == "FollowMonster"){
                 Debug.Log("Monster in camera");
@@ -540,6 +553,18 @@ public class PlayerControl : MonoBehaviour
         else{
                 enemyInCamera.SetActive(false);
                 objectiveInCamera.SetActive(false);
+        }
+        }
+        else{
+            enemyInCamera.SetActive(false);
+            objectiveInCamera.SetActive(false);
+        }
+    }
+
+    private void CheckGoalCounter(){
+        int currentCounter = int.Parse(uiManager.lifeText.text);
+        if(currentCounter >= 5){
+            goalReached = true;
         }
     }
 }
