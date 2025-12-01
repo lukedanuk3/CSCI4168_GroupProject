@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public static UIManager instance;
+
     public Image health1;
     public Image health2;
     public Image health3;
@@ -13,14 +15,20 @@ public class UIManager : MonoBehaviour
 
     public GameObject gameplayUI;
     public GameObject selectionUI;
+    public GameObject levelUI;
     public GameObject gameOverUI;
     public GameObject victoryUI;
 
     public TMP_Text lifeText;
 
     void Awake(){
-        DontDestroyOnLoad(gameObject);
-    }
+        if(instance == null){
+            instance = this;
+            DontDestroyOnLoad(transform.root.gameObject);
+        }
+        else if(instance != this){
+            Destroy(gameObject);
+        }    }
     public void UpdateHealth(int health)
     {
         //Debug.Log("updating health");
@@ -83,6 +91,14 @@ public class UIManager : MonoBehaviour
     {
         selectionUI.SetActive(false);
     }
+
+    public void setLevelSelectionUIActive(){
+        levelUI.SetActive(true);
+    }
+
+    public void setLevelSelectionUIInactive(){
+        levelUI.SetActive(false);
+    }
     public void activateGameOver()
     {
         // disable gameplay UI
@@ -113,5 +129,6 @@ public class UIManager : MonoBehaviour
             lifeText.text = "X";
         }
     }
+    
 
 }

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class ItemManager : MonoBehaviour
 {
 
+    public static ItemManager instance;
+
     private string tool1;
     private string tool2;
 
@@ -23,7 +25,13 @@ public class ItemManager : MonoBehaviour
     public PlayerControl playerController;
 
     void Awake(){
-        DontDestroyOnLoad(gameObject);
+        if(instance == null){
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if(instance != this){
+            Destroy(gameObject);
+        }
     }
     public void Start()
     {

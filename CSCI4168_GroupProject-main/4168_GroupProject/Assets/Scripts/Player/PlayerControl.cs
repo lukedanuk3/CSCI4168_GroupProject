@@ -7,6 +7,7 @@ using Unity.AI.Navigation;
 public class PlayerControl : MonoBehaviour
 {
 
+    public static PlayerControl instance;
     //Used when checking interaction range
     InteractionHandler interactionHandler;
 
@@ -100,8 +101,13 @@ public class PlayerControl : MonoBehaviour
     //Used to keep track on if goal's been achieved
     private bool goalReached = false;
     void Awake(){
-        DontDestroyOnLoad(gameObject);
-    }
+        if(instance == null){
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if(instance != this){
+            Destroy(gameObject);
+        }    }
     void Start()
     {
         //Load all interactable objects in the level into the Interactables array
@@ -127,13 +133,6 @@ public class PlayerControl : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         rigidbody = GetComponent<Rigidbody>();
-        // if(SceneManager.GetActiveScene().name != "HUB")
-        // {
-        uiManager.setGameplayUIActive();
-        // }
-        // else{
-        //  uiManager.setGameplayUIInactive();
-        // }
         uiManager.resetCounter();
     }
 
@@ -333,18 +332,18 @@ public class PlayerControl : MonoBehaviour
             }
             else if(hit.collider.tag == "LevelSelector"){
                 if(!levelSelectIsActive){
-                levelSelectInstructions.SetActive(true);
+                    levelSelectInstructions.SetActive(true);
                 }
                 else{
-                levelSelectInstructions.SetActive(false);
+                    levelSelectInstructions.SetActive(false);
                 }
             }
             else if(hit.collider.tag == "ToolSelector"){
                 if(!toolSelectIsActive){
-                    toolSelectInstructions.SetActive(true);
+                    toolSelectInstructions.SetActive(true);             
                 }
                 else{
-                    toolSelectInstructions.SetActive(false);
+                    toolSelectInstructions.SetActive(false);             
                 }
             }
             else if(hit.collider.tag == "NextLevel"){
@@ -359,7 +358,7 @@ public class PlayerControl : MonoBehaviour
             else{
                 doorOpenInstructions.SetActive(false);
                 toolPickUpInstructions.SetActive(false);
-                toolSelectInstructions.SetActive(false);
+                toolSelectInstructions.SetActive(false);             
                 levelSelectInstructions.SetActive(false);
                 needToChooseLevel.SetActive(false);
                 nextLevelInstructions.SetActive(false);
@@ -403,7 +402,7 @@ public class PlayerControl : MonoBehaviour
 
     public void SelectTool(int inventoryIndex){
         if (currentTool != null) currentTool.SetActive(false);
-
+        Debug.Log(inventory.Count);
         if (inventoryIndex < inventory.Count){
             GameObject selected = inventory[inventoryIndex];
             selected.SetActive(true);
@@ -413,7 +412,7 @@ public class PlayerControl : MonoBehaviour
             else if(inventoryIndex == 2){
                 uiManager.tool2Active();
             }
-
+            Debug.Log("Current tool: " + selected);
             selected.transform.SetParent(toolHolder, false);
 
             selected.transform.localPosition = selected.GetComponent<ToolData>().relativePosition;
