@@ -50,6 +50,7 @@ public class CameraToolControl : MonoBehaviour
         foreach (GameObject item in FindObjectsOfType<GameObject>())
         {
             Renderer renderer = item.GetComponent<Renderer>();
+            
             if (renderer != null)
             {
                 if (GeometryUtility.TestPlanesAABB(frustumPlanes, renderer.bounds))
@@ -60,7 +61,8 @@ public class CameraToolControl : MonoBehaviour
                         Debug.Log("Enemy seen!");
                     }
                     else if (item.tag == "CameraMonster"){
-                        item.GetComponent<EnemyBehavior>().FreezeEnemy(item);
+                        Debug.Log("Camera in sight");
+                        item.GetComponentInParent<EnemyBehavior>().FreezeEnemy();
                     }
                     else if (item.tag == "Objective"){
                         if(!item.GetComponent<ItemPhotoHandler>().CheckIfPhotoAlreadyTaken()){

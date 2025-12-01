@@ -214,15 +214,15 @@ public class EnemyBehavior : MonoBehaviour
 
     }
 
-    public void FreezeEnemy(GameObject enemy){
+    public void FreezeEnemy(){
         Debug.Log("Freezing enemy");
-        rb.constraints = RigidbodyConstraints.FreezeAll; 
-        StartCoroutine(UnfreezeAfterDelay(5f));
+        agent.isStopped = true;
+        StartCoroutine(UnfreezeAfterDelay(5.0f));
     }
 
     IEnumerator UnfreezeAfterDelay(float delay){
         yield return new WaitForSeconds(delay);
-        rb.constraints = originalConstraints;
+        agent.isStopped = false;
     }
     //This method will only run if the enemy collides with other objects
     private void OnTriggerEnter(Collider collision){

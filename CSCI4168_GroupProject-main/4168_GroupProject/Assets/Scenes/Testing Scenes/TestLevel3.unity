@@ -8013,6 +8013,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: CameraMonster
       objectReference: {fileID: 0}
+    - target: {fileID: 3165784303568367568, guid: 961b78e8404744037927ff9eea3e9da5, type: 3}
+      propertyPath: m_TagString
+      value: CameraMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547730201143915164, guid: 961b78e8404744037927ff9eea3e9da5, type: 3}
+      propertyPath: m_TagString
+      value: CameraMonster
+      objectReference: {fileID: 0}
     - target: {fileID: 8962004945239118775, guid: 961b78e8404744037927ff9eea3e9da5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
