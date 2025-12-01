@@ -22,6 +22,9 @@ public class ItemManager : MonoBehaviour
 
     public PlayerControl playerController;
 
+    void Awake(){
+        DontDestroyOnLoad(gameObject);
+    }
     public void Start()
     {
         slot1_selection.SetActive(false);
@@ -113,7 +116,7 @@ public class ItemManager : MonoBehaviour
     // public void PlaySelectSound(AudioSource pickUpSound){
     //     pickUpSound.Play();
     // }
-    
+
     private void updateUI()
     {
         if (tool1 == "crowbar")
@@ -147,6 +150,7 @@ public class ItemManager : MonoBehaviour
             slot2_gameplay.GetComponent<Image>().sprite = boltcutter;
         }
 
+        Debug.Log("1st Tool: " + tool1 + "\tTool2: " + tool2);
         playerController.updateItems(tool1, 0);
         playerController.updateItems(tool2, 1);
 

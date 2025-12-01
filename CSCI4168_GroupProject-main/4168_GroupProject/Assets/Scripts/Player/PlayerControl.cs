@@ -120,18 +120,21 @@ public class PlayerControl : MonoBehaviour
         //Find all doors marked "Door" or "Exit"
         doors = GameObject.FindGameObjectsWithTag("Door");
         exits = GameObject.FindGameObjectsWithTag("Exit");
+
+        //Get 
         cameraControl = camera.GetComponent<CameraToolControl>();
 
         playerAnimator = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         rigidbody = GetComponent<Rigidbody>();
-        if(SceneManager.GetActiveScene().name != "HUB")
-        {
-            uiManager.setGameplayUIActive();
-        }
-        else{
-            uiManager.setGameplayUIInactive();
-        }
+        // if(SceneManager.GetActiveScene().name != "HUB")
+        // {
+        uiManager.setGameplayUIActive();
+        // }
+        // else{
+        //  uiManager.setGameplayUIInactive();
+        // }
+        uiManager.resetCounter();
     }
 
     void Update()
@@ -338,7 +341,6 @@ public class PlayerControl : MonoBehaviour
             }
             else if(hit.collider.tag == "ToolSelector"){
                 if(!toolSelectIsActive){
-                    Debug.Log("Tool select is not active");
                     toolSelectInstructions.SetActive(true);
                 }
                 else{

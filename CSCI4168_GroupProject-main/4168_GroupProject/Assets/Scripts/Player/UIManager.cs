@@ -18,6 +18,9 @@ public class UIManager : MonoBehaviour
 
     public TMP_Text lifeText;
 
+    void Awake(){
+        DontDestroyOnLoad(gameObject);
+    }
     public void UpdateHealth(int health)
     {
         //Debug.Log("updating health");
