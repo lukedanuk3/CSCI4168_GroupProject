@@ -99,11 +99,15 @@ public class PlayerControl : MonoBehaviour
 
     //Used to keep track on if goal's been achieved
     private bool goalReached = false;
-    
+    void Awake(){
+        DontDestroyOnLoad(gameObject);
+    }
     void Start()
     {
         //Load all interactable objects in the level into the Interactables array
         interactables = GameObject.FindGameObjectsWithTag("Interactable");
+
+        //Load the camera enemies, and render them inivisible
         cameraEnemies = GameObject.FindGameObjectsWithTag("CameraMonster");
         foreach (GameObject cameraEnemy in cameraEnemies){
             foreach(Renderer render in cameraEnemy.GetComponentsInChildren<Renderer>()){
@@ -113,6 +117,7 @@ public class PlayerControl : MonoBehaviour
             }
         }
 
+        //Find all doors marked "Door" or "Exit"
         doors = GameObject.FindGameObjectsWithTag("Door");
         exits = GameObject.FindGameObjectsWithTag("Exit");
         cameraControl = camera.GetComponent<CameraToolControl>();
@@ -120,7 +125,13 @@ public class PlayerControl : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         rigidbody = GetComponent<Rigidbody>();
-        uiManager.setGameplayUIActive();
+        if(SceneManager.GetActiveScene().name != "HUB")
+        {
+            uiManager.setGameplayUIActive();
+        }
+        else{
+            uiManager.setGameplayUIInactive();
+        }
     }
 
     void Update()
@@ -133,19 +144,24 @@ public class PlayerControl : MonoBehaviour
         //Handle player input
         HandlePosition();
         HandleOtherInput();
-        if(currentState == WALK){
-            if(!walkSound.isPlaying){
+        if(currentState == WALK)
+        {
+            if(!walkSound.isPlaying)
+            {
                 walkSound.Play();
             }
-            if(Input.GetKey(KeyCode.LeftShift)){
+            if(Input.GetKey(KeyCode.LeftShift))
+            {
                 Debug.Log("player is running");
                 walkSound.pitch = 2.0f;
             }
-            else{
+            else
+            {
                 walkSound.pitch = 1.0f;
             }
         }
-        else{
+        else
+        {
             walkSound.Stop();
         }
         
@@ -160,28 +176,38 @@ public class PlayerControl : MonoBehaviour
                 toolCoolDown = 100;
             }
         }
-        if(cameraControl.uiPanel.activeInHierarchy){
-            foreach (GameObject cameraEnemy in cameraEnemies){
-                foreach(Renderer render in cameraEnemy.GetComponentsInChildren<Renderer>()){
-                    if(render != null){
+        if(cameraControl.uiPanel.activeInHierarchy)
+        {
+            foreach (GameObject cameraEnemy in cameraEnemies)
+            {
+                foreach(Renderer render in cameraEnemy.GetComponentsInChildren<Renderer>())
+                {
+                    if(render != null)
+                    {
                         render.enabled = true;
                     }
                 }
             }
         }
-        else{
-            foreach (GameObject cameraEnemy in cameraEnemies){
-                foreach(Renderer render in cameraEnemy.GetComponentsInChildren<Renderer>()){
-                    if(render != null){
+        else
+        {
+            foreach (GameObject cameraEnemy in cameraEnemies)
+            {
+                foreach(Renderer render in cameraEnemy.GetComponentsInChildren<Renderer>())
+                {
+                    if(render != null)
+                    {
                         render.enabled = false;
                     }
                 }
             }   
         }
 
-        if (health < 3){
+        if (health < 3)
+        {
             timer = timer + Time.deltaTime;
-            if (timer > healTime){
+            if (timer > healTime)
+            {
                 heal();
                 //Debug.Log("Healed! Current health: " + health);
                 timer = 0;
@@ -192,7 +218,8 @@ public class PlayerControl : MonoBehaviour
     }
 
     //Player movement control
-    void HandlePosition(){
+    void HandlePosition()
+    {
 
         //Movement variables
         float xTranslation = 0f;
@@ -537,9 +564,12 @@ public class PlayerControl : MonoBehaviour
     }
 
     //Checks what's in the camera's view
-    private void CheckCameraRange(Ray ray, RaycastHit hit){
-        if(cameraControl.isOpen){
-        if(Physics.Raycast(ray, out hit, 30f)){
+    private void CheckCameraRange(Ray ray, RaycastHit hit)
+    {
+        if(cameraControl.isOpen)
+        {
+        if(Physics.Raycast(ray, out hit, 30f))
+        {
             if(hit.collider.tag == "CameraMonster" || hit.collider.tag == "FollowMonster"){
                 Debug.Log("Monster in camera");
                 enemyInCamera.SetActive(true);
@@ -557,15 +587,20 @@ public class PlayerControl : MonoBehaviour
                 objectiveInCamera.SetActive(false);
         }
         }
-        else{
+        else
+        {
             enemyInCamera.SetActive(false);
             objectiveInCamera.SetActive(false);
         }
     }
 
-    private void CheckGoalCounter(){
+    //Checks the player's goal counter
+    private void CheckGoalCounter()
+    {
         int currentCounter = int.Parse(uiManager.lifeText.text);
-        if(currentCounter >= 5 && goalReached == false){
+
+        if(currentCounter >= 5 && goalReached == false)
+        {
             goalReached = true;
             int index = Random.Range(0, exits.Length);
             GameObject exit = exits[index];

@@ -105,5 +105,10 @@ public class UIManager : MonoBehaviour
         }
         lifeText.text = newCurr + "";
     }
+    public void resetCounter(){
+        if(int.Parse(lifeText.text) != 0){
+            lifeText.text = "X";
+        }
+    }
 
 }
