@@ -553,8 +553,8 @@ public class PlayerControl : MonoBehaviour
     public void selectTools(){
         Cursor.lockState = CursorLockMode.None;
         toolSelectIsActive = true;
-        toolSelectUI.SetActive(true);
-    }
+        uiManager.setSelectionUIActive();
+        }
 
     //Loads the chosen level
     public void LoadChosenLevel(){
