@@ -17,6 +17,8 @@ public class EnemyBehavior : MonoBehaviour
     private float pointReach = 0.5f;
     private float rotationSpeed;
 
+    public Transform playerCamera;
+
     /*
     When the scene starts, we'll do the following
         - Assign a NavMeshAgent component to our enemy
@@ -162,7 +164,10 @@ public class EnemyBehavior : MonoBehaviour
 
 
     public bool EnemySeesPlayer(){
-        Transform camera = player.GetComponent<PlayerControl>().cameraTransform;
+        // Transform camera = player.GetComponent<PlayerControl>().cameraTransform;
+
+        Transform camera = playerCamera;
+
         Vector3 directionToPlayer = (camera.position - transform.position).normalized;
         float angle = Vector3.Angle(transform.forward, directionToPlayer);
 

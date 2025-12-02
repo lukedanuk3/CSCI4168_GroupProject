@@ -104,10 +104,14 @@ public class PlayerControl : MonoBehaviour
     public GameObject levelTools;
 
     public bool shouldLoadInventory;
+    public bool inventoryLoading;
     
+    void Awake(){
+        Debug.Log("Inventory on Awake: " + PlayerPrefs.GetString("Inventory"));
+    }
+
     void Start()
     {
-
         inventory = new List<GameObject>() { null, null };
 
         //Load all interactable objects in the level into the Interactables array
@@ -201,18 +205,6 @@ public class PlayerControl : MonoBehaviour
         // CheckGoalCounter();
     }
 
-    //Update the player's saved inventory
-    void UpdateGlobalInventory(){
-        string firstSlotName = "Empty";
-        if (inventory[0] != null) firstSlotName = inventory[0].name;
-        string secondSlotName = "Empty";
-        if (inventory[1] != null) secondSlotName = inventory[1].name;
-        PlayerPrefs.SetString("Inventory", firstSlotName + "/" + secondSlotName);
-
-
-        Debug.Log("Inventory Here " + firstSlotName + "/" + secondSlotName);
-    }
-
     //Player movement control
     void HandlePosition(){
 
@@ -281,10 +273,7 @@ public class PlayerControl : MonoBehaviour
 
         //Switching tools in inventory
         if (Input.GetKeyUp(KeyCode.Q)){
-            //Didn't use a bool here because of the variable naming difficulties that would come with that
-            if (currentSlot == 0) currentSlot = 1;
-            else currentSlot = 0;
-            SelectTool(currentSlot);
+            ChangeCurrentSlot();
 
             Debug.Log("You are on tool: " + currentSlot);
         }
@@ -433,8 +422,11 @@ public class PlayerControl : MonoBehaviour
         List<GameObject> boards = ObjectsInViewOfType("Board");
         if (boards != null){
             foreach (GameObject board in boards){
-                board.GetComponent<BoardBehaviour>().Break();
-                RebuildNavMeshSurface();
+                float distanceToBoard = Vector3.Distance(transform.position, board.transform.position);
+                if (distanceToBoard <= interactionRange){
+                    board.GetComponent<BoardBehaviour>().Break();
+                    RebuildNavMeshSurface();
+                }
             }
         }
 
@@ -450,9 +442,15 @@ public class PlayerControl : MonoBehaviour
     //Bolt cutters
     void UseBoltCutters(){
         List<GameObject> steels = ObjectsInViewOfType("Steel");
+        Debug.Log("Detected steels: " + (steels == null ? "null" : steels.Count.ToString()));
+        
         if (steels != null){
             foreach (GameObject steel in steels){
-                steel.GetComponent<SteelBehaviour>().Break();
+                float distanceToSteel = Vector3.Distance(transform.position, steel.transform.position);
+                if (distanceToSteel <= interactionRange){
+                    steel.GetComponent<SteelBehaviour>().Break();
+                    RebuildNavMeshSurface();
+                }
             }
         }
 
@@ -469,7 +467,11 @@ public class PlayerControl : MonoBehaviour
         List<GameObject> wires = ObjectsInViewOfType("Wire");
         if (wires != null){
             foreach (GameObject wire in wires){
-                wire.GetComponent<WireBehaviour>().Snip();
+                float distanceToWire = Vector3.Distance(transform.position, wire.transform.position);
+                if (distanceToWire <= interactionRange){
+                    wire.GetComponent<WireBehaviour>().Snip();
+                    RebuildNavMeshSurface();
+                }
             }
         }
 
@@ -585,6 +587,7 @@ public class PlayerControl : MonoBehaviour
 
     //Loads the chosen level
     public void LoadChosenLevel(){
+        Debug.Log("Inventory on leaving Hub: " + PlayerPrefs.GetString("Inventory"));
         if(levelIsSelected){
             SceneManager.LoadScene(levelName);
         }
@@ -640,7 +643,20 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    //Update the player's saved inventory
+    public void UpdateGlobalInventory(){
+        string firstSlotName = "Empty";
+        if (inventory[0] != null) firstSlotName = inventory[0].name;
+        string secondSlotName = "Empty";
+        if (inventory[1] != null) secondSlotName = inventory[1].name;
+        PlayerPrefs.SetString("Inventory", firstSlotName + "/" + secondSlotName);
+
+
+        Debug.Log("Inventory Here " + firstSlotName + "/" + secondSlotName);
+    }
+
     public void LoadGlobalInventory(){
+        inventoryLoading = true;
         string textInventory = PlayerPrefs.GetString("Inventory");
         string[] splitInventory = textInventory.Split("/");
         Dictionary<string, GameObject> levelToolObjects = levelTools.GetComponent<ToolList>().toolDictionary;
@@ -649,12 +665,24 @@ public class PlayerControl : MonoBehaviour
             GameObject first = Instantiate(levelToolObjects[splitInventory[0]]);
             first.name = first.name.Replace("(Clone)", "");
             PickUpTool(first);
+            ChangeCurrentSlot();
         }
         if (splitInventory[1] != "Empty"){
             GameObject second = Instantiate(levelToolObjects[splitInventory[1]]);
             second.name = second.name.Replace("(Clone)", "");
             PickUpTool(second);
+            ChangeCurrentSlot();
         }
-        UpdateGlobalInventory();
+
+        inventoryLoading = false;
+
+        Debug.Log("Inventory on Inventory Load: " + PlayerPrefs.GetString("Inventory"));
+    }
+
+    //PUBLIC SCOPE NECESSARY FOR UI TO WORK (or at least I think so)
+    public void ChangeCurrentSlot(){
+        if (currentSlot == 0) currentSlot = 1;
+        else currentSlot = 0;
+        SelectTool(currentSlot);
     }
 }
