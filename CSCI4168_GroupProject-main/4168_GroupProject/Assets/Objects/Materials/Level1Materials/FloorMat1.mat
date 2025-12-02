@@ -8,8 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: FloorMat1
-  m_Shader: {fileID: -6465566751694194690, guid: 2b3b7d0b179748b449e12721ea4fcfa6, type: 3}
-  m_Parent: {fileID: 2100000, guid: a3ed72d88e10e444fabb6e2b32dfce80, type: 2}
+  m_Shader: {fileID: -6465566751694194690, guid: 805145bdd23e99a449608ba982401acc, type: 3}
+  m_Parent: {fileID: 2100000, guid: aa4e4715bcda44c149b4e3ef9afd3c60, type: 2}
   m_ModifiedSerializedProperties: 10
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -25,7 +25,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_4450AB74:
-        m_Texture: {fileID: 2800000, guid: e4df84a77f940d84590d5d959bffe566, type: 3}
+        m_Texture: {fileID: 2800000, guid: 957d3d83c89c84b02856f77c72fa9f6a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -34,6 +34,7 @@ Material:
     - Boolean_3F1A8DAB: 1
     - Boolean_43476D73: 0
     - Vector1_E8746023: 32
+    - _QueueControl: 0
     m_Colors:
     - Vector2_8044833E: {r: 500, g: 500, b: 0, a: 0}
   m_BuildTextureStacks: []

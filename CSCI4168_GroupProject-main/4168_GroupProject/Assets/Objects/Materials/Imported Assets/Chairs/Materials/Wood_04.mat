@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Wood_04
-  m_Shader: {fileID: -6465566751694194690, guid: 9811a975b6d99df45b93bb716dacc497, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 2b3b7d0b179748b449e12721ea4fcfa6, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -96,8 +96,9 @@ Material:
     - Boolean_43476D73: 0
     - Boolean_7165A49C: 1
     - Boolean_85059BBE: 1
-    - Boolean_8BBF99CD: 0
+    - Boolean_8BBF99CD: 1
     - Boolean_D258FF8E: 0
+    - DeformMagnitude: 0
     - Vector1_21C41D02: 256
     - Vector1_6F288C5B: 0.5
     - Vector1_B2CC132F: 16
