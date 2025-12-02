@@ -29,8 +29,17 @@ public class ItemManager : MonoBehaviour
     [Space]
  
     public PlayerControl playerController;
+
+    public bool shouldLoadMemory;
  
     void Awake(){
+
+        if (shouldLoadMemory){
+            string[] toolMemory = PlayerPrefs.GetString("UIMemory").Split("/");
+            tools[0] = toolMemory[0];
+            tools[1] = toolMemory[1];
+        }
+
         if(instance == null){
             instance = this;
         }
@@ -164,8 +173,13 @@ public class ItemManager : MonoBehaviour
     }
  
     public void confirmSelection(){
+        UpdateUIMemory();
         playerController.UpdateGlobalInventory();
         playerController.finishSelectingTools();
+    }
+
+    void UpdateUIMemory(){
+        PlayerPrefs.SetString("UIMemory", tools[0] + "/" + tools[1]);
     }
     
 }
