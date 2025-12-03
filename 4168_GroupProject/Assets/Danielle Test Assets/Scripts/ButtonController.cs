@@ -6,10 +6,17 @@ public class ButtonController : MonoBehaviour
     public enum buttonOptions
     {
         quit,
-        level1
+        level1,
+        controls,
+        credits,
+        mainMenu
     }
 
     public buttonOptions option;
+
+    public GameObject titleSection;
+    public GameObject controlsSection;
+    public GameObject creditsSection;
 
     public void OnButtonClick()
     {
@@ -24,6 +31,22 @@ public class ButtonController : MonoBehaviour
             // load the first scene in the build index (TODO: decomment when build if further along)
             // SceneManager.LoadScene(1);
             Debug.Log("This will load the first level.");
+        }
+        if (option == buttonOptions.controls)
+        {
+            titleSection.SetActive(false);
+            controlsSection.SetActive(true);
+        }
+        if (option == buttonOptions.credits)
+        {
+            titleSection.SetActive(false);
+            creditsSection.SetActive(true);
+        }
+        if (option == buttonOptions.mainMenu)
+        {
+            controlsSection.SetActive(false);
+            creditsSection.SetActive(false);
+            titleSection.SetActive(true);
         }
     }
 }
