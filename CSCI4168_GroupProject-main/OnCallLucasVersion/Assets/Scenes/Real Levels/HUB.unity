@@ -5190,7 +5190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toolType: WIRECUTTERS
-  relativePosition: {x: 0.25, y: -0.1, z: 0.33}
+  relativePosition: {x: 0.25, y: -0.15, z: 0.35}
   relativeRotation: {x: 0, y: 2.131, z: 0}
 --- !u!114 &595865832
 MonoBehaviour:
