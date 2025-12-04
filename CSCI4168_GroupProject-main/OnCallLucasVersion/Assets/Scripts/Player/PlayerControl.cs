@@ -592,6 +592,8 @@ public class PlayerControl : MonoBehaviour
     public void selectTools(){
         Cursor.lockState = CursorLockMode.None;
         toolSelectIsActive = true;
+        Debug.Log("Tool UI is active");
+        Debug.Log(toolSelectUI);
         toolSelectUI.SetActive(true);
     }
 
