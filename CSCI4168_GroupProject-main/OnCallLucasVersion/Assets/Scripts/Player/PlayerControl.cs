@@ -138,7 +138,7 @@ public class PlayerControl : MonoBehaviour
         playerAnimator = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked;
         rigidbody = GetComponent<Rigidbody>();
-        // uiManager.setGameplayUIActive();
+        uiManager.setGameplayUIActive();
 
         if (shouldLoadInventory) LoadGlobalInventory();
     }
@@ -682,7 +682,7 @@ public class PlayerControl : MonoBehaviour
             second.name = second.name.Replace("(Clone)", "");
             PickUpTool(second);
             ChangeCurrentSlot();
-        }
+        } 
 
         inventoryLoading = false;
 
