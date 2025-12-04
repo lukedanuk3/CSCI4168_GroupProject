@@ -142,6 +142,7 @@ public class ItemManager : MonoBehaviour
     {
         GameObject selection = (index == 0) ? slot1_selection : slot2_selection;
         GameObject gameplay  = (index == 0) ? slot1_gameplay  : slot2_gameplay;
+        Debug.Log("GAMEPLAY UI SLOT " + gameplay);
 
         if (tool == null)
         {

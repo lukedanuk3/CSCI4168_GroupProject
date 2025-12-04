@@ -52,6 +52,7 @@ public class UIManager : MonoBehaviour
 
     public void tool1Active()
     {
+        Debug.Log("UI MANAGER SLOT 1 HAS: " + tool1.name);
         tool1.GetComponent<Outline>().enabled = true;
         tool2.GetComponent<Outline>().enabled = false;
     }
