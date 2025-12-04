@@ -73,6 +73,11 @@ public class PlayerControl : MonoBehaviour
     public List<GameObject> inventory;
     private int currentSlot;
     GameObject currentTool;
+    [Space]
+    public AudioClip boardBreakSound;
+    public AudioClip wireCutSound;
+    public AudioClip fenceBreakSound;
+    [Space]
     public Transform toolHolder;
     public Vector3 toolRelativePosition;
     public Vector3 toolRelativeRotation;
@@ -84,6 +89,7 @@ public class PlayerControl : MonoBehaviour
     public int health = 3;
     public float healTime = 10;
     private float timer = 0;
+    public AudioClip damageTakingSound;
 
     //UI Manager
     public UIManager uiManager;
@@ -424,6 +430,7 @@ public class PlayerControl : MonoBehaviour
             foreach (GameObject board in boards){
                 float distanceToBoard = Vector3.Distance(transform.position, board.transform.position);
                 if (distanceToBoard <= interactionRange){
+                    //boardBreakSound.Play();
                     board.GetComponent<BoardBehaviour>().Break();
                     RebuildNavMeshSurface();
                 }
@@ -448,6 +455,7 @@ public class PlayerControl : MonoBehaviour
             foreach (GameObject steel in steels){
                 float distanceToSteel = Vector3.Distance(transform.position, steel.transform.position);
                 if (distanceToSteel <= interactionRange){
+                    //fenceBreakSound.Play();
                     steel.GetComponent<SteelBehaviour>().Break();
                     RebuildNavMeshSurface();
                 }
@@ -469,6 +477,7 @@ public class PlayerControl : MonoBehaviour
             foreach (GameObject wire in wires){
                 float distanceToWire = Vector3.Distance(transform.position, wire.transform.position);
                 if (distanceToWire <= interactionRange){
+                    //wireCutSound.Play();
                     wire.GetComponent<WireBehaviour>().Snip();
                     RebuildNavMeshSurface();
                 }
@@ -517,6 +526,7 @@ public class PlayerControl : MonoBehaviour
         if(health < 0){
             uiManager.activateGameOver();
         }
+        //damageTakingSound.Play();
         uiManager.UpdateHealth(health);
     }
 
