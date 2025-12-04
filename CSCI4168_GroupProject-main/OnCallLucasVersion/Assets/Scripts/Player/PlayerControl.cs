@@ -642,6 +642,7 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    //Unlocks one of three doors in the event of goal counter being reached
     private void CheckGoalCounter(){
         int currentCounter = int.Parse(uiManager.lifeText.text);
         if(currentCounter >= 5 && goalReached == false){
