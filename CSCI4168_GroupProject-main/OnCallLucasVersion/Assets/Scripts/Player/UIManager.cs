@@ -63,6 +63,14 @@ public class UIManager : MonoBehaviour
         tool2.GetComponent<Outline>().enabled = true;
     }
 
+    public Image GetTool1(){
+        return tool1;
+    }
+
+    public Image GetTool2(){
+        return tool2;
+    }
+    
     public void setGameplayUIActive()
     {
         gameplayUI.SetActive(true);
