@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour
     public Image GetTool2(){
         return tool2;
     }
-    
+
     public void setGameplayUIActive()
     {
         gameplayUI.SetActive(true);

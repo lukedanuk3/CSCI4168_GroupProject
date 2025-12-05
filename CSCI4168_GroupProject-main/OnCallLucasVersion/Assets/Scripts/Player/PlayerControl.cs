@@ -392,7 +392,6 @@ public class PlayerControl : MonoBehaviour
         SelectTool(currentSlot);
         UpdateGlobalInventory();
 
-        Debug.Log("You are on tool: " + currentSlot);
     }
 
     public void SelectTool(int inventoryIndex)
@@ -408,8 +407,14 @@ public class PlayerControl : MonoBehaviour
             Debug.Log("Selected slot is empty");
             return;
         }
-
-        Debug.Log(selected.name);
+        if(inventoryIndex == 0)
+        {
+            uiManager.tool1Active();
+        }
+        else{
+            uiManager.tool2Active();
+        }
+        Debug.Log("Selected Tool: " + selected.name);
 
         selected.SetActive(true);
         selected.transform.SetParent(toolHolder, false);
@@ -659,6 +664,7 @@ public class PlayerControl : MonoBehaviour
     //Update the player's saved inventory
     public void UpdateGlobalInventory(){
         string firstSlotName = "Empty";
+        Debug.Log("INVENTORY: " +inventory[0].name);
         if (inventory[0] != null) firstSlotName = inventory[0].name;
         string secondSlotName = "Empty";
         if (inventory[1] != null) secondSlotName = inventory[1].name;
