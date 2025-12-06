@@ -77092,7 +77092,6 @@ GameObject:
   - component: {fileID: 296068570}
   - component: {fileID: 296068569}
   - component: {fileID: 296068568}
-  - component: {fileID: 296068567}
   - component: {fileID: 296068566}
   m_Layer: 5
   m_Name: ReloadButton
@@ -77134,18 +77133,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   choice: 1
---- !u!114 &296068567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 296068564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6344a75e22bb06f49819e82f21884a5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &296068568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77190,7 +77177,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 296068567}
+      - m_Target: {fileID: 296068566}
         m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
         m_MethodName: OnButtonClick
         m_Mode: 1
@@ -123578,7 +123565,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 465714094}
         m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
         m_MethodName: OnButtonClick
         m_Mode: 1
@@ -124467,11 +124454,59 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7040987010974132019, guid: c5be1ee069d3745b8b6aa0d0b81f7429, type: 3}
+      propertyPath: m_TagString
+      value: CameraMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: -6069716504363390354, guid: c5be1ee069d3745b8b6aa0d0b81f7429, type: 3}
+      propertyPath: m_TagString
+      value: CameraMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: -5875529031353565574, guid: c5be1ee069d3745b8b6aa0d0b81f7429, type: 3}
+      propertyPath: m_TagString
+      value: CameraMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: -4646538385595481165, guid: c5be1ee069d3745b8b6aa0d0b81f7429, type: 3}
+      propertyPath: m_TagString
+      value: CameraMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: -4356507891357352791, guid: c5be1ee069d3745b8b6aa0d0b81f7429, type: 3}
+      propertyPath: m_TagString
+      value: CameraMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: -4037192935069502276, guid: c5be1ee069d3745b8b6aa0d0b81f7429, type: 3}
+      propertyPath: m_TagString
+      value: CameraMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: -3413153738131840024, guid: c5be1ee069d3745b8b6aa0d0b81f7429, type: 3}
+      propertyPath: m_TagString
+      value: CameraMonster
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c5be1ee069d3745b8b6aa0d0b81f7429, type: 3}
       propertyPath: m_Name
       value: CameraMonster
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c5be1ee069d3745b8b6aa0d0b81f7429, type: 3}
+      propertyPath: m_TagString
+      value: CameraMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: 3805249948028249393, guid: c5be1ee069d3745b8b6aa0d0b81f7429, type: 3}
+      propertyPath: m_TagString
+      value: CameraMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: 6704201254926044288, guid: c5be1ee069d3745b8b6aa0d0b81f7429, type: 3}
+      propertyPath: m_TagString
+      value: CameraMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: 7103404490030143398, guid: c5be1ee069d3745b8b6aa0d0b81f7429, type: 3}
+      propertyPath: m_TagString
+      value: CameraMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: 7157338313608882182, guid: c5be1ee069d3745b8b6aa0d0b81f7429, type: 3}
+      propertyPath: m_TagString
+      value: CameraMonster
+      objectReference: {fileID: 0}
+    - target: {fileID: 7547730201143915164, guid: c5be1ee069d3745b8b6aa0d0b81f7429, type: 3}
       propertyPath: m_TagString
       value: CameraMonster
       objectReference: {fileID: 0}
@@ -132467,7 +132502,6 @@ MonoBehaviour:
   - {fileID: 511989968}
   - {fileID: 899136423}
   - {fileID: 600837726}
-  playerCamera: {fileID: 724137584}
 --- !u!195 &591469444
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -205906,7 +205940,6 @@ GameObject:
   - component: {fileID: 1259734139}
   - component: {fileID: 1259734138}
   - component: {fileID: 1259734137}
-  - component: {fileID: 1259734136}
   - component: {fileID: 1259734135}
   m_Layer: 5
   m_Name: QuitButton
@@ -205948,18 +205981,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   choice: 0
---- !u!114 &1259734136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1259734133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6344a75e22bb06f49819e82f21884a5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1259734137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206004,7 +206025,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1259734136}
+      - m_Target: {fileID: 1259734135}
         m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
         m_MethodName: OnButtonClick
         m_Mode: 1
@@ -259303,7 +259324,7 @@ GameObject:
   - component: {fileID: 1480108891}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

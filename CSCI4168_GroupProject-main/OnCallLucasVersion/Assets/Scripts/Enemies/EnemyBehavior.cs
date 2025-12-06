@@ -17,7 +17,6 @@ public class EnemyBehavior : MonoBehaviour
     private float pointReach = 0.5f;
     private float rotationSpeed;
 
-    public Transform playerCamera;
 
     /*
     When the scene starts, we'll do the following
@@ -165,16 +164,17 @@ public class EnemyBehavior : MonoBehaviour
 
     public bool EnemySeesPlayer(){
         // Transform camera = player.GetComponent<PlayerControl>().cameraTransform;
-
-        Transform camera = playerCamera;
+        Debug.Log(player);
+        Transform camera = player.GetComponent<PlayerControl>().cameraTransform;
 
         Vector3 directionToPlayer = (camera.position - transform.position).normalized;
         float angle = Vector3.Angle(transform.forward, directionToPlayer);
 
         if(angle < 60f){
             RaycastHit hit;
-            if(Physics.Raycast(transform.position, directionToPlayer, out hit, 60f)){
-                if(hit.transform == player.transform){
+            if(Physics.Raycast(transform.position, directionToPlayer, out hit, 30f)){
+                Debug.Log("Player position: " + player.transform.position + "\nHit transform: " + hit.transform.position);
+                if(hit.transform.position == hit.transform.position){
                     Debug.Log("Spooky Squid sees player");
                     return true;
                 }
