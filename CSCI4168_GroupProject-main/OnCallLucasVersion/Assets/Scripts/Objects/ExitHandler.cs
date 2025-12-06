@@ -13,6 +13,7 @@ public class ExitHandler : MonoBehaviour
     // Update is called once per frame
     public void Interact(){
         if(!isLocked){
+            Cursor.lockState = CursorLockMode.None;
             uiManager.activateVictory();
         }
     }

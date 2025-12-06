@@ -227,6 +227,16 @@ public class EnemyBehavior : MonoBehaviour
         }
     }
 
+    public void FreezeEnemy(){
+        agent.isStopped = true;
+        StartCoroutine(UnfreezeEnemy());
+    }
+
+    IEnumerator UnfreezeEnemy(){
+        yield return new WaitForSeconds(5f);
+        agent.isStopped = false;
+    }
+
     private void OnCollisionEnter(Collision collision){
         if(collision.gameObject.tag == "Player"){
             collision.gameObject.GetComponent<PlayerControl>().takeDamage();

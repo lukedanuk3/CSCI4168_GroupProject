@@ -60,11 +60,11 @@ public class CameraToolControl : MonoBehaviour
                         Debug.Log("Enemy seen!");
                     }
                     else if (item.tag == "CameraMonster"){
-
+                            item.GetComponentInParent<EnemyBehavior>().FreezeEnemy();
                     }
                     else if (item.tag == "Objective"){
                         if(!item.GetComponent<ItemPhotoHandler>().CheckIfPhotoAlreadyTaken()){
-                            Debug.Log("Photo hasn't been taken yet");
+                            Debug.Log(item.name + " hasn't been taken yet");
                             item.GetComponent<ItemPhotoHandler>().PhotoNowTaken();
                             uiManager.increaseCounter();
                         }

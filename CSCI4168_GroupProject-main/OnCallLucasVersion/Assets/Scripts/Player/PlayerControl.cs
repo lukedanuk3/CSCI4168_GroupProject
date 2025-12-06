@@ -210,7 +210,7 @@ public class PlayerControl : MonoBehaviour
             }
         }
 
-        // CheckGoalCounter();
+        CheckGoalCounter();
     }
 
     //Player movement control
@@ -323,13 +323,13 @@ public class PlayerControl : MonoBehaviour
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
         if(Physics.Raycast(ray, out hit, interactionRange)){
             if(hit.collider.tag == "Exit"){
-                if(hit.collider.GetComponent<ExitHandler>().isDoorLocked())
+                if(hit.collider.GetComponentInParent<ExitHandler>().isDoorLocked())
                 {
-                    Debug.Log("Door is unlocked");
+                    Debug.Log("Door is locked");
                 }
                 else
                 {
-                    Debug.Log("Door is locked");
+                    Debug.Log("Door is unlocked");
                 }
             }
             if(hit.collider.tag == "Door"){
@@ -668,7 +668,7 @@ public class PlayerControl : MonoBehaviour
             goalReached = true;
             int index = Random.Range(0, exits.Length);
             GameObject exit = exits[index];
-            exit.GetComponent<ExitHandler>().UnlockDoor();
+            exit.GetComponentInParent<ExitHandler>().UnlockDoor();
             Debug.Log(exit);
         }
     }
