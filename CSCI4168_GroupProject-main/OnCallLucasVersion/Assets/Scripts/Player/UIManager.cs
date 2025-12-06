@@ -93,6 +93,7 @@ public class UIManager : MonoBehaviour
     {
         // disable gameplay UI
         setGameplayUIInactive();
+        MusicHandler.instance.StopMusic();
         Cursor.lockState = CursorLockMode.None;
 
         // enable game over screen
@@ -102,7 +103,9 @@ public class UIManager : MonoBehaviour
     public void activateVictory(){
         setGameplayUIInactive();
         setSelectionUIInactive();
+        MusicHandler.instance.StopMusic();
         Cursor.lockState = CursorLockMode.None;
+        
         victoryUI.SetActive(true);
     }
     public void increaseCounter()

@@ -102,6 +102,7 @@ public class PlayerControl : MonoBehaviour
     CameraToolControl cameraControl;
     public GameObject enemyInCamera;
     public GameObject objectiveInCamera;
+    public GameObject objectiveAlreadyTaken;
 
     //Used to keep track on if goal's been achieved
     private bool goalReached = false;
@@ -450,7 +451,7 @@ public class PlayerControl : MonoBehaviour
                 if (distanceToBoard <= interactionRange){
                     boardBreakSound.Play();
                     board.GetComponent<BoardBehaviour>().Break();
-                    RebuildNavMeshSurface();
+                    
                 }
             }
         }
@@ -475,7 +476,7 @@ public class PlayerControl : MonoBehaviour
                 if (distanceToSteel <= interactionRange){
                     fenceBreakSound.Play();
                     steel.GetComponent<SteelBehaviour>().Break();
-                    RebuildNavMeshSurface();
+                    
                 }
             }
         }
@@ -497,7 +498,7 @@ public class PlayerControl : MonoBehaviour
                 if (distanceToWire <= interactionRange){
                     wireCutSound.Play();
                     wire.GetComponent<WireBehaviour>().Snip();
-                    RebuildNavMeshSurface();
+                    
                 }
             }
         }
@@ -623,17 +624,17 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    //Rebuilds the navmesh surface after a trap is broken
-    private void RebuildNavMeshSurface(){
-        foreach (GameObject door in doors){
-            door.SetActive(false);
-        }
-        navMeshSurface.BuildNavMesh();
-        Debug.Log("Navmesh rebuilt");
-        foreach (GameObject door in doors){
-            door.SetActive(true);
-        }
-    }
+    // //Rebuilds the navmesh surface after a trap is broken
+    // private void RebuildNavMeshSurface(){
+    //     foreach (GameObject door in doors){
+    //         door.SetActive(false);
+    //     }
+    //     navMeshSurface.BuildNavMesh();
+    //     Debug.Log("Navmesh rebuilt");
+    //     foreach (GameObject door in doors){
+    //         door.SetActive(true);
+    //     }
+    // }
 
     //Checks what's in the camera's view
     private void CheckCameraRange(Ray ray, RaycastHit hit){
@@ -644,7 +645,13 @@ public class PlayerControl : MonoBehaviour
                 enemyInCamera.SetActive(true);
             }
             else if(hit.collider.tag == "Objective"){
-                objectiveInCamera.SetActive(true);
+                if(hit.collider.GetComponent<ItemPhotoHandler>().CheckIfPhotoAlreadyTaken()){
+                    objectiveAlreadyTaken.SetActive(true);
+                    objectiveInCamera.SetActive(false);
+                }
+                else{
+                    objectiveInCamera.SetActive(true);
+                }
             }
             else{
                 enemyInCamera.SetActive(false);
@@ -657,6 +664,7 @@ public class PlayerControl : MonoBehaviour
         }
         }
         else{
+            objectiveAlreadyTaken.SetActive(false);
             enemyInCamera.SetActive(false);
             objectiveInCamera.SetActive(false);
         }
