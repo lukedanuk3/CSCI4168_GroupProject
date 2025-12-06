@@ -8155,19 +8155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f881204b4ce2c0247817be7fc331f15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionTag: Player
-  detectionRadius: 18
-  innerConeAngle: 59
-  outerConeAngle: 86
-  outsideConeVolumeMultiplier: 0.25
-  audioClip: {fileID: 8300000, guid: 84ebca7c080cd32419f0845e9b222a42, type: 3}
-  playOncePerEntry: 0
-  playbackCooldown: 5
-  enableLowPassFilter: 1
-  minCutoffFrequency: 1000
-  maxCutoffFrequency: 22000
-  enable2DFallback: 1
-  twoDThreshold: 0.8
 --- !u!169 &136382237
 AudioLowPassFilter:
   m_ObjectHideFlags: 0
@@ -22978,7 +22965,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &373391477
 Transform:
   m_ObjectHideFlags: 0
@@ -42546,12 +42533,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 652a63a1c89d8f0469b8014ec7f048a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lamp: {fileID: 651921598}
-  flickerDropPercent: 0.5
-  flickerSpeed: 10
-  flickerChance: 0.01
-  triggerRadius: 10
-  triggerTags: []
 --- !u!1 &656553098
 GameObject:
   m_ObjectHideFlags: 0
@@ -50023,14 +50004,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 652a63a1c89d8f0469b8014ec7f048a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lamp: {fileID: 807692512}
-  flickerDropPercent: 0.75
-  flickerSpeed: 5
-  flickerChance: 0.01
-  triggerRadius: 15
-  triggerTags:
-  - Player
-  - Enemy
 --- !u!1 &814239238
 GameObject:
   m_ObjectHideFlags: 0
@@ -56806,13 +56779,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 652a63a1c89d8f0469b8014ec7f048a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lamp: {fileID: 933829763}
-  flickerDropPercent: 0.5
-  flickerSpeed: 10
-  flickerChance: 0.01
-  triggerRadius: 10
-  triggerTags:
-  - Player
 --- !u!1 &934340081
 GameObject:
   m_ObjectHideFlags: 0
@@ -66571,19 +66537,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f881204b4ce2c0247817be7fc331f15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionTag: Player
-  detectionRadius: 25
-  innerConeAngle: 83
-  outerConeAngle: 85
-  outsideConeVolumeMultiplier: 0.25
-  audioClip: {fileID: 8300000, guid: 958c8d95a7587684e9d38820b3b3b445, type: 3}
-  playOncePerEntry: 0
-  playbackCooldown: 5
-  enableLowPassFilter: 1
-  minCutoffFrequency: 1000
-  maxCutoffFrequency: 22000
-  enable2DFallback: 1
-  twoDThreshold: 0.8
 --- !u!169 &1125457967
 AudioLowPassFilter:
   m_ObjectHideFlags: 0
@@ -74528,19 +74481,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f881204b4ce2c0247817be7fc331f15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionTag: Player
-  detectionRadius: 18
-  innerConeAngle: 59
-  outerConeAngle: 86
-  outsideConeVolumeMultiplier: 0.25
-  audioClip: {fileID: 8300000, guid: 84ebca7c080cd32419f0845e9b222a42, type: 3}
-  playOncePerEntry: 0
-  playbackCooldown: 5
-  enableLowPassFilter: 1
-  minCutoffFrequency: 1000
-  maxCutoffFrequency: 22000
-  enable2DFallback: 1
-  twoDThreshold: 0.8
 --- !u!169 &1227622771
 AudioLowPassFilter:
   m_ObjectHideFlags: 0
@@ -77442,19 +77382,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f881204b4ce2c0247817be7fc331f15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionTag: Player
-  detectionRadius: 18
-  innerConeAngle: 59
-  outerConeAngle: 86
-  outsideConeVolumeMultiplier: 0.25
-  audioClip: {fileID: 8300000, guid: 84ebca7c080cd32419f0845e9b222a42, type: 3}
-  playOncePerEntry: 0
-  playbackCooldown: 5
-  enableLowPassFilter: 1
-  minCutoffFrequency: 1000
-  maxCutoffFrequency: 22000
-  enable2DFallback: 1
-  twoDThreshold: 0.8
 --- !u!169 &1270733468
 AudioLowPassFilter:
   m_ObjectHideFlags: 0
@@ -80078,11 +80005,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7288985459b9a5c428100fc4f312a13b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCamera: {fileID: 1346579942}
-  backRadius: 25
-  frontConeRadius: 100
-  frontConeAngle: 100
-  updateRate: 0.01
 --- !u!43 &1347006316
 Mesh:
   m_ObjectHideFlags: 0
@@ -131030,19 +130952,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f881204b4ce2c0247817be7fc331f15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionTag: Player
-  detectionRadius: 18
-  innerConeAngle: 59
-  outerConeAngle: 86
-  outsideConeVolumeMultiplier: 0.25
-  audioClip: {fileID: 8300000, guid: 958c8d95a7587684e9d38820b3b3b445, type: 3}
-  playOncePerEntry: 0
-  playbackCooldown: 5
-  enableLowPassFilter: 1
-  minCutoffFrequency: 1000
-  maxCutoffFrequency: 22000
-  enable2DFallback: 1
-  twoDThreshold: 0.8
 --- !u!169 &1573652498
 AudioLowPassFilter:
   m_ObjectHideFlags: 0
@@ -133679,19 +133588,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f881204b4ce2c0247817be7fc331f15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  detectionTag: Player
-  detectionRadius: 18
-  innerConeAngle: 59
-  outerConeAngle: 86
-  outsideConeVolumeMultiplier: 0.25
-  audioClip: {fileID: 8300000, guid: 84ebca7c080cd32419f0845e9b222a42, type: 3}
-  playOncePerEntry: 0
-  playbackCooldown: 5
-  enableLowPassFilter: 1
-  minCutoffFrequency: 1000
-  maxCutoffFrequency: 22000
-  enable2DFallback: 1
-  twoDThreshold: 0.8
 --- !u!169 &1640252756
 AudioLowPassFilter:
   m_ObjectHideFlags: 0
@@ -180083,13 +179979,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 652a63a1c89d8f0469b8014ec7f048a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lamp: {fileID: 1778790730}
-  flickerDropPercent: 0.5
-  flickerSpeed: 10
-  flickerChance: 0.01
-  triggerRadius: 10
-  triggerTags:
-  - Player
 --- !u!1001 &1778926607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -266214,13 +266103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 652a63a1c89d8f0469b8014ec7f048a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lamp: {fileID: 1954428605}
-  flickerDropPercent: 0.75
-  flickerSpeed: 10
-  flickerChance: 0.01
-  triggerRadius: 10
-  triggerTags:
-  - Player
 --- !u!1 &1954959473 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 583822520341399274, guid: e355aee006ed44bcfa4133f7799e3cd2, type: 3}
