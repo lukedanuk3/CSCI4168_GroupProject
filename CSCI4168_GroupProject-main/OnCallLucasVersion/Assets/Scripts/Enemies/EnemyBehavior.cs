@@ -226,4 +226,10 @@ public class EnemyBehavior : MonoBehaviour
             collision.gameObject.GetComponent<InteractionHandler>().Interact(gameObject);
         }
     }
+
+    private void OnCollisionEnter(Collision collision){
+        if(collision.gameObject.tag == "Player"){
+            collision.gameObject.GetComponent<PlayerControl>().takeDamage();
+        }
+    }
 } 

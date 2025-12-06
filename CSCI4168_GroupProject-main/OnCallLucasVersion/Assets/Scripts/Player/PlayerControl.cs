@@ -23,6 +23,8 @@ public class PlayerControl : MonoBehaviour
     public GameObject levelSelectUI;
     [Space]
 
+    public GameObject gameplayUI;
+
     //Used to close select UIs
     private bool toolSelectIsActive = false;
     private bool levelSelectIsActive = false;
@@ -77,6 +79,8 @@ public class PlayerControl : MonoBehaviour
     public Vector3 toolRelativePosition;
     public Vector3 toolRelativeRotation;
 
+    int indexHolder;
+
     //Tool Inventory
     private string[] items = new string[2];
 
@@ -102,6 +106,7 @@ public class PlayerControl : MonoBehaviour
 
     //Bunch of tool prefabs out there in space
     public GameObject levelTools;
+    public GameObject flashlight;
 
     public bool shouldLoadInventory;
     public bool inventoryLoading;
@@ -112,7 +117,8 @@ public class PlayerControl : MonoBehaviour
 
     void Start()
     {
-        inventory = new List<GameObject>() { null, null };
+        gameplayUI.SetActive(true);
+        inventory = new List<GameObject>() { null, null, flashlight };
 
         //Load all interactable objects in the level into the Interactables array
         interactables = GameObject.FindGameObjectsWithTag("Interactable");
@@ -292,6 +298,17 @@ public class PlayerControl : MonoBehaviour
                 Debug.Log("Stopping radio");
                 RadioVoiceOver.instance.StopRadioVoiceOver();
             }
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.F)){
+            if (currentSlot < 2){
+                indexHolder = currentSlot;
+                currentSlot = 2;
+                SelectTool(currentSlot);
+            }else if (currentSlot == 2){
+                currentSlot = indexHolder;
+                SelectTool(currentSlot);
             }
         }
     }

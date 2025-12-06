@@ -19,6 +19,10 @@ TagManager:
   - Exit
   - Wire
   - Steel
+  - LightSource
+  - Ground
+  - Wires
+  - Readable
   layers:
   - Default
   - TransparentFX

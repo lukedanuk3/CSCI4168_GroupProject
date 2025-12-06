@@ -303,10 +303,10 @@ MonoBehaviour:
   active: 1
   widthPixelation:
     m_OverrideState: 1
-    m_Value: 512
+    m_Value: 768
   heightPixelation:
     m_OverrideState: 1
-    m_Value: 512
+    m_Value: 768
   colorPrecision:
     m_OverrideState: 1
     m_Value: 32

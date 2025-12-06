@@ -45,34 +45,41 @@ public class CameraToolControl : MonoBehaviour
         if(!photoTakingSound.isPlaying){
             photoTakingSound.Play();
         }
-        Plane[] frustumPlanes = GeometryUtility.CalculateFrustumPlanes(fpsCamera);
-        List<GameObject> visibleObjects = new List<GameObject>();
-        foreach (GameObject item in FindObjectsOfType<GameObject>())
-        {
-            Renderer renderer = item.GetComponent<Renderer>();
-            if (renderer != null)
-            {
-                if (GeometryUtility.TestPlanesAABB(frustumPlanes, renderer.bounds))
-                {
-                    //Object is in frame, so check tag
-                    if (item.tag == "FollowMonster"){
-                        //Enemy spotted
-                        Debug.Log("Enemy seen!");
-                    }
-                    else if (item.tag == "CameraMonster"){
 
-                    }
-                    else if (item.tag == "Objective"){
-                        if(!item.GetComponent<ItemPhotoHandler>().CheckIfPhotoAlreadyTaken()){
-                        item.GetComponent<ItemPhotoHandler>().PhotoNowTaken();
-                        uiManager.increaseCounter();
-                        }
-                        else{
-                        Debug.Log("Object's already had its picture taken");
-                        }
-                    }
+        Ray ray = fpsCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 100f))
+        {
+            GameObject item = hit.collider.gameObject;
+
+            if (item.CompareTag("FollowMonster"))
+            {
+                Debug.Log("Enemy seen!");
+            }
+            else if (item.CompareTag("CameraMonster"))
+            {
+                
+            }
+            else if (item.CompareTag("Objective"))
+            {
+                ItemPhotoHandler handler = item.GetComponent<ItemPhotoHandler>();
+
+                if (!handler.CheckIfPhotoAlreadyTaken())
+                {
+                    handler.PhotoNowTaken();
+                    uiManager.increaseCounter();
+                }
+                else
+                {
+                    Debug.Log("Object's already had its picture taken");
                 }
             }
+        }
+        else
+        {
+            Debug.Log("Nothing hit by raycast.");
         }
     }
 }

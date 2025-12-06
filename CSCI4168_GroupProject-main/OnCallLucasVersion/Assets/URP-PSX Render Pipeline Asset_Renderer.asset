@@ -57,8 +57,8 @@ MonoBehaviour:
   - {fileID: -5677514569700259782}
   m_RendererFeatureMap: 3a48e961946a35b1
   m_UseNativeRenderPass: 0
-  xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
-  postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
+  xrSystemData: {fileID: 0}
+  postProcessData: {fileID: 0}
   m_AssetVersion: 2
   m_OpaqueLayerMask:
     serializedVersion: 2
@@ -106,4 +106,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df6534dd185a4f18b50629b58de296b6, type: 3}
   m_Name: Pixelation
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
