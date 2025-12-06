@@ -442,6 +442,7 @@
 "Assets/Scripts/Abstract/MenuRandomEvent.cs"
 "Assets/Scripts/Abstract/MusicHandler.cs"
 "Assets/Scripts/Abstract/RadioVoiceOver.cs"
+"Assets/Scripts/Abstract/RandomObjectivePicker.cs"
 "Assets/Scripts/Abstract/ToolList.cs"
 "Assets/Scripts/Abstract/Victory.cs"
 "Assets/Scripts/CRT/Crt.cs"
