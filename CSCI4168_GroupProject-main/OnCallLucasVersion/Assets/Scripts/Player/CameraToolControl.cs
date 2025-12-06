@@ -64,11 +64,12 @@ public class CameraToolControl : MonoBehaviour
                     }
                     else if (item.tag == "Objective"){
                         if(!item.GetComponent<ItemPhotoHandler>().CheckIfPhotoAlreadyTaken()){
-                        item.GetComponent<ItemPhotoHandler>().PhotoNowTaken();
-                        uiManager.increaseCounter();
+                            Debug.Log("Photo hasn't been taken yet");
+                            item.GetComponent<ItemPhotoHandler>().PhotoNowTaken();
+                            uiManager.increaseCounter();
                         }
                         else{
-                        Debug.Log("Object's already had its picture taken");
+                            Debug.Log("Object's already had its picture taken");
                         }
                     }
                 }

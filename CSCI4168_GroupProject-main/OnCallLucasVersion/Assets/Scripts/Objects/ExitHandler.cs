@@ -19,4 +19,8 @@ public class ExitHandler : MonoBehaviour
     public void UnlockDoor(){
         isLocked = !isLocked;
     }
+
+    public bool isDoorLocked(){
+        return isLocked;    
+    }
 }

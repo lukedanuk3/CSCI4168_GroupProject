@@ -167,6 +167,8 @@ public class PlayerControl : MonoBehaviour
         else{
             walkSound.Stop();
         }
+
+        CheckInteraction();
         
         //Check Interaction Range
         // CheckInteraction();
@@ -320,6 +322,16 @@ public class PlayerControl : MonoBehaviour
         RaycastHit hit;
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
         if(Physics.Raycast(ray, out hit, interactionRange)){
+            if(hit.collider.tag == "Exit"){
+                if(hit.collider.GetComponent<ExitHandler>().isDoorLocked())
+                {
+                    Debug.Log("Door is unlocked");
+                }
+                else
+                {
+                    Debug.Log("Door is locked");
+                }
+            }
             if(hit.collider.tag == "Door"){
                 doorOpenInstructions.SetActive(true);
             }
