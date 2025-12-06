@@ -74,9 +74,9 @@ public class PlayerControl : MonoBehaviour
     private int currentSlot;
     GameObject currentTool;
     [Space]
-    public AudioClip boardBreakSound;
-    public AudioClip wireCutSound;
-    public AudioClip fenceBreakSound;
+    public AudioSource boardBreakSound;
+    public AudioSource wireCutSound;
+    public AudioSource fenceBreakSound;
     [Space]
     public Transform toolHolder;
     public Vector3 toolRelativePosition;
@@ -448,7 +448,7 @@ public class PlayerControl : MonoBehaviour
             foreach (GameObject board in boards){
                 float distanceToBoard = Vector3.Distance(transform.position, board.transform.position);
                 if (distanceToBoard <= interactionRange){
-                    //boardBreakSound.Play();
+                    boardBreakSound.Play();
                     board.GetComponent<BoardBehaviour>().Break();
                     RebuildNavMeshSurface();
                 }
@@ -473,7 +473,7 @@ public class PlayerControl : MonoBehaviour
             foreach (GameObject steel in steels){
                 float distanceToSteel = Vector3.Distance(transform.position, steel.transform.position);
                 if (distanceToSteel <= interactionRange){
-                    //fenceBreakSound.Play();
+                    fenceBreakSound.Play();
                     steel.GetComponent<SteelBehaviour>().Break();
                     RebuildNavMeshSurface();
                 }
@@ -495,7 +495,7 @@ public class PlayerControl : MonoBehaviour
             foreach (GameObject wire in wires){
                 float distanceToWire = Vector3.Distance(transform.position, wire.transform.position);
                 if (distanceToWire <= interactionRange){
-                    //wireCutSound.Play();
+                    wireCutSound.Play();
                     wire.GetComponent<WireBehaviour>().Snip();
                     RebuildNavMeshSurface();
                 }
