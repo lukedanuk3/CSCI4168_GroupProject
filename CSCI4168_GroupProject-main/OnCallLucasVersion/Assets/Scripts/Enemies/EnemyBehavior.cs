@@ -173,8 +173,7 @@ public class EnemyBehavior : MonoBehaviour
         if(angle < 60f){
             RaycastHit hit;
             if(Physics.Raycast(transform.position, directionToPlayer, out hit, 30f)){
-                Debug.Log("Player position: " + player.transform.position + "\nHit transform: " + hit.transform.position);
-                if(hit.transform.position == hit.transform.position){
+                if(hit.transform == player.transform){
                     Debug.Log("Spooky Squid sees player");
                     return true;
                 }
