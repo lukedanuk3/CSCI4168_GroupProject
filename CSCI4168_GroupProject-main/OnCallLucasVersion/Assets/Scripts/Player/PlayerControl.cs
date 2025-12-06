@@ -202,6 +202,7 @@ public class PlayerControl : MonoBehaviour
         }
 
         if (health < 3){
+            Debug.Log(health);
             timer = timer + Time.deltaTime;
             if (timer > healTime){
                 heal();

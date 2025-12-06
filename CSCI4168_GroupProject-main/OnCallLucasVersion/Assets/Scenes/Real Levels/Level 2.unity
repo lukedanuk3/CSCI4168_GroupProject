@@ -468,6 +468,11 @@ Transform:
   - {fileID: 1125457969}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &10166190 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3882626055302747071, guid: 990b0866aef384c96a38cffcdf06f97b, type: 3}
+  m_PrefabInstance: {fileID: 1883058269}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &18054126
 GameObject:
   m_ObjectHideFlags: 0
@@ -23130,7 +23135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &373391477
 Transform:
   m_ObjectHideFlags: 0
@@ -28456,7 +28461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 25527278c7cbf45f8837c86cfb03eaa3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 25527278c7cbf45f8837c86cfb03eaa3, type: 3}
       propertyPath: m_TagString
@@ -28501,7 +28506,6 @@ MonoBehaviour:
   audioClips: []
   audioSource: {fileID: 475943726}
   points: []
-  playerCamera: {fileID: 1346579942}
 --- !u!195 &475943725
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -42018,6 +42022,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1806758648}
     - target: {fileID: 3882626055302747071, guid: 990b0866aef384c96a38cffcdf06f97b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3882626055302747071, guid: 990b0866aef384c96a38cffcdf06f97b, type: 3}
       propertyPath: m_TagString
       value: LightSource
       objectReference: {fileID: 0}
@@ -43059,6 +43067,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 792883871}
     - target: {fileID: 3882626055302747071, guid: 990b0866aef384c96a38cffcdf06f97b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3882626055302747071, guid: 990b0866aef384c96a38cffcdf06f97b, type: 3}
       propertyPath: m_TagString
       value: LightSource
       objectReference: {fileID: 0}
@@ -43105,6 +43117,10 @@ PrefabInstance:
     - target: {fileID: 6896260523014772037, guid: 990b0866aef384c96a38cffcdf06f97b, type: 3}
       propertyPath: m_Name
       value: ExitSign 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546367816184716216, guid: 990b0866aef384c96a38cffcdf06f97b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -61508,6 +61524,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8503465987298249473, guid: da4315d0b92da49ec830ce2bb7cc79aa, type: 3}
   m_PrefabInstance: {fileID: 1035249653}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1038806007 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3882626055302747071, guid: 990b0866aef384c96a38cffcdf06f97b, type: 3}
+  m_PrefabInstance: {fileID: 627864599}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1044526116
 Mesh:
   m_ObjectHideFlags: 0
@@ -61721,6 +61742,11 @@ Transform:
   - {fileID: 656553099}
   m_Father: {fileID: 1843312764}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1046363969 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3882626055302747071, guid: 990b0866aef384c96a38cffcdf06f97b, type: 3}
+  m_PrefabInstance: {fileID: 657755596}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1055807558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75827,7 +75853,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 25527278c7cbf45f8837c86cfb03eaa3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 25527278c7cbf45f8837c86cfb03eaa3, type: 3}
       propertyPath: m_TagString
@@ -75872,7 +75898,6 @@ MonoBehaviour:
   audioClips: []
   audioSource: {fileID: 1236622529}
   points: []
-  playerCamera: {fileID: 1346579942}
 --- !u!195 &1236622528
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -128735,6 +128760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiManager: {fileID: 2071313257}
+  light: {fileID: 10166190}
 --- !u!1 &1536149409
 GameObject:
   m_ObjectHideFlags: 0
@@ -131768,7 +131794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NoiseProfile: {fileID: 0}
+  NoiseProfile: {fileID: 11400000, guid: e9ce97b7a206dc64d90931ea044e0c72, type: 2}
   PivotOffset: {x: 0, y: 0, z: 0}
   AmplitudeGain: 0.2
   FrequencyGain: 0.3
@@ -183053,6 +183079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiManager: {fileID: 2071313257}
+  light: {fileID: 1038806007}
 --- !u!1 &1821342102
 GameObject:
   m_ObjectHideFlags: 0
@@ -278584,6 +278611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiManager: {fileID: 2071313257}
+  light: {fileID: 1046363969}
 --- !u!1001 &2135229474
 PrefabInstance:
   m_ObjectHideFlags: 0
