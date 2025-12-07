@@ -224,6 +224,9 @@ public class EnemyBehavior : MonoBehaviour
             Debug.Log("Enemy Interacted with door");
             collision.gameObject.GetComponent<InteractionHandler>().Interact(gameObject);
         }
+        if(collision.gameObject.tag == "Player"){
+            collision.gameObject.GetComponent<PlayerControl>().takeDamage();
+        }
     }
 
     public void FreezeEnemy(){
@@ -234,11 +237,5 @@ public class EnemyBehavior : MonoBehaviour
     IEnumerator UnfreezeEnemy(){
         yield return new WaitForSeconds(5f);
         agent.isStopped = false;
-    }
-
-    private void OnCollisionEnter(Collision collision){
-        if(collision.gameObject.tag == "Player"){
-            collision.gameObject.GetComponent<PlayerControl>().takeDamage();
-        }
     }
 } 
