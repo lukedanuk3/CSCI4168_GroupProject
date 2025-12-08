@@ -589,6 +589,7 @@ public class PlayerControl : MonoBehaviour
     //Removes the level select UI
     public void selectLevel(){
         Cursor.lockState = CursorLockMode.None;
+        uiManager.setGameplayUIInactive();
         levelSelectIsActive = true;
         levelSelectUI.SetActive(true);
     }
@@ -597,6 +598,7 @@ public class PlayerControl : MonoBehaviour
     public void finishSelectingLevel(){
         levelSelectIsActive = false;
         Cursor.lockState = CursorLockMode.Locked;
+        uiManager.setGameplayUIActive();
         levelSelectUI.SetActive(false);
     }
 
@@ -604,12 +606,14 @@ public class PlayerControl : MonoBehaviour
     public void finishSelectingTools(){
         Cursor.lockState = CursorLockMode.Locked;
         toolSelectIsActive = false;
+        uiManager.setGameplayUIActive();
         toolSelectUI.SetActive(false);
     }
 
     //Removes the tool select UI
     public void selectTools(){
         Cursor.lockState = CursorLockMode.None;
+        uiManager.setGameplayUIInactive();
         toolSelectIsActive = true;
         Debug.Log("Tool UI is active");
         Debug.Log(toolSelectUI);
