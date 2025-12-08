@@ -16,8 +16,15 @@ public class UIManager : MonoBehaviour
     public GameObject gameOverUI;
     public GameObject victoryUI;
 
+    private GameObject[] cameraEnemies;
+    private GameObject[] followEnemies;
+
     public TMP_Text lifeText;
 
+    void Start(){
+        cameraEnemies = GameObject.FindGameObjectsWithTag("CameraMonster");
+        followEnemies = GameObject.FindGameObjectsWithTag("FollowMonster");
+    }
     public void UpdateHealth(int health)
     {
         //Debug.Log("updating health");
@@ -93,6 +100,7 @@ public class UIManager : MonoBehaviour
     {
         // disable gameplay UI
         setGameplayUIInactive();
+        DisableAllEnemies();
         MusicHandler.instance.StopMusic();
         Cursor.lockState = CursorLockMode.None;
 
@@ -103,9 +111,10 @@ public class UIManager : MonoBehaviour
     public void activateVictory(){
         setGameplayUIInactive();
         setSelectionUIInactive();
+        DisableAllEnemies();
         MusicHandler.instance.StopMusic();
         Cursor.lockState = CursorLockMode.None;
-        
+
         victoryUI.SetActive(true);
     }
     public void increaseCounter()
@@ -119,6 +128,16 @@ public class UIManager : MonoBehaviour
             newCurr = 5;
         }
         lifeText.text = newCurr + "";
+    }
+
+    private void DisableAllEnemies(){
+        foreach (GameObject cameraEnemy in cameraEnemies){
+            cameraEnemy.SetActive(false);
+        }
+
+        foreach (GameObject followEnemy in followEnemies){
+            followEnemy.SetActive(false);
+        }
     }
 
 }
