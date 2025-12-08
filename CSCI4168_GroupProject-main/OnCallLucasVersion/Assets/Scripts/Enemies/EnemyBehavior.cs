@@ -9,13 +9,16 @@ public class EnemyBehavior : MonoBehaviour
     private GameObject player;
     [Space]
     [SerializeField] AudioClip[] audioClips;
-    public AudioSource audioSource;
+    public AudioSource followSound;
+    private AudioSource audioSource;
     Animator animator;
 
     [SerializeField] Transform[] points;
     private int currentPoint;
     private float pointReach = 0.5f;
     private float rotationSpeed;
+    private float updateRate = 1.0f;
+    private float timer;
 
 
     /*
@@ -141,21 +144,25 @@ public class EnemyBehavior : MonoBehaviour
     //This method will follow the player, unless they're looked at (using PlayerSeesEnemy), in which case they'll stop
     void FollowPlayer(){
         animator.SetBool("isMoving", true);
-        if(!audioSource.isPlaying){
-            audioSource.Play();
+        if(!followSound.isPlaying){
+            followSound.Play();
         }
         if(PlayerSeesEnemy()){
             Debug.Log("Player is in view of enemy");
             agent.isStopped = true;
             animator.SetBool("isMoving", false);
-            audioSource.Stop();
+            followSound.Stop();
         }
         else{
             animator.SetBool("isMoving", true);
             agent.isStopped = false;
-            agent.SetDestination(player.transform.position);
+
+
+            timer += Time.deltaTime;
+            if(timer >= updateRate){
+                agent.SetDestination(player.transform.position);
+            }
         }
-        agent.SetDestination(player.transform.position);
     }
 
 
@@ -189,6 +196,7 @@ public class EnemyBehavior : MonoBehaviour
         if(angle < 60f){
             RaycastHit hit;
             if(Physics.Raycast(camera.position, directionToEnemy, out hit, 30f)){
+                Debug.Log("SEES ENEMY");
                 //If the player's camera sees the follow monster, it will stop moving altogether
                 if(hit.transform == transform){
                     Debug.Log("In view of monster");
