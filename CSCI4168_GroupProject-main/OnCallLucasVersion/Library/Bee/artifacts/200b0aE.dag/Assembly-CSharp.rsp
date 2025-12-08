@@ -442,6 +442,7 @@
 "Assets/Scripts/Abstract/LightFlicker.cs"
 "Assets/Scripts/Abstract/MenuRandomEvent.cs"
 "Assets/Scripts/Abstract/MusicHandler.cs"
+"Assets/Scripts/Abstract/PlayerLightCuller.cs"
 "Assets/Scripts/Abstract/ProximityAudioEmitter.cs"
 "Assets/Scripts/Abstract/RadioVoiceOver.cs"
 "Assets/Scripts/Abstract/RandomObjectivePicker.cs"

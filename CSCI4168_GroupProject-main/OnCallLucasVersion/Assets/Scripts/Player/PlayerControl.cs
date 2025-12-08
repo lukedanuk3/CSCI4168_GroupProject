@@ -12,6 +12,7 @@ public class PlayerControl : MonoBehaviour
 
     //Used to display UI for specific interactions
     public GameObject doorOpenInstructions;
+    public GameObject doorIsLockedInstructions;
     public GameObject toolPickUpInstructions;
     public GameObject trapBreakInstructions;
     public GameObject levelSelectInstructions;
@@ -327,11 +328,13 @@ public class PlayerControl : MonoBehaviour
             if(hit.collider.tag == "Exit"){
                 if(hit.collider.GetComponentInParent<ExitHandler>().isDoorLocked())
                 {
-                    Debug.Log("Door is locked");
+                    doorOpenInstructions.SetActive(false);
+                    doorIsLockedInstructions.SetActive(true);
                 }
                 else
                 {
-                    Debug.Log("Door is unlocked");
+                    doorIsLockedInstructions.SetActive(false);
+                    doorOpenInstructions.SetActive(true);
                 }
             }
             if(hit.collider.tag == "Door"){
@@ -368,6 +371,7 @@ public class PlayerControl : MonoBehaviour
             }
             else{
                 doorOpenInstructions.SetActive(false);
+                doorIsLockedInstructions.SetActive(false);
                 toolPickUpInstructions.SetActive(false);
                 toolSelectInstructions.SetActive(false);
                 levelSelectInstructions.SetActive(false);

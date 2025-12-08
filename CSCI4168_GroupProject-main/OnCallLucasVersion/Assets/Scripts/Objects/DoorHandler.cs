@@ -31,7 +31,7 @@ public class DoorHandler : MonoBehaviour
                 anim.SetBool("HasBeenOpened", true);
             }
             Debug.Log("Opening Door");
-            // openSound.Play();
+            openSound.Play();
             anim.SetBool("IsClosed", false);
             anim.SetTrigger("OpenClose");
 
@@ -46,7 +46,7 @@ public class DoorHandler : MonoBehaviour
                 if(openSound.isPlaying){
                     openSound.Stop();
                 }
-                // closeSound.Play();
+                closeSound.Play();
                 anim.SetBool("IsClosed", true);  
                 anim.SetTrigger("OpenClose");
             }
@@ -58,10 +58,10 @@ public class DoorHandler : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
         if(anim.GetBool("IsClosed") == false){
             Debug.Log("Door is opened");
-            // if(openSound.isPlaying){
-            //     openSound.Stop();
-            // }
-            // closeSound.Play();
+            if(openSound.isPlaying){
+                openSound.Stop();
+            }
+            closeSound.Play();
             anim.SetBool("IsClosed", true);
             anim.SetTrigger("OpenClose");  
             }
