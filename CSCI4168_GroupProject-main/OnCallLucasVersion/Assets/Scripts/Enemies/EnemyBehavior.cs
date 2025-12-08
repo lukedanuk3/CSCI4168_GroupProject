@@ -47,9 +47,6 @@ public class EnemyBehavior : MonoBehaviour
         //     return;
         // }
 
-        //Consistently updates the enemy's distance from the player
-        float distanceFromPlayer = Vector3.Distance(player.transform.position, this.transform.position);
-
         //Update the enemy's direction based on their direction of movement
         // Vector3 direction = agent.velocity.normalized;
         // Quaternion lookRotation = Quaternion.LookRotation(direction);

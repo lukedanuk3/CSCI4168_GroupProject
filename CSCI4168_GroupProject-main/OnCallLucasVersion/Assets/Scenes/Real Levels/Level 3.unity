@@ -22592,6 +22592,7 @@ Transform:
   - {fileID: 1016586253}
   - {fileID: 1618658425}
   - {fileID: 562975341}
+  - {fileID: 1398833702}
   - {fileID: 243674606}
   - {fileID: 1238396845}
   - {fileID: 542620276}
@@ -140955,6 +140956,76 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1397178809}
   m_CullTransparentMesh: 1
+--- !u!1001 &1398833701
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 228560514}
+    m_Modifications:
+    - target: {fileID: 2108194467484015568, guid: 376f75703e5974d48b2d63fc4c9dd2c9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2698081756e154d52a4e4f688355faa8, type: 2}
+    - target: {fileID: 2865880770765598473, guid: 376f75703e5974d48b2d63fc4c9dd2c9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2698081756e154d52a4e4f688355faa8, type: 2}
+    - target: {fileID: 5722355021573615728, guid: 376f75703e5974d48b2d63fc4c9dd2c9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 38.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722355021573615728, guid: 376f75703e5974d48b2d63fc4c9dd2c9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.025548697
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722355021573615728, guid: 376f75703e5974d48b2d63fc4c9dd2c9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -30.501984
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722355021573615728, guid: 376f75703e5974d48b2d63fc4c9dd2c9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.70710784
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722355021573615728, guid: 376f75703e5974d48b2d63fc4c9dd2c9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.000000021073456
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722355021573615728, guid: 376f75703e5974d48b2d63fc4c9dd2c9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.70710576
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722355021573615728, guid: 376f75703e5974d48b2d63fc4c9dd2c9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.000000021073394
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722355021573615728, guid: 376f75703e5974d48b2d63fc4c9dd2c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -360
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722355021573615728, guid: 376f75703e5974d48b2d63fc4c9dd2c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722355021573615728, guid: 376f75703e5974d48b2d63fc4c9dd2c9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5935962292164035272, guid: 376f75703e5974d48b2d63fc4c9dd2c9, type: 3}
+      propertyPath: m_Name
+      value: CeilingLampSmall (17)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 376f75703e5974d48b2d63fc4c9dd2c9, type: 3}
+--- !u!4 &1398833702 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5722355021573615728, guid: 376f75703e5974d48b2d63fc4c9dd2c9, type: 3}
+  m_PrefabInstance: {fileID: 1398833701}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1400694067
 PrefabInstance:
   m_ObjectHideFlags: 0

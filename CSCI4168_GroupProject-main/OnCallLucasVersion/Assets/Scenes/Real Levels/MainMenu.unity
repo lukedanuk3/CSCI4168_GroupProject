@@ -468,7 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91a879c7a8de443eebe2642ca81789c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waitTime: 0
+  waitTime: 3
   pointA: {fileID: 928741804}
   pointB: {fileID: 1916634484}
   speed: 1
@@ -898,10 +898,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a1fd343bcf329429194cc8be5876c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  option: 0
-  titleSection: {fileID: 0}
-  controlsSection: {fileID: 0}
-  creditsSection: {fileID: 0}
 --- !u!1 &375525202
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,10 +950,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a1fd343bcf329429194cc8be5876c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  option: 2
-  titleSection: {fileID: 364230667}
-  controlsSection: {fileID: 215751003}
-  creditsSection: {fileID: 242586992}
 --- !u!114 &375525205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1472,10 +1464,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a1fd343bcf329429194cc8be5876c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  option: 4
-  titleSection: {fileID: 364230667}
-  controlsSection: {fileID: 215751003}
-  creditsSection: {fileID: 242586992}
 --- !u!1 &595535599
 GameObject:
   m_ObjectHideFlags: 0
@@ -1944,10 +1932,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a1fd343bcf329429194cc8be5876c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  option: 4
-  titleSection: {fileID: 364230667}
-  controlsSection: {fileID: 215751003}
-  creditsSection: {fileID: 242586992}
 --- !u!1 &925951472
 GameObject:
   m_ObjectHideFlags: 0
