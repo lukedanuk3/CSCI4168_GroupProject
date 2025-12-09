@@ -11,6 +11,13 @@ public class UIManager : MonoBehaviour
     public Image tool1;
     public Image tool2;
 
+    public Image tool1SlotImage;
+    public Image tool2SlotImage;
+
+    public Sprite crowbar;
+    public Sprite boltcutters;
+    public Sprite wirecutters;
+
     public GameObject gameplayUI;
     public GameObject selectionUI;
     public GameObject gameOverUI;
@@ -21,9 +28,49 @@ public class UIManager : MonoBehaviour
 
     public TMP_Text lifeText;
 
-    void Start(){
-        cameraEnemies = GameObject.FindGameObjectsWithTag("CameraMonster");
-        followEnemies = GameObject.FindGameObjectsWithTag("FollowMonster");
+void Start(){
+
+        initInventory();
+
+    }
+
+
+
+    public void initInventory(){
+        Debug.Log("initting");
+        string textInventory = PlayerPrefs.GetString("Inventory");
+        string[] splitInventory = textInventory.Split("/");
+        Debug.Log(textInventory);
+        switch (splitInventory[0]){
+            case "Crowbar":
+                Debug.Log("crowbar");
+                tool1SlotImage.GetComponent<Image>().sprite = crowbar;
+                break;
+
+            case "Bolt Cutters":
+                Debug.Log("bolt");
+                tool1SlotImage.GetComponent<Image>().sprite = boltcutters;
+                break;
+
+            case "Wire Cutters":
+                Debug.Log("wire");
+                tool1SlotImage.GetComponent<Image>().sprite = wirecutters;
+                break;
+        }
+        switch (splitInventory[1]){
+            case "Crowbar":
+                Debug.Log("crowbar");
+                tool2SlotImage.GetComponent<Image>().sprite = crowbar;
+                break;
+            case "Bolt Cutters":
+                Debug.Log("bolt");
+                tool2SlotImage.GetComponent<Image>().sprite = boltcutters;
+                break;
+            case "Wire Cutters":
+                Debug.Log("wire");
+                tool2SlotImage.GetComponent<Image>().sprite = wirecutters;
+                break;
+        }
     }
     public void UpdateHealth(int health)
     {
@@ -68,14 +115,6 @@ public class UIManager : MonoBehaviour
     {
         tool1.GetComponent<Outline>().enabled = false;
         tool2.GetComponent<Outline>().enabled = true;
-    }
-
-    public Image GetTool1(){
-        return tool1;
-    }
-
-    public Image GetTool2(){
-        return tool2;
     }
 
     public void setGameplayUIActive()
@@ -131,12 +170,15 @@ public class UIManager : MonoBehaviour
     }
 
     private void DisableAllEnemies(){
-        foreach (GameObject cameraEnemy in cameraEnemies){
+        if(cameraEnemies != null){
+            foreach (GameObject cameraEnemy in cameraEnemies){
             cameraEnemy.SetActive(false);
+        }  
         }
-
+        if(followEnemies != null){
         foreach (GameObject followEnemy in followEnemies){
             followEnemy.SetActive(false);
+        }
         }
     }
 

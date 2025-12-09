@@ -9,25 +9,25 @@ EditorUserSettings:
       value: 18134705175a055722080a3115371d4a0d55006876786860616b0471b8b1666aacb72ba5a52a362c3c0ee63201181433fe3e101bf3250b06144ca74c24f1190708e016c213c61a52f91c12cac80fd8edd298e1e4d1fde2cacddeacbcc1fee7eef0e3b6faa69af9ceaeaaec81a6d2c2c8c8c4b2e5dfd5ccd3f8cf
       flags: 0
     RecentlyUsedSceneGuid-0:
-      value: 0150015703005a0e5e5f592315775c44434e40727f7073327f7e4532b5b7306a
-      flags: 0
-    RecentlyUsedSceneGuid-1:
       value: 5b040c04520c5e035f5e54774677084812154f7a7c2c70312c2f4b6bb7e2613c
       flags: 0
-    RecentlyUsedSceneGuid-2:
-      value: 5455045654015f585d5a5a7716775d4142161c792e7e25657f7e4c32e3b2643a
-      flags: 0
-    RecentlyUsedSceneGuid-3:
+    RecentlyUsedSceneGuid-1:
       value: 575201560157595d5c0d5f2315770e4844164878787a776629794a6ab0b0376e
       flags: 0
-    RecentlyUsedSceneGuid-4:
+    RecentlyUsedSceneGuid-2:
       value: 005256055d535d085a5a5a7212775d42411648782a2a7f657c2d1e6bb5b0303b
       flags: 0
-    RecentlyUsedSceneGuid-5:
+    RecentlyUsedSceneGuid-3:
       value: 5004045453545a0c590f542047770843134f4b7c797d27367e794560e7b56569
       flags: 0
-    RecentlyUsedSceneGuid-6:
+    RecentlyUsedSceneGuid-4:
       value: 06540556010c5a0f0e0b0f7244770914454f4d2c292e25607a784f67bbe56d61
+      flags: 0
+    RecentlyUsedSceneGuid-5:
+      value: 5605015452510d0e580d0f7b40775e4841154f2c747e2733742c4e30e4b6353e
+      flags: 0
+    RecentlyUsedSceneGuid-6:
+      value: 5408525e510c5a0c5d59547442770949474f4c2e7a2d24642c7b4430e0e5616d
       flags: 0
     RecentlyUsedSceneGuid-7:
       value: 05030551545108595457557a1277071241151c2e2d707762792a1c66e4b76c6f
@@ -36,7 +36,7 @@ EditorUserSettings:
       value: 5a01565e0051505a08595920447759484f4f197f7d787f687f2d1963e7b56d6e
       flags: 0
     RecentlyUsedSceneGuid-9:
-      value: 5408525e510c5a0c5d59547442770949474f4c2e7a2d24642c7b4430e0e5616d
+      value: 5455045654015f585d5a5a7716775d4142161c792e7e25657f7e4c32e3b2643a
       flags: 0
     vcSharedLogLevel:
       value: 0d5e400f0650

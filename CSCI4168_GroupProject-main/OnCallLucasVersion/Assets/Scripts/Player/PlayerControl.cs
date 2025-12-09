@@ -24,6 +24,12 @@ public class PlayerControl : MonoBehaviour
     public GameObject levelSelectUI;
     [Space]
 
+    public GameObject gameplayUI;
+
+    public GameObject readingUI;
+    public Image readingImage;
+    bool isReading;
+
     //Used to close select UIs
     private bool toolSelectIsActive = false;
     private bool levelSelectIsActive = false;
@@ -83,6 +89,8 @@ public class PlayerControl : MonoBehaviour
     public Vector3 toolRelativePosition;
     public Vector3 toolRelativeRotation;
 
+    int indexHolder;
+
     //Tool Inventory
     private string[] items = new string[2];
 
@@ -111,16 +119,20 @@ public class PlayerControl : MonoBehaviour
     //Bunch of tool prefabs out there in space
     public GameObject levelTools;
 
+    public GameObject flashlight;
+
     public bool shouldLoadInventory;
     public bool inventoryLoading;
-    
+
     void Awake(){
+        if (gameplayUI) gameplayUI.SetActive(true);
         Debug.Log("Inventory on Awake: " + PlayerPrefs.GetString("Inventory"));
     }
 
     void Start()
     {
-        inventory = new List<GameObject>() { null, null };
+        inventory = new List<GameObject>() { null, null, flashlight };
+
 
         //Load all interactable objects in the level into the Interactables array
         interactables = GameObject.FindGameObjectsWithTag("Interactable");
@@ -305,6 +317,22 @@ public class PlayerControl : MonoBehaviour
             }
             }
         }
+        if (Input.GetKeyUp(KeyCode.F)){
+            if (currentSlot < 2){
+                indexHolder = currentSlot;
+                currentSlot = 2;
+                SelectTool(currentSlot);
+            }
+            else if (currentSlot == 2){
+                currentSlot = indexHolder;
+                SelectTool(currentSlot);
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.V)){
+            if (!isReading) TryReading();
+            else CloseReadable();
+        }
     }
 
     void UseCurrentTool(){
@@ -425,14 +453,6 @@ public class PlayerControl : MonoBehaviour
             Debug.Log("Selected slot is empty");
             return;
         }
-        if(inventoryIndex == 0)
-        {
-            uiManager.tool1Active();
-        }
-        else{
-            uiManager.tool2Active();
-        }
-        Debug.Log("Selected Tool: " + selected.name);
 
         selected.SetActive(true);
         selected.transform.SetParent(toolHolder, false);
@@ -727,6 +747,28 @@ public class PlayerControl : MonoBehaviour
         Debug.Log("Inventory on Inventory Load: " + PlayerPrefs.GetString("Inventory"));
     }
 
+
+    public void ViewReadable(Sprite sprite){
+        readingImage.sprite = sprite;
+        readingUI.SetActive(true);
+        isReading = true;
+    }
+
+
+    public void CloseReadable(){
+        readingUI.SetActive(false);
+        isReading = false;
+    }
+    public void TryReading(){
+        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out RaycastHit hit, 100f))
+        {
+            PaperBehaviour paperScript = hit.collider.GetComponent<PaperBehaviour>();
+            if (paperScript)
+            {
+                ViewReadable(paperScript.GetPaperSprite());
+            }
+        }
+    }
     //PUBLIC SCOPE NECESSARY FOR UI TO WORK (or at least I think so)
     public void ChangeCurrentSlot(){
         if (currentSlot == 0) currentSlot = 1;

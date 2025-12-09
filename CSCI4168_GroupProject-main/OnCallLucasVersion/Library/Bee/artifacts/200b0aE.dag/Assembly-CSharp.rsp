@@ -466,6 +466,7 @@
 "Assets/Scripts/Objects/FlashlightBehaviour.cs"
 "Assets/Scripts/Objects/InteractionHandler.cs"
 "Assets/Scripts/Objects/ItemPhotoHandler.cs"
+"Assets/Scripts/Objects/PaperBehaviour.cs"
 "Assets/Scripts/Objects/SteelBehaviour.cs"
 "Assets/Scripts/Objects/ToolData.cs"
 "Assets/Scripts/Objects/WireBehaviour.cs"
