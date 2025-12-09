@@ -93,9 +93,6 @@ public class EnemyBehavior : MonoBehaviour
 
         //sets the enemy's animation state to walking, to signify he's moving
         animator.SetBool("isWalking", true);
-        // Debug.Log("Point Chosen: " + currentPoint);
-        // Debug.Log("Original Destination: " + points[currentPoint].position);
-        // Debug.Log("Original local Destination: " + points[currentPoint].position);
 
 
         //sets the enemy's destination to be the first point in its list of waypoints
@@ -144,7 +141,9 @@ public class EnemyBehavior : MonoBehaviour
     //This method will follow the player, unless they're looked at (using PlayerSeesEnemy), in which case they'll stop
     void FollowPlayer(){
         animator.SetBool("isMoving", true);
+        Debug.Log("Enemy is moving now");
         if(!followSound.isPlaying){
+            Debug.Log("Playing sound");
             followSound.Play();
         }
         if(PlayerSeesEnemy()){
@@ -167,7 +166,6 @@ public class EnemyBehavior : MonoBehaviour
 
 
     public bool EnemySeesPlayer(){
-        // Transform camera = player.GetComponent<PlayerControl>().cameraTransform;
         Debug.Log(player);
         Transform camera = player.GetComponent<PlayerControl>().cameraTransform;
 
@@ -196,9 +194,9 @@ public class EnemyBehavior : MonoBehaviour
         if(angle < 60f){
             RaycastHit hit;
             if(Physics.Raycast(camera.position, directionToEnemy, out hit, 30f)){
-                Debug.Log("SEES ENEMY");
+                Debug.Log("Ray hit: " + hit.transform.name);
                 //If the player's camera sees the follow monster, it will stop moving altogether
-                if(hit.transform == transform){
+                if(hit.transform == this.transform){
                     Debug.Log("In view of monster");
                     return true;
                 }

@@ -11,6 +11,8 @@ public class PlayerControl : MonoBehaviour
     InteractionHandler interactionHandler;
 
     //Used to display UI for specific interactions
+    public GameObject stopReadingInstructions;
+    public GameObject readObjectInstructions;
     public GameObject doorOpenInstructions;
     public GameObject doorIsLockedInstructions;
     public GameObject toolPickUpInstructions;
@@ -35,8 +37,8 @@ public class PlayerControl : MonoBehaviour
     private bool levelSelectIsActive = false;
 
     //Used to store the user's selected level
-    public string levelName;
-    public bool levelIsSelected = false;
+    private string levelName;
+    private bool levelIsSelected = false;
 
     //Audio for player
     public AudioSource walkSound;
@@ -44,9 +46,6 @@ public class PlayerControl : MonoBehaviour
     //FPS camera transform
     public Transform cameraTransform;
     [Space]
-
-    //NavMesh surface
-    public NavMeshSurface navMeshSurface;
 
     //Used to turn off doors for NavMesh baking
     private GameObject[] doors;
@@ -365,7 +364,10 @@ public class PlayerControl : MonoBehaviour
                     doorOpenInstructions.SetActive(true);
                 }
             }
-            if(hit.collider.tag == "Door"){
+            else if(hit.collider.tag == "Readable"){
+                readObjectInstructions.SetActive(true);
+            }
+            else if(hit.collider.tag == "Door"){
                 doorOpenInstructions.SetActive(true);
             }
             else if (hit.collider.tag == "Tool"){
@@ -398,6 +400,7 @@ public class PlayerControl : MonoBehaviour
             }
             }
             else{
+                readObjectInstructions.SetActive(false);
                 doorOpenInstructions.SetActive(false);
                 doorIsLockedInstructions.SetActive(false);
                 toolPickUpInstructions.SetActive(false);
@@ -752,12 +755,15 @@ public class PlayerControl : MonoBehaviour
         readingImage.sprite = sprite;
         readingUI.SetActive(true);
         isReading = true;
+        stopReadingInstructions.SetActive(true);
     }
 
 
     public void CloseReadable(){
         readingUI.SetActive(false);
+        stopReadingInstructions.SetActive(false);
         isReading = false;
+        readObjectInstructions.SetActive(true);
     }
     public void TryReading(){
         if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out RaycastHit hit, 100f))
@@ -766,6 +772,7 @@ public class PlayerControl : MonoBehaviour
             if (paperScript)
             {
                 ViewReadable(paperScript.GetPaperSprite());
+                readObjectInstructions.SetActive(false);
             }
         }
     }

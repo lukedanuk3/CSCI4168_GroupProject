@@ -2436,6 +2436,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8777dd10554ab4049bc5e5c2cab0d0b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stopReadingInstructions: {fileID: 0}
+  readObjectInstructions: {fileID: 0}
   doorOpenInstructions: {fileID: 1884952122}
   doorIsLockedInstructions: {fileID: 0}
   toolPickUpInstructions: {fileID: 98057864}
@@ -2446,11 +2448,11 @@ MonoBehaviour:
   nextLevelInstructions: {fileID: 263398464}
   toolSelectUI: {fileID: 1354582206}
   levelSelectUI: {fileID: 235085585}
-  levelName: 
-  levelIsSelected: 0
+  gameplayUI: {fileID: 0}
+  readingUI: {fileID: 0}
+  readingImage: {fileID: 0}
   walkSound: {fileID: 179093830}
   cameraTransform: {fileID: 13985469}
-  navMeshSurface: {fileID: 0}
   lookSensitivity: 3
   speed: 10
   isAnimated: 1
@@ -2471,6 +2473,7 @@ MonoBehaviour:
   objectiveInCamera: {fileID: 621129707}
   objectiveAlreadyTaken: {fileID: 0}
   levelTools: {fileID: 0}
+  flashlight: {fileID: 0}
   shouldLoadInventory: 0
   inventoryLoading: 0
 --- !u!82 &179093830
@@ -10350,7 +10353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClips: []
-  audioSource: {fileID: 923256975}
+  followSound: {fileID: 923256975}
   points: []
 --- !u!195 &923256977
 NavMeshAgent:
@@ -14748,6 +14751,11 @@ MonoBehaviour:
   health3: {fileID: 155054297}
   tool1: {fileID: 459082754}
   tool2: {fileID: 652782846}
+  tool1SlotImage: {fileID: 0}
+  tool2SlotImage: {fileID: 0}
+  crowbar: {fileID: 0}
+  boltcutters: {fileID: 0}
+  wirecutters: {fileID: 0}
   gameplayUI: {fileID: 1925931248}
   selectionUI: {fileID: 1354582206}
   gameOverUI: {fileID: 1197063863}
@@ -14970,7 +14978,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ba21db030a3c54a07851fb7215b2fe9d, type: 3}
   - {fileID: 8300000, guid: 4ba9a4329de214e71aa4d7d016ef3047, type: 3}
   - {fileID: 8300000, guid: a7f360e4674d8423b9b4ddfee30f74bb, type: 3}
-  audioSource: {fileID: 0}
+  followSound: {fileID: 0}
   points:
   - {fileID: 194980010}
   - {fileID: 97341539}

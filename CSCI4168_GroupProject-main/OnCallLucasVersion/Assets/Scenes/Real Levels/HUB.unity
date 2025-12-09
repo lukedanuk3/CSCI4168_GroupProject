@@ -971,10 +971,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Abadoned School:
+  m_text: 'Abadoned School
+
 
     I''d expect some boards and wires to be skulking
-    about, around here'
+    about, around here
+
+
+    Environmental Hazards to look for:
+
+    Jerry cans'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1270,7 +1276,7 @@ MonoBehaviour:
   slot2_selection: {fileID: 1556351417}
   slot1_gameplay: {fileID: 1185080701}
   slot2_gameplay: {fileID: 156162866}
-  crowbar: {fileID: 21300000, guid: 25af3e706b3354cd382f57f6812fd15a, type: 3}
+  crowbar: {fileID: 21300000, guid: 72a8232d32b72487bb1b7e9d4596c0b8, type: 3}
   crowbarObject: {fileID: 1926471063}
   boltcutter: {fileID: 21300000, guid: 38a09e7bcd5a748c6a8869a233b68b7c, type: 3}
   boltcutterObject: {fileID: 1388999254}
@@ -1481,8 +1487,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 6.3749857, y: -120.089386}
-  m_SizeDelta: {x: 12.75, y: 78.17884}
+  m_AnchoredPosition: {x: 0, y: -126.50245}
+  m_SizeDelta: {x: 0.000022888, y: 188.4292}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &168357381
 MonoBehaviour:
@@ -8536,6 +8542,11 @@ MonoBehaviour:
   health3: {fileID: 1204218288}
   tool1: {fileID: 1185080704}
   tool2: {fileID: 156162869}
+  tool1SlotImage: {fileID: 0}
+  tool2SlotImage: {fileID: 0}
+  crowbar: {fileID: 0}
+  boltcutters: {fileID: 0}
+  wirecutters: {fileID: 0}
   gameplayUI: {fileID: 1458141573}
   selectionUI: {fileID: 2082741246}
   gameOverUI: {fileID: 1086183400}
@@ -10657,8 +10668,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -3.5491433, y: -125.000114}
-  m_SizeDelta: {x: 7.0983, y: 88.0003}
+  m_AnchoredPosition: {x: -0.0000038146973, y: -123.87524}
+  m_SizeDelta: {x: 0, y: 174.2499}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1326467888
 MonoBehaviour:
@@ -12417,8 +12428,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.8750074, y: -116.549225}
-  m_SizeDelta: {x: 5.75, y: 71.09851}
+  m_AnchoredPosition: {x: 0.000030517578, y: -126.50245}
+  m_SizeDelta: {x: -0.000015259, y: 187.6001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1543111621
 MonoBehaviour:
@@ -12889,11 +12900,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Abandoned Apartment Complex:
+  m_text: 'Abandoned Apartment Complex
 
 
     Lots of wooden boards and chain fences
-    have been seen laying about.'
+    have been seen laying about.
+
+
+    Environmental Hazards to look for:
+
+    Toppled
+    Furniture'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -13029,11 +13046,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Sewers:
+  m_text: 'Sewers
 
 
     Lots of chain fences and exposed wires have been reported
-    here'
+    here
+
+
+    Environmental Hazards to look for:
+
+    Rusted Pipes'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15195,7 +15217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NoiseProfile: {fileID: 0}
+  NoiseProfile: {fileID: 11400000, guid: e9ce97b7a206dc64d90931ea044e0c72, type: 2}
   PivotOffset: {x: 0, y: 0, z: 0}
   AmplitudeGain: 0.2
   FrequencyGain: 0.3
