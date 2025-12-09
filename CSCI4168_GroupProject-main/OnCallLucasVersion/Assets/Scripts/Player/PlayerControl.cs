@@ -25,6 +25,10 @@ public class PlayerControl : MonoBehaviour
 
     public GameObject gameplayUI;
 
+    public GameObject readingUI;
+    public Image readingImage;
+    bool isReading;
+
     //Used to close select UIs
     private bool toolSelectIsActive = false;
     private bool levelSelectIsActive = false;
@@ -112,12 +116,12 @@ public class PlayerControl : MonoBehaviour
     public bool inventoryLoading;
     
     void Awake(){
+        if (gameplayUI) gameplayUI.SetActive(true);
         Debug.Log("Inventory on Awake: " + PlayerPrefs.GetString("Inventory"));
     }
 
     void Start()
     {
-        gameplayUI.SetActive(true);
         inventory = new List<GameObject>() { null, null, flashlight };
 
         //Load all interactable objects in the level into the Interactables array
@@ -208,7 +212,7 @@ public class PlayerControl : MonoBehaviour
             }
         }
 
-        // CheckGoalCounter();
+        CheckGoalCounter();
     }
 
     //Player movement control
@@ -310,6 +314,11 @@ public class PlayerControl : MonoBehaviour
                 currentSlot = indexHolder;
                 SelectTool(currentSlot);
             }
+        }
+        
+        if (Input.GetKeyUp(KeyCode.V)){
+            if (!isReading) TryReading();
+            else CloseReadable();
         }
     }
 
@@ -530,6 +539,7 @@ public class PlayerControl : MonoBehaviour
     //Remove health from the player
     public void takeDamage()
     {
+        Debug.Log("Taking damage");
         health--;
         if(health < 0){
             uiManager.activateGameOver();
@@ -656,7 +666,7 @@ public class PlayerControl : MonoBehaviour
             int index = Random.Range(0, exits.Length);
             GameObject exit = exits[index];
             exit.GetComponent<ExitHandler>().UnlockDoor();
-            Debug.Log(exit);
+            Debug.Log("EXIT SELECTED IS " + index);
         }
     }
 
@@ -694,6 +704,28 @@ public class PlayerControl : MonoBehaviour
         inventoryLoading = false;
 
         Debug.Log("Inventory on Inventory Load: " + PlayerPrefs.GetString("Inventory"));
+    }
+
+    public void ViewReadable(Sprite sprite){
+        readingImage.sprite = sprite;
+        readingUI.SetActive(true);
+        isReading = true;
+    }
+
+    public void CloseReadable(){
+        readingUI.SetActive(false);
+        isReading = false;
+    }
+
+    public void TryReading(){
+        if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out RaycastHit hit, 100f))
+        {
+            PaperBehaviour paperScript = hit.collider.GetComponent<PaperBehaviour>();
+            if (paperScript)
+            {
+                ViewReadable(paperScript.GetPaperSprite());
+            }
+        }
     }
 
     //PUBLIC SCOPE NECESSARY FOR UI TO WORK (or at least I think so)

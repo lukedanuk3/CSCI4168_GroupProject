@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7707200502427308879}
   - component: {fileID: 2596643323322966817}
   - component: {fileID: 1074774364522092846}
+  - component: {fileID: -1109517590882408997}
   m_Layer: 0
   m_Name: Paper
   m_TagString: Readable
@@ -108,3 +109,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-1109517590882408997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179606852867145972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97c41bbd9781e4de0b67740e6320ae7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

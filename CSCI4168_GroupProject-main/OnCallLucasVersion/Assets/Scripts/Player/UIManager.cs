@@ -10,6 +10,12 @@ public class UIManager : MonoBehaviour
 
     public Image tool1;
     public Image tool2;
+    public Image tool1SlotImage;
+    public Image tool2SlotImage;
+
+    public Sprite crowbar;
+    public Sprite boltcutters;
+    public Sprite wirecutters;
 
     public GameObject gameplayUI;
     public GameObject selectionUI;
@@ -17,6 +23,49 @@ public class UIManager : MonoBehaviour
     public GameObject victoryUI;
 
     public TMP_Text lifeText;
+
+    void Start(){
+        initInventory();
+    }
+
+    public void initInventory(){
+        Debug.Log("initting");
+    
+        string textInventory = PlayerPrefs.GetString("Inventory");
+        string[] splitInventory = textInventory.Split("/");
+
+        Debug.Log(textInventory);
+
+        switch (splitInventory[0]){
+            case "Crowbar":
+                Debug.Log("crowbar");
+                tool1SlotImage.GetComponent<Image>().sprite = crowbar;
+                break;
+            case "Bolt Cutters":
+                Debug.Log("bolt");
+                tool1SlotImage.GetComponent<Image>().sprite = boltcutters;
+                break;
+            case "Wire Cutters":
+                Debug.Log("wire");
+                tool1SlotImage.GetComponent<Image>().sprite = wirecutters;
+                break;
+        }
+
+        switch (splitInventory[1]){
+            case "Crowbar":
+                Debug.Log("crowbar");
+                tool2SlotImage.GetComponent<Image>().sprite = crowbar;
+                break;
+            case "Bolt Cutters":
+                Debug.Log("bolt");
+                tool2SlotImage.GetComponent<Image>().sprite = boltcutters;
+                break;
+            case "Wire Cutters":
+                Debug.Log("wire");
+                tool2SlotImage.GetComponent<Image>().sprite = wirecutters;
+                break;
+        }
+    }
 
     public void UpdateHealth(int health)
     {

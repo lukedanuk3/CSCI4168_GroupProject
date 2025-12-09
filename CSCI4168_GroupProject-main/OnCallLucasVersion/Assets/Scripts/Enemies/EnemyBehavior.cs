@@ -225,6 +225,10 @@ public class EnemyBehavior : MonoBehaviour
             Debug.Log("Enemy Interacted with door");
             collision.gameObject.GetComponent<InteractionHandler>().Interact(gameObject);
         }
+        
+        if(collision.gameObject.tag == "Player"){
+            collision.gameObject.GetComponent<PlayerControl>().takeDamage();
+        }
     }
 
     private void OnCollisionEnter(Collision collision){
