@@ -70,6 +70,8 @@ We used a variety of resources, for sound effects, textures, as well as objects/
 
 - **Rubber Ball Bouncing**: <https://pixabay.com/sound-effects/rubber-ball-bouncing-98700/>
 
+- **Water Dripping**: <https://www.youtube.com/watch?v=FQvgqX6lmtY>
+
 ## Music/Ambience
 
 - **Apartment Complex (1st Level Ambience)**: <https://www.youtube.com/watch?v=svAspF0nxC0>
