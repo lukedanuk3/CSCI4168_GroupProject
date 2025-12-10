@@ -59186,6 +59186,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1314072253}
     m_Modifications:
+    - target: {fileID: 5268817985869640902, guid: 9ecfdea7cc21d4299a9569db38a6fa78, type: 3}
+      propertyPath: m_TagString
+      value: Wire
+      objectReference: {fileID: 0}
     - target: {fileID: 6392558320641859038, guid: 9ecfdea7cc21d4299a9569db38a6fa78, type: 3}
       propertyPath: m_Name
       value: Wires (1)
@@ -59241,13 +59245,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5268817985869640902, guid: 9ecfdea7cc21d4299a9569db38a6fa78, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 821320231}
   m_SourcePrefab: {fileID: 100100000, guid: 9ecfdea7cc21d4299a9569db38a6fa78, type: 3}
 --- !u!4 &821320229 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7170444853955532164, guid: 9ecfdea7cc21d4299a9569db38a6fa78, type: 3}
   m_PrefabInstance: {fileID: 821320228}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &821320230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5268817985869640902, guid: 9ecfdea7cc21d4299a9569db38a6fa78, type: 3}
+  m_PrefabInstance: {fileID: 821320228}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &821320231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821320230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd8a2a08d0c4447bd8d98e622ffa644d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &823086724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -244982,6 +245006,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1314072253}
     m_Modifications:
+    - target: {fileID: 5268817985869640902, guid: 9ecfdea7cc21d4299a9569db38a6fa78, type: 3}
+      propertyPath: m_TagString
+      value: Wire
+      objectReference: {fileID: 0}
     - target: {fileID: 6392558320641859038, guid: 9ecfdea7cc21d4299a9569db38a6fa78, type: 3}
       propertyPath: m_Name
       value: Wires
@@ -245037,13 +245065,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5268817985869640902, guid: 9ecfdea7cc21d4299a9569db38a6fa78, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1872300100}
   m_SourcePrefab: {fileID: 100100000, guid: 9ecfdea7cc21d4299a9569db38a6fa78, type: 3}
 --- !u!4 &1872300098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7170444853955532164, guid: 9ecfdea7cc21d4299a9569db38a6fa78, type: 3}
   m_PrefabInstance: {fileID: 1872300097}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1872300099 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5268817985869640902, guid: 9ecfdea7cc21d4299a9569db38a6fa78, type: 3}
+  m_PrefabInstance: {fileID: 1872300097}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1872300100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872300099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd8a2a08d0c4447bd8d98e622ffa644d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1873733405 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2376908633842720052, guid: e355aee006ed44bcfa4133f7799e3cd2, type: 3}
