@@ -21,6 +21,13 @@ public class RadioVoiceOver : MonoBehaviour
         PlayRadioVoiceOver();
     }
 
+    void Start(){
+
+        if(PlayerPrefs.GetInt("HasPlayed") == 0){
+            PlayRadioVoiceOver();
+            PlayerPrefs.SetInt("HasPlayed", 1);
+        }
+    }
     void Update(){
         if(skipAudio.isPlaying || instructionsSource.isPlaying){
             if(!radioStatic.isPlaying){
