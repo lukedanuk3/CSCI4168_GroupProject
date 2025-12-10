@@ -9,11 +9,11 @@ We used a variety of resources, for sound effects, textures, as well as objects/
 
 ## Objects/Models/Textures
 
-- **Chainlink Fences** by **KOBRA GAME STUDIO**: <https://assetstore.unity.com/account/assets#:~:text=KOBRA%20GAME%20STUDIOS-,Chainlink,-Fences>
+- **Chainlink Fences** by **KOBRA GAME STUDIO**: <https://assetstore.unity.com/packages/3d/chainlink-fences-73107>
 
-- **Door Texture Pack** by **CHEESE ANIMAL PRODUCTIONS**: <https://assetstore.unity.com/account/assets#:~:text=10-,Skyboxes,-Pack%20%3A%20Day%20%2D%20Night>
+- **Door Texture Pack** by **CHEESE ANIMAL PRODUCTIONS**: <https://assetstore.unity.com/packages/2d/textures-materials/door-texture-pack-223425>
 
-- **10 Skyboxes Pack: Day & Night** by **WELLO SOFT**: <https://assetstore.unity.com/account/assets#:~:text=10-,Skyboxes,-Pack%20%3A%20Day%20%2D%20Night>
+- **10 Skyboxes Pack: Day & Night** by **WELLO SOFT**: <https://assetstore.unity.com/packages/2d/textures-materials/sky/10-skyboxes-pack-day-night-32236>
 
 - **Factory Tools** by **Nebula Forns**: <https://assetstore.unity.com/packages/3d/props/industrial/workshop-tools-free-low-poly-asset-pack-326488>
 
@@ -35,7 +35,7 @@ We used a variety of resources, for sound effects, textures, as well as objects/
 
 - **Low Poly PSX Model Package 3** by **elbolilloduro**: <https://elbolilloduro.itch.io/paquete-de-modelos-psx-3>
 
-- **PSX Shader Kit** by **VALERIE MOZA**: <https://assetstore.unity.com/account/assets#:~:text=PSX-,Shader,-Kit>
+- **PSX Shader Kit** by **VALERIE MOZA**: <https://assetstore.unity.com/packages/vfx/shaders/psx-shader-kit-183591>
 
 - **256x256 Textures** by **Screaming Brain Studios**: <https://screamingbrainstudios.itch.io/tiny-texture-pack-2>
 
