@@ -383,7 +383,6 @@ public class PlayerControl : MonoBehaviour
             }
             else if(hit.collider.tag == "ToolSelector"){
                 if(!toolSelectIsActive){
-                    Debug.Log("Tool select is not active");
                     toolSelectInstructions.SetActive(true);
                 }
                 else{
@@ -397,6 +396,16 @@ public class PlayerControl : MonoBehaviour
                 else{
                     needToChooseLevel.SetActive(true);
                 }
+            }
+            else{
+                readObjectInstructions.SetActive(false);
+                doorOpenInstructions.SetActive(false);
+                doorIsLockedInstructions.SetActive(false);
+                toolPickUpInstructions.SetActive(false);
+                toolSelectInstructions.SetActive(false);
+                levelSelectInstructions.SetActive(false);
+                needToChooseLevel.SetActive(false);
+                nextLevelInstructions.SetActive(false);
             }
             }
             else{

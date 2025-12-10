@@ -16,6 +16,7 @@ public class Victory : MonoBehaviour
         if (choice == buttonOptions.quit)
         {
             // note: this code will be ignored in unity's editor mode, works in standalone game
+            PlayerPrefs.SetInt("HasPlayed", 0);
             Debug.Log("This will quit the game.");
             Application.Quit();
         }

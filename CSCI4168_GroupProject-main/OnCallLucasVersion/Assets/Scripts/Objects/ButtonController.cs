@@ -6,7 +6,7 @@ public class ButtonController : MonoBehaviour
     public enum buttonOptions
     {
         quit,
-        level1,
+        HUB,
         controls,
         credits,
         mainMenu
@@ -26,10 +26,9 @@ public class ButtonController : MonoBehaviour
             Debug.Log("This will quit the game.");
             Application.Quit();
         }
-        if (option == buttonOptions.level1)
+        if (option == buttonOptions.HUB)
         {
-            // load the first scene in the build index (TODO: decomment when build if further along)
-            // SceneManager.LoadScene(1);
+            SceneManager.LoadScene("HUB");
             Debug.Log("This will load the first level.");
         }
         if (option == buttonOptions.controls)

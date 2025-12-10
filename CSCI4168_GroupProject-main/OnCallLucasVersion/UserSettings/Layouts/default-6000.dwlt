@@ -872,7 +872,7 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 45.760216, y: -0.4789765, z: 206.42241}
+    m_Target: {x: 111.223564, y: 3.564605, z: 124.823296}
     speed: 2
     m_Value: {x: 45.760216, y: -0.4789765, z: 206.42241}
   m_RenderMode: 0
@@ -920,11 +920,11 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.482
   m_Rotation:
-    m_Target: {x: -0.0383542, y: 0.36044747, z: -0.014812218, w: -0.9319062}
+    m_Target: {x: 0.0029634002, y: -0.64916223, z: -0.0024950912, w: -0.76073515}
     speed: 2
     m_Value: {x: -0.038354196, y: 0.36044744, z: -0.014812217, w: -0.93190616}
   m_Size:
-    m_Target: 3.7617328
+    m_Target: 2.624541
     speed: 2
     m_Value: 3.7617328
   m_Ortho:
@@ -1129,7 +1129,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 420.38574}
     m_SelectedIDs: 14c80000
     m_LastClickedID: 51220
-    m_ExpandedIDs: 0000000060d6000062d6000064d6000066d6000068d600006ad600006cd600006ed6000070d6000072d6000074d6000076d6000078d600007ad600007cd600007ed6000080d6000082d6000084d6000086d6000088d600008ad60000
+    m_ExpandedIDs: 000000000445010006450100084501000a4501000c4501000e45010010450100124501001445010016450100184501001a4501001c4501001e45010020450100224501002445010026450100284501002a4501002c4501002e450100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1158,7 +1158,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000060d6000062d6000064d6000066d6000068d600006ad600006cd600006ed6000070d6000072d6000074d6000076d6000078d600007ad600007cd600007ed6000080d6000082d6000084d6000086d6000088d600008ad60000
+    m_ExpandedIDs: 000000000445010006450100084501000a4501000c4501000e45010010450100124501001445010016450100184501001a4501001c4501001e45010020450100224501002445010026450100284501002a4501002c4501002e450100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1437,22 +1437,22 @@ MonoBehaviour:
       x: 0
       y: 21
       width: 1073
-      height: 458
-    m_Scale: {x: 0.63611114, y: 0.63611114}
-    m_Translation: {x: 536.5, y: 228.99997}
+      height: 429
+    m_Scale: {x: 0.59583336, y: 0.59583336}
+    m_Translation: {x: 536.5, y: 214.49997}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -843.40607
+      x: -900.41956
       y: -359.99994
-      width: 1686.8121
+      width: 1800.8391
       height: 719.99994
     m_MinimalGUI: 1
-  m_defaultScale: 0.63611114
-  m_LastWindowPixelSize: {x: 1073, y: 479}
+  m_defaultScale: 0.59583336
+  m_LastWindowPixelSize: {x: 1073, y: 450}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000100000100

@@ -10,6 +10,7 @@ public class RadioVoiceOver : MonoBehaviour
     public bool hasPlayedBefore;
     
     void Awake(){
+        // PlayerPrefs.SetInt("HasPlayed", 0);
         if(instance == null){
             instance = this;
             instructionsSource = GetComponent<AudioSource>();
@@ -17,16 +18,17 @@ public class RadioVoiceOver : MonoBehaviour
         else{
             Destroy(gameObject);
         }
-        skipInstructions.SetActive(true);
-        PlayRadioVoiceOver();
     }
 
     void Start(){
 
         if(PlayerPrefs.GetInt("HasPlayed") == 0){
             PlayRadioVoiceOver();
+            skipInstructions.SetActive(true);
             PlayerPrefs.SetInt("HasPlayed", 1);
         }
+        Debug.Log(PlayerPrefs.GetInt("HasPlayed"));
+
     }
     void Update(){
         if(skipAudio.isPlaying || instructionsSource.isPlaying){

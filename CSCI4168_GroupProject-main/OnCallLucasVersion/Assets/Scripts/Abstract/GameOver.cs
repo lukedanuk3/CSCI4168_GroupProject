@@ -17,10 +17,11 @@ public class GameOver : MonoBehaviour
         if (choice == buttonOptions.quit)
         {
             // note: this code will be ignored in unity's editor mode, works in standalone game
+            PlayerPrefs.SetInt("HasPlayed", 0);
             Debug.Log("This will quit the game.");
             Application.Quit();
         }
-        if (choice == buttonOptions.goBackToHub)
+        if (choice == buttonOptions.reload)
         {
             //reload the current scene
             Debug.Log("This will reload the current level.");
